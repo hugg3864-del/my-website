@@ -1,0 +1,958 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>مؤسسة آل زهران للمحاماة والاستشارات القانونية</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Cairo', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f8f9fa;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: white;
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 900;
+            color: #ffd700;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-menu a {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        .nav-menu a:hover {
+            color: #ffd700;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(30, 60, 114, 0.8), rgba(42, 82, 152, 0.8));
+            color: white;
+            padding: 120px 0 80px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=1920&h=1080&fit=crop') center/cover;
+            z-index: -1;
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            font-weight: 900;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .hero-content p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 15px 30px;
+            background: #ffd700;
+            color: #1e3c72;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 700;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            font-size: 1.1rem;
+        }
+
+        .btn:hover {
+            background: #ffed4e;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        /* Featured Image */
+        .hero-image {
+            margin: 40px auto;
+            max-width: 800px;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+
+        .hero-image img {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+        }
+
+        /* Services Section */
+        .services {
+            padding: 80px 0;
+            background: white;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #1e3c72;
+            margin-bottom: 3rem;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .service-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+            border-top: 4px solid #ffd700;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .service-icon {
+            font-size: 3rem;
+            color: #1e3c72;
+            margin-bottom: 1rem;
+        }
+
+        .service-card h3 {
+            font-size: 1.5rem;
+            color: #1e3c72;
+            margin-bottom: 1rem;
+        }
+
+        /* About Section */
+        .about {
+            padding: 80px 0;
+            background: #f8f9fa;
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .about-text h2 {
+            font-size: 2.5rem;
+            color: #1e3c72;
+            margin-bottom: 1.5rem;
+        }
+
+        .about-text p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+        }
+
+        .about-image {
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .about-image img {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+        }
+
+        /* Stats Section */
+        .stats {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: white;
+            padding: 60px 0;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            text-align: center;
+        }
+
+        .stat-item h3 {
+            font-size: 3rem;
+            font-weight: 900;
+            color: #ffd700;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-item p {
+            font-size: 1.2rem;
+        }
+
+        /* Team Section */
+        .team {
+            padding: 80px 0;
+            background: white;
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .team-member {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .team-member:hover {
+            transform: translateY(-5px);
+        }
+
+        .member-image {
+            width: 100%;
+            height: 250px;
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .member-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .member-info {
+            padding: 1.5rem;
+            text-align: center;
+        }
+
+        .member-info h4 {
+            font-size: 1.3rem;
+            color: #1e3c72;
+            margin-bottom: 0.5rem;
+        }
+
+        .member-info p {
+            color: #666;
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 80px 0;
+            background: #f8f9fa;
+        }
+
+        .contact-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+        }
+
+        .contact-info {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-item i {
+            font-size: 1.5rem;
+            color: #1e3c72;
+            margin-left: 1rem;
+            width: 30px;
+        }
+
+        .contact-form {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: #1e3c72;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #e9ecef;
+            border-radius: 8px;
+            font-family: 'Cairo', sans-serif;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #1e3c72;
+        }
+
+        /* Footer */
+        footer {
+            background: #1e3c72;
+            color: white;
+            padding: 40px 0 20px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h3 {
+            color: #ffd700;
+            margin-bottom: 1rem;
+        }
+
+        .footer-section p,
+        .footer-section a {
+            color: #ccc;
+            text-decoration: none;
+            line-height: 1.8;
+        }
+
+        .footer-section a:hover {
+            color: #ffd700;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .social-links a {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            background: #2a5298;
+            color: white;
+            text-align: center;
+            line-height: 40px;
+            border-radius: 50%;
+            transition: background 0.3s ease;
+        }
+
+        .social-links a:hover {
+            background: #ffd700;
+            color: #1e3c72;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid #2a5298;
+            color: #ccc;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .nav-menu {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: #1e3c72;
+                flex-direction: column;
+                padding: 1rem 0;
+            }
+
+            .nav-menu.active {
+                display: flex;
+            }
+
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-content {
+                grid-template-columns: 1fr;
+            }
+
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        /* Animation */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Scroll to top button */
+        .scroll-top {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            background: #1e3c72;
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            opacity: 0;
+            transition: all 0.3s ease;
+            z-index: 1000;
+        }
+
+        .scroll-top.visible {
+            opacity: 1;
+        }
+
+        .scroll-top:hover {
+            background: #ffd700;
+            color: #1e3c72;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <i class="fas fa-balance-scale"></i>
+                    مؤسسة آل زهران
+                </div>
+                <nav>
+                    <ul class="nav-menu" id="navMenu">
+                        <li><a href="#home">الرئيسية</a></li>
+                        <li><a href="#services">خدماتنا</a></li>
+                        <li><a href="#about">عن المؤسسة</a></li>
+                        <li><a href="#team">فريق العمل</a></li>
+                        <li><a href="#contact">اتصل بنا</a></li>
+                    </ul>
+                    <button class="mobile-menu-btn" id="mobileMenuBtn">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container">
+            <div class="hero-content fade-in">
+                <h1>مؤسسة آل زهران للمحاماة</h1>
+                <p>خبرة قانونية متميزة في جميع فروع القانون مع التزام بأعلى معايير الجودة والمهنية</p>
+                <a href="#contact" class="btn">احجز استشارة مجانية</a>
+                
+                <div class="hero-image">
+                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800&h=400&fit=crop" alt="Modern law office interior with elegant wooden furniture, law books on shelves, scales of justice, and professional legal documents on a mahogany desk in warm lighting" />
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats">
+        <div class="container">
+            <div class="stats-grid fade-in">
+                <div class="stat-item">
+                    <h3>500+</h3>
+                    <p>قضية ناجحة</p>
+                </div>
+                <div class="stat-item">
+                    <h3>15+</h3>
+                    <p>سنة خبرة</p>
+                </div>
+                <div class="stat-item">
+                    <h3>98%</h3>
+                    <p>نسبة النجاح</p>
+                </div>
+                <div class="stat-item">
+                    <h3>24/7</h3>
+                    <p>خدمة العملاء</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services">
+        <div class="container">
+            <h2 class="section-title fade-in">خدماتنا القانونية</h2>
+            <div class="services-grid">
+                <div class="service-card fade-in">
+                    <div class="service-icon">
+                        <i class="fas fa-gavel"></i>
+                    </div>
+                    <h3>القضايا المدنية</h3>
+                    <p>تمثيل قانوني شامل في جميع القضايا المدنية والتجارية مع ضمان أفضل النتائج لعملائنا</p>
+                </div>
+                <div class="service-card fade-in">
+                    <div class="service-icon">
+                        <i class="fas fa-handshake"></i>
+                    </div>
+                    <h3>قانون العمل</h3>
+                    <p>استشارات وتمثيل في قضايا العمل وحقوق الموظفين والمنازعات العمالية</p>
+                </div>
+                <div class="service-card fade-in">
+                    <div class="service-icon">
+                        <i class="fas fa-home"></i>
+                    </div>
+                    <h3>القضايا العقارية</h3>
+                    <p>خدمات قانونية متكاملة في مجال العقارات والاستثمار العقاري</p>
+                </div>
+                <div class="service-card fade-in">
+                    <div class="service-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3>قانون الأسرة</h3>
+                    <p>تعامل حساس ومهني مع قضايا الأحوال الشخصية والأسرة</p>
+                </div>
+                <div class="service-card fade-in">
+                    <div class="service-icon">
+                        <i class="fas fa-building"></i>
+                    </div>
+                    <h3>قانون الشركات</h3>
+                    <p>تأسيس الشركات والاستشارات القانونية للأعمال التجارية</p>
+                </div>
+                <div class="service-card fade-in">
+                    <div class="service-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>القضايا الجنائية</h3>
+                    <p>دفاع قوي ومتخصص في جميع أنواع القضايا الجنائية</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-text fade-in">
+                    <h2>عن مؤسسة آل زهران</h2>
+                    <p>تأسست مؤسسة آل زهران للمحاماة والاستشارات القانونية لتكون منارة للعدالة والخدمة القانونية المتميزة. نحن نفخر بتقديم خدمات قانونية شاملة ومتخصصة تلبي احتياجات عملائنا الكرام.</p>
+                    <p>بفضل خبرتنا الطويلة وفريقنا المتخصص من المحامين والمستشارين القانونيين، نضمن تقديم أفضل الحلول القانونية المبتكرة والفعالة.</p>
+                    <p>رؤيتنا هي أن نكون المرجع الأول في تقديم الخدمات القانونية بأعلى معايير الجودة والمهنية، مع الحرص على تحقيق العدالة وحماية حقوق عملائنا.</p>
+                    <a href="#contact" class="btn">تواصل معنا</a>
+                </div>
+                <div class="about-image fade-in">
+                    <img src="https://images.unsplash.com/photo-1551836022-deb4988cc6c0?w=600&h=400&fit=crop" alt="Professional legal team in a modern conference room discussing legal documents with a view of city skyline, formal business attire, diverse group of lawyers around a polished table" />
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section id="team" class="team">
+        <div class="container">
+            <h2 class="section-title fade-in">فريق العمل المتميز</h2>
+            <div class="team-grid">
+                <div class="team-member fade-in">
+                    <div class="member-image">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=300&h=250&fit=crop" alt="Professional senior male lawyer in formal dark suit with law degree certificates on wall behind him, confident expression, Middle Eastern appearance, office setting" />
+                    </div>
+                    <div class="member-info">
+                        <h4>المحامي أحمد آل زهران</h4>
+                        <p>المؤسس والشريك الأول</p>
+                    </div>
+                </div>
+                <div class="team-member fade-in">
+                    <div class="member-image">
+                        <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=300&h=250&fit=crop" alt="Professional female lawyer in business suit holding legal documents, confident smile, Middle Eastern appearance, law office background with legal books" />
+                    </div>
+                    <div class="member-info">
+                        <h4>المحامية فاطمة العلي</h4>
+                        <p>مختصة قانون الأسرة</p>
+                    </div>
+                </div>
+                <div class="team-member fade-in">
+                    <div class="member-image">
+                        <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=300&h=250&fit=crop" alt="Professional middle-aged male lawyer in navy suit reviewing contracts, glasses, Middle Eastern appearance, modern law office with legal reference books" />
+                    </div>
+                    <div class="member-info">
+                        <h4>المحامي محمد الشمري</h4>
+                        <p>مختص القضايا التجارية</p>
+                    </div>
+                </div>
+                <div class="team-member fade-in">
+                    <div class="member-image">
+                        <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?w=300&h=250&fit=crop" alt="Professional young female lawyer in formal attire working on legal research, laptop open, Middle Eastern appearance, contemporary office environment with law books" />
+                    </div>
+                    <div class="member-info">
+                        <h4>المحامية سارة الزهراني</h4>
+                        <p>مختصة القضايا العقارية</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="section-title fade-in">تواصل معنا</h2>
+            <div class="contact-content">
+                <div class="contact-info fade-in">
+                    <h3>معلومات التواصل</h3>
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <strong>العنوان:</strong><br>
+                            الرياض، المملكة العربية السعودية<br>
+                            حي الملز، شارع التحلية
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <div>
+                            <strong>الهاتف:</strong><br>
+                            +966 11 234 5678<br>
+                            +966 50 123 4567
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <strong>البريد الإلكتروني:</strong><br>
+                            info@alzahranlaw.com<br>
+                            contact@alzahranlaw.com
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-clock"></i>
+                        <div>
+                            <strong>ساعات العمل:</strong><br>
+                            الأحد - الخميس: 8:00 ص - 6:00 م<br>
+                            السبت: 9:00 ص - 1:00 م
+                        </div>
+                    </div>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="contact-form fade-in">
+                    <h3>أرسل رسالة</h3>
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <label for="name">الاسم الكامل *</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">البريد الإلكتروني *</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">رقم الهاتف</label>
+                            <input type="tel" id="phone" name="phone">
+                        </div>
+                        <div class="form-group">
+                            <label for="subject">الموضوع *</label>
+                            <input type="text" id="subject" name="subject" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">الرسالة *</label>
+                            <textarea id="message" name="message" rows="5" required></textarea>
+                        </div>
+                        <button type="submit" class="btn">إرسال الرسالة</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>مؤسسة آل زهران</h3>
+                    <p>نحن نلتزم بتقديم أفضل الخدمات القانونية والاستشارات المهنية لعملائنا الكرام، مع ضمان الحفاظ على أعلى معايير الجودة والسرية.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>خدماتنا</h3>
+                    <p><a href="#services">القضايا المدنية</a></p>
+                    <p><a href="#services">قانون العمل</a></p>
+                    <p><a href="#services">القضايا العقارية</a></p>
+                    <p><a href="#services">قانون الأسرة</a></p>
+                </div>
+                <div class="footer-section">
+                    <h3>روابط مهمة</h3>
+                    <p><a href="#about">عن المؤسسة</a></p>
+                    <p><a href="#team">فريق العمل</a></p>
+                    <p><a href="#contact">اتصل بنا</a></p>
+                    <p><a href="#">سياسة الخصوصية</a></p>
+                </div>
+                <div class="footer-section">
+                    <h3>تابعنا</h3>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 مؤسسة آل زهران للمحاماة والاستشارات القانونية. جميع الحقوق محفوظة.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scroll to top button -->
+    <div class="scroll-top" id="scrollTop">
+        <i class="fas fa-arrow-up"></i>
+    </div>
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const navMenu = document.getElementById('navMenu');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+                // Close mobile menu if open
+                navMenu.classList.remove('active');
+            });
+        });
+
+        // Scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Scroll to top button
+        const scrollTopBtn = document.getElementById('scrollTop');
+
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                scrollTopBtn.classList.add('visible');
+            } else {
+                scrollTopBtn.classList.remove('visible');
+            }
+        });
+
+        scrollTopBtn.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // Contact form handling
+        const contactForm = document.getElementById('contactForm');
+        contactForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            // Get form data
+            const formData = new FormData(contactForm);
+            const name = formData.get('name');
+            const email = formData.get('email');
+            const phone = formData.get('phone');
+            const subject = formData.get('subject');
+            const message = formData.get('message');
+
+            // Simple validation
+            if (!name || !email || !subject || !message) {
+                alert('يرجى ملء جميع الحقول المطلوبة');
+                return;
+            }
+
+            // Simulate form submission
+            alert('تم إرسال رسالتك بنجاح! سنتواصل معك قريباً.');
+            contactForm.reset();
+        });
+
+        // Counter animation for stats
+        const animateCounters = () => {
+            const counters = document.querySelectorAll('.stat-item h3');
+            counters.forEach(counter => {
+                const target = parseInt(counter.textContent);
+                const increment = target / 100;
+                let current = 0;
+                
+                const updateCounter = () => {
+                    if (current < target) {
+                        current += increment;
+                        if (counter.textContent.includes('+')) {
+                            counter.textContent = Math.ceil(current) + '+';
+                        } else if (counter.textContent.includes('%')) {
+                            counter.textContent = Math.ceil(current) + '%';
+                        } else if (counter.textContent.includes('/')) {
+                            counter.textContent = '24/7';
+                        } else {
+                            counter.textContent = Math.ceil(current);
+                        }
+                        requestAnimationFrame(updateCounter);
+                    } else {
+                        counter.textContent = counter.textContent;
+                    }
+                };
+                updateCounter();
+            });
+        };
+
+        // Trigger counter animation when stats section is visible
+        const statsSection = document.querySelector('.stats');
+        const statsObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    animateCounters();
+                    statsObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.5 });
+
+        if (statsSection) {
+            statsObserver.observe(statsSection);
+        }
+
+        // Header background change on scroll
+        const header = document.querySelector('header');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 100) {
+                header.style.background = 'rgba(30, 60, 114, 0.95)';
+                header.style.backdropFilter = 'blur(10px)';
+            } else {
+                header.style.background = 'linear-gradient(135deg, #1e3c72 0%, #2a5298 100%)';
+                header.style.backdropFilter = 'none';
+            }
+        });
+    </script>
+</body>
+</html>
