@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>التشريعات والأحكام والكتب القانونية - Zahran Law</title>
+    <meta name="description" content="مكتبة قانونية شاملة تضم أحدث التشريعات، أحكام محكمة النقض، المذكرات، الآراء الاستشارية، والكتب القانونية. بحث وتحميل مباشر بسهولة ويسر.">
+    <meta name="keywords" content="قوانين, أحكام, محكمة النقض, مذكرات, كتب قانونية, تشريعات, محامي, قانون, مصر">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Library",
+      "name": "مكتبة Zahran Law",
+      "description": "مكتبة إلكترونية قانونية مفتوحة تضم أحدث التشريعات والأحكام والكتب القانونية.",
+      "url": "https://hugg3864-del.github.io/my-website/law.html",
+      "sameAs": [
+        "https://www.facebook.com",
+        "https://www.linkedin.com"
+      ]
+    }
+    </script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #1a365d;
+            --primary-dark: #2a4365;
+            --secondary: #718096;
+            --light: #f7fafc;
+            --dark: #2d3748;
+            --gray: #a0aec0;
+            --border: #e2e8f0;
+            --card-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        body {
+            font-family: 'Tahoma', Arial, sans-serif;
+            background: #f8f9fa;
+            color: #333;
+            line-height: 1.6;
+            margin: 0;
+        }
+        .container { max-width: 1200px; margin: 0 auto; padding: 20px; }
+        header { background: linear-gradient(135deg, var(--primary), var(--primary-dark)); color: #fff; padding: 30px 20px; text-align: center; }
+        header h1 { margin: 0 0 12px; font-size: 2.2rem; }
+        header p { font-size: 1.1rem; opacity: 0.9; }
+        .intro { margin: 25px 0; padding: 20px; background: #fff; border-radius: 8px; box-shadow: var(--card-shadow); line-height: 1.8; }
+        .controls { background: #fff; padding: 20px; border-radius: 8px; box-shadow: var(--card-shadow); margin-bottom: 15px; display: flex; gap: 12px; flex-wrap: wrap; }
+        .search { padding: 12px; border-radius: 6px; border: 1px solid var(--border); flex: 1; }
+        .select, .sort-select { padding: 12px; border-radius: 6px; border: 1px solid var(--border); min-width: 160px; }
+        .results-count { margin: 10px 0; font-size: 0.95rem; color: var(--dark); }
+        .cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(330px, 1fr)); gap: 20px; }
+        .card { background: #fff; border-radius: 8px; padding: 20px; border: 1px solid var(--border); box-shadow: var(--card-shadow); display: flex; flex-direction: column; }
+        .card h3 { margin: 0 0 12px; font-size: 1.15rem; color: var(--primary); }
+        .meta { font-size: 0.85rem; color: var(--gray); margin-bottom: 15px; }
+        .actions { display: flex; gap: 10px; justify-content: flex-end; margin-top: auto; flex-wrap: wrap; }
+        .action-btn { padding: 8px 16px; border-radius: 6px; text-decoration: none; border: 1px solid var(--primary); color: var(--primary); font-size: 0.9rem; display: inline-flex; align-items: center; gap: 5px; }
+        .action-btn.primary { background: var(--primary); color: #fff; }
+        .note { margin-top: 20px; color: var(--gray); font-size: 0.9rem; background: #f8f9fa; padding: 12px; border-radius: 8px; border-right: 4px solid var(--primary); }
+        footer { padding: 25px 12px; text-align: center; color: var(--gray); margin-top: 40px; background: #fff; border-top: 1px solid #eaeaea; }
+        @media (max-width: 768px) {
+            .actions { flex-direction: column; align-items: stretch; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>📚 مكتبة Zahran Law القانونية</h1>
+            <p>منصة متكاملة تضم التشريعات والأحكام والكتب القانونية لتكون مرجعًا موثوقًا للمحامين والباحثين والطلاب.</p>
+        </div>
+    </header>
+
+    <main class="container">
+        <div class="intro">
+            مرحبًا بكم في مكتبة Zahran Law — هنا تجد أحدث <strong>التشريعات</strong> و<strong>أحكام محكمة النقض</strong> و<strong>المذكرات</strong> و<strong>الكتب القانونية</strong>، مصنفة بعناية مع إمكانية <strong>البحث</strong> و<strong>العرض</strong> و<strong>التحميل المباشر</strong>.
+        </div>
+
+        <!-- البحث والفلترة -->
+        <div class="controls">
+            <input id="q" class="search" placeholder="ابحث بالعنوان أو الملخص..." />
+            <select id="type" class="select">
+                <option value="">كل الأنواع</option>
+                <option>تشريع</option>
+                <option>حكم نقض</option>
+                <option>مذكرة</option>
+                <option>رأي استشاري</option>
+                <option>كتب</option>
+            </select>
+            <select id="sort" class="sort-select">
+                <option value="newest">الأحدث أولاً</option>
+                <option value="oldest">الأقدم أولاً</option>
+                <option value="title">حسب العنوان (أ-ي)</option>
+            </select>
+        </div>
+
+        <div id="resultsCount" class="results-count"></div>
+
+        <div id="cards" class="cards"></div>
+
+        <div class="note">
+            <i class="fas fa-lightbulb"></i> ملاحظة: زر "عرض" يفتح الملف في نافذة جديدة، وزر "تحميل" ينزل الملف مباشرة.
+        </div>
+    </main>
+
+    <footer>
+        © 2025 كل الحقوق محفوظة — Zahran Law
+    </footer>
+
+    <script>
+        // === بيانات Google Sheets ===
+        const SHEET_ID = "1A77xzU1rNhAZZGmuugxWfevMJ7wen7Ud9C9t4HNmG-E";
+        const SHEET_NAME = "Law";
+        const SHEET_URL = `https://opensheet.elk.sh/${SHEET_ID}/${SHEET_NAME}`;
+
+        let items = [];
+
+        async function load() {
+            const cardsEl = document.getElementById('cards');
+            try {
+                cardsEl.innerHTML = '<div style="text-align:center;padding:20px;">جاري التحميل...</div>';
+                const res = await fetch(SHEET_URL);
+                if(!res.ok) throw new Error('فشل تحميل البيانات');
+                const data = await res.json();
+                items = data.map(d => ({
+                    title: d.title || d["العنوان"] || '',
+                    type: d.type || d["النوع"] || '',
+                    date: d.date || d["التاريخ"] || '',
+                    summary: d.summary || d["ملخص"] || '',
+                    link: d.link || d["الرابط"] || ''
+                }));
+                render();
+            } catch (e) {
+                cardsEl.innerHTML = '<div style="color:red;text-align:center;">خطأ في تحميل البيانات</div>';
+            }
+        }
+
+        function render() {
+            const q = (document.getElementById('q').value || '').trim().toLowerCase();
+            const t = document.getElementById('type').value;
+            const sortBy = document.getElementById('sort').value;
+
+            let filtered = items.filter(it => {
+                if(t && it.type !== t) return false;
+                return (it.title + it.summary + it.type).toLowerCase().includes(q);
+            });
+
+            if (sortBy === 'newest') {
+                filtered.sort((a, b) => new Date(b.date) - new Date(a.date));
+            } else if (sortBy === 'oldest') {
+                filtered.sort((a, b) => new Date(a.date) - new Date(b.date));
+            } else if (sortBy === 'title') {
+                filtered.sort((a, b) => a.title.localeCompare(b.title, 'ar'));
+            }
+
+            document.getElementById('resultsCount').innerText = `عدد النتائج: ${filtered.length}`;
+
+            const cardsEl = document.getElementById('cards');
+            cardsEl.innerHTML = '';
+            if(filtered.length === 0){
+                cardsEl.innerHTML = '<div style="color:gray; text-align:center; padding:20px;">لا توجد نتائج</div>';
+                return;
+            }
+
+            filtered.forEach(it => {
+                const div = document.createElement('div');
+                div.className = 'card';
+                div.innerHTML = `
+                    <h3>${it.title}</h3>
+                    <div class="meta">${it.type} - ${it.date}</div>
+                    <div class="summary">${it.summary}</div>
+                    <div class="actions">
+                        ${it.link ? `
+                            <a class="action-btn" href="${it.link}" target="_blank"><i class="far fa-eye"></i> عرض</a>
+                            <a class="action-btn primary" href="${it.link}" target="_blank" download><i class="fas fa-download"></i> تحميل</a>
+                        ` : '<span style="color: var(--gray);">لا يوجد رابط متاح</span>'}
+                    </div>
+                `;
+                cardsEl.appendChild(div);
+            });
+        }
+
+        document.getElementById('q').addEventListener('input', render);
+        document.getElementById('type').addEventListener('change', render);
+        document.getElementById('sort').addEventListener('change', render);
+        load();
+    </script>
+</body>
+</html>
