@@ -707,48 +707,124 @@
 
     <!-- Team Section -->
     <section id="team" class="team">
-        <div class="container">
-            <h2 class="section-title fade-in">فريق العمل المتميز</h2>
-            <div class="team-grid">
-                <div class="team-member fade-in">
-                    <div class="member-image">
-                        <img src="https://consortiolawfirm.com/wp-content/uploads/2019/05/criminal-law.jpg" alt="Professional senior male lawyer in formal dark suit with law degree certificates on wall behind him, confident expression, Middle Eastern appearance, office setting" />
-                    </div>
-                    <div class="member-info">
-                        <h4>المحامي خالد آل زهران</h4>
-                        <p>المؤسس والشريك الثانى</p>
-                    </div>
-                </div>
-                <div class="team-member fade-in">
-                    <div class="member-image">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/3/39/Egyptian_Law_Icon.svg" alt="Professional female lawyer in business suit holding legal documents, confident smile, Middle Eastern appearance, law office background with legal books" />
-                    </div>
-                    <div class="member-info">
-                        <h4>المستشار عبدالله زاهران</h4>
-                        <p>المؤسس والشريك الأول</p>
-                    </div>
-                </div>
-                <div class="team-member fade-in">
-                    <div class="member-image">
-                        <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=300&h=250&fit=crop" alt="Professional middle-aged male lawyer in navy suit reviewing contracts, glasses, Middle Eastern appearance, modern law office with legal reference books" />
-                    </div>
-                    <div class="member-info">
-                        <h4>المحامي محمد زهران</h4>
-                        <p>مختص القضايا التجارية</p>
-                    </div>
-                </div>
-                <div class="team-member fade-in">
-                    <div class="member-image">
-                        <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?w=300&h=250&fit=crop" alt="Professional young female lawyer in formal attire working on legal research, laptop open, Middle Eastern appearance, contemporary office environment with law books" />
-                    </div>
-                    <div class="member-info">
-                        <h4>المحامية سارة زهران</h4>
-                        <p>مختصة القضايا العقارية</p>
-                    </div>
-                </div>
-            </div>
+  <div class="container">
+    <h2 class="section-title fade-in">فريق العمل المتميز</h2>
+    <div class="team-grid">
+
+      <!-- المؤسس والشريك الثاني (خالد آل زهران) -->
+      <div class="team-member fade-in">
+        <div class="member-image">
+          <img src="https://consortiolawfirm.com/wp-content/uploads/2019/05/criminal-law.jpg" 
+               alt="Professional senior male lawyer in formal dark suit with law degree certificates on wall behind him, confident expression, Middle Eastern appearance, office setting" />
         </div>
-    </section>
+        <div class="member-info">
+          <h4>المحامي خالد آل زهران</h4>
+          <p>المؤسس والشريك الثانى</p>
+          <div class="social-links">
+            <a href="https://wa.me/qr/PBA4JKFEEQJXP1" target="_blank"><i class="fab fa-whatsapp"></i></a>
+            <a href="https://www.facebook.com/share/1EuJVYKeH9" target="_blank"><i class="fab fa-facebook"></i></a>
+            <a href="mailto:khaled@example.com"><i class="fas fa-envelope"></i></a>
+            <a href="tel:01151723921"><i class="fas fa-phone"></i></a>
+          </div>
+        </div>
+      </div>
+
+      <!-- المؤسس والشريك الأول (عبدالله زهران) -->
+      <div class="team-member fade-in">
+        <div class="member-image">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/3/39/Egyptian_Law_Icon.svg" 
+               alt="Professional female lawyer in business suit holding legal documents, confident smile, Middle Eastern appearance, law office background with legal books" />
+        </div>
+        <div class="member-info">
+          <h4>المستشار عبدالله زاهران</h4>
+          <p>المؤسس والشريك الأول</p>
+          <!-- بدون وسائل تواصل -->
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<style>
+  .team {
+    padding: 80px 0;
+    background: white;
+  }
+
+  .team-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+    justify-items: center;
+  }
+
+  .team-member {
+    background: white;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+    max-width: 350px;
+    width: 100%;
+    text-align: center;
+  }
+
+  .team-member:hover {
+    transform: translateY(-5px);
+  }
+
+  .member-image {
+    width: 100%;
+    height: 250px;
+    background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .member-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .member-info {
+    padding: 1.5rem;
+    text-align: center;
+  }
+
+  .member-info h4 {
+    font-size: 1.3rem;
+    color: #1e3c72;
+    margin-bottom: 0.5rem;
+  }
+
+  .member-info p {
+    color: #666;
+    margin: 0;
+  }
+
+  /* 🔗 روابط التواصل */
+  .social-links {
+    margin-top: 12px;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+  }
+
+  .social-links a {
+    color: #1a365d;
+    font-size: 1.4rem;
+    transition: color 0.3s;
+  }
+
+  .social-links a:hover {
+    color: #d4af37;
+  }
+</style>
+
 
     <!-- Contact Section -->
     <section id="contact" class="contact">
