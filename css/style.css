@@ -2139,3 +2139,49 @@ input, textarea, select {
     body { background: #fff; }
     .section { padding: 20px 0; }
 }
+
+/* === Dark Mode & Accessibility === */
+body.dark-mode {
+    --bg-body: #060e1a;
+    --bg-card: #0b1930;
+    --bg-alt: #0f2442;
+    --text-primary: #e8e8ee;
+    --text-secondary: #a0a0b0;
+    --border-color: rgba(255,255,255,0.1);
+    --border-light: rgba(255,255,255,0.05);
+}
+body.font-lg { font-size: 110%; }
+body.font-xl { font-size: 120%; }
+
+.accessibility-toolbar {
+    display: flex;
+    gap: 8px;
+    margin-right: 15px;
+    align-items: center;
+}
+.toolbar-btn {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: rgba(200, 169, 81, 0.15);
+    color: var(--gold-400);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid rgba(200, 169, 81, 0.3);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+.toolbar-btn:hover {
+    background: var(--gold-500);
+    color: var(--primary-900);
+}
+@media (max-width: 768px) {
+    .accessibility-toolbar {
+        position: absolute;
+        left: 60px;
+        top: 18px;
+        margin-right: 0;
+    }
+}
+

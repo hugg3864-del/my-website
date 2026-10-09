@@ -1,6 +1,6 @@
 /* ============================================
-   مؤسسة آل زهران — Legal Chatbot
-   المساعد القانوني الذكي
+   مؤسسة آل زهران — Advanced Legal Chatbot
+   المساعد القانوني التفاعلي (نسخة متقدمة)
    ============================================ */
 
 (function() {
@@ -10,87 +10,172 @@
     const legalKnowledge = [
         {
             keywords: ['توكيل', 'وكالة', 'اوكل', 'أوكل', 'توكل'],
-            answer: 'لتوكيل محامٍ في مصر، يجب:\n\n١. الاتفاق مع المحامي على نطاق العمل والأتعاب (عقد أتعاب)\n٢. التوجه لمكتب التوثيق (الشهر العقاري) لعمل توكيل رسمي عام في القضايا\n٣. المستندات المطلوبة: بطاقة الرقم القومي سارية\n\nيمكنك حجز استشارة مع مكتبنا لمساعدتك في الإجراءات.',
-            category: 'إجراءات'
+            answer: 'لتوكيل محامٍ في مصر، يجب:\n١. الاتفاق على نطاق العمل والأتعاب.\n٢. التوجه لمكتب التوثيق (الشهر العقاري) لعمل توكيل رسمي عام في القضايا.\n٣. المستندات: بطاقة الرقم القومي سارية.',
+            options: ['حجز استشارة', 'مواعيد العمل', 'العودة للبداية']
         },
         {
             keywords: ['أتعاب', 'اتعاب', 'تكلفة', 'سعر', 'كام', 'بكام', 'مصاريف', 'رسوم'],
-            answer: 'تتحدد أتعاب المحاماة وفقاً للمادة ٨٢ من قانون المحاماة رقم ١٧ لسنة ١٩٨٣:\n\n• يتم الاتفاق عليها في عقد مكتوب بين المحامي والموكل\n• لا يجوز أن تتجاوز الأتعاب المشروطة بالكسب ٢٠٪ من قيمة ما حققه المحامي\n• الرسوم القضائية تختلف حسب نوع الدعوى وقيمتها\n\nللحصول على تقدير دقيق، يُرجى حجز استشارة أولية.',
-            category: 'أتعاب'
+            answer: 'تتحدد أتعاب المحاماة وفقاً للمادة ٨٢ من قانون المحاماة وتختلف حسب طبيعة القضية ودرجة التقاضي. لتقدير دقيق، نفضل دراسة مستندات القضية أولاً.',
+            options: ['حجز استشارة مكتبية', 'الاستعلام عن قضية']
         },
         {
-            keywords: ['طلاق', 'خلع', 'انفصال'],
-            answer: 'في قانون الأحوال الشخصية المصري:\n\n• **الطلاق**: حق الزوج شرعاً، ويمكن للزوجة طلب التطليق قضائياً للضرر\n• **الخلع**: حق الزوجة (المادة ٢٠ من القانون ١ لسنة ٢٠٠٠)، تتنازل عن حقوقها المالية وتعيد المهر\n• مدة دعوى الخلع: عادةً ٣-٦ شهور\n\nننصح بشدة باستشارة متخصصة لتقييم وضعك.',
-            category: 'أحوال شخصية'
+            keywords: ['طلاق', 'خلع', 'نفقة', 'نفقه', 'حضانة', 'حضانه', 'اسرة', 'أسرة', 'انفصال', 'زواج'],
+            answer: 'قضايا الأحوال الشخصية تتطلب سرية ودقة. نتعامل مع كافة دعاوى (الخلع، الطلاق للضرر، النفقات بأنواعها، والحضانة). كيف يمكننا مساعدتك تحديداً؟',
+            options: ['إجراءات الخلع', 'دعوى نفقة', 'رؤية وحضانة', 'حجز استشارة سرية']
         },
         {
-            keywords: ['نفقة', 'نفقه', 'إنفاق'],
-            answer: 'النفقة في القانون المصري:\n\n• **نفقة الزوجة**: واجبة على الزوج من تاريخ العقد الصحيح\n• **نفقة الصغار**: واجبة على الأب (مأكل، ملبس، مسكن، تعليم، علاج)\n• **نفقة المتعة**: للمطلقة — تُقدّر بنفقة سنتين على الأقل\n• يمكن رفع دعوى نفقة مؤقتة (أمر أداء) للحصول على نفقة سريعة\n\nلتقديم طلب نفقة، يُرجى التواصل مع المكتب.',
-            category: 'أحوال شخصية'
+            keywords: ['إجراءات الخلع', 'خلع'],
+            answer: 'في دعوى الخلع (المادة ٢٠ من القانون ١ لسنة ٢٠٠٠): تتنازل الزوجة عن حقوقها المالية الشرعية وترد مقدم الصداق (المهر). إجراءاتها أسرع من الطلاق للضرر وتستغرق عادة من ٣ إلى ٦ أشهر.',
+            options: ['حجز استشارة سرية', 'العودة للبداية']
         },
         {
-            keywords: ['حضانة', 'حضانه', 'اولاد', 'أولاد', 'أطفال', 'اطفال'],
-            answer: 'الحضانة في القانون المصري (المادة ٢٠ من المرسوم بقانون ٢٥ لسنة ١٩٢٩ المعدل):\n\n• حق الحضانة للأم ثم لأم الأم ثم لأم الأب\n• سن الحضانة: حتى ١٥ سنة للولد والبنت\n• عند بلوغ سن الحضانة يُخيّر الطفل\n• يسقط حق الحضانة بزواج الحاضنة من أجنبي\n\nكل حالة تختلف — ننصح بالاستشارة.',
-            category: 'أحوال شخصية'
+            keywords: ['قبض', 'حبس', 'محبوس', 'شرطة', 'نيابة', 'جنائي', 'جنحة', 'جناية', 'مخدرات', 'تزوير'],
+            answer: '⚠️ في القضايا الجنائية، الوقت عامل حاسم. لا تدلي بأي أقوال أو توقع على محاضر دون حضور محاميك. نحن متواجدون للتدخل الفوري.',
+            options: ['الاتصال بحالة طوارئ 📞', 'حجز موعد عاجل']
         },
         {
-            keywords: ['قبض', 'حبس', 'محبوس', 'معتقل', 'اعتقال', 'قسم', 'شرطة', 'نيابة'],
-            answer: '⚠️ في حالة القبض أو الحبس — حقوقك وفقاً للقانون المصري:\n\n١. الحق في معرفة سبب القبض\n٢. الحق في الاتصال بمحامٍ فوراً\n٣. لا يجوز الحبس أكثر من ٢٤ ساعة بدون أمر النيابة\n٤. الحق في التزام الصمت\n٥. لا توقع على أي محضر بدون حضور محاميك\n\n📞 اتصل بنا فوراً على: 01229333957',
-            category: 'جنائي'
+            keywords: ['الاتصال بحالة طوارئ 📞', 'طوارئ'],
+            answer: 'في حالات الطوارئ الجنائية، يرجى الاتصال فوراً على الخط الساخن للمكتب:\n📞 01229333957\n📞 01060670084',
+            options: ['العودة للبداية']
         },
         {
-            keywords: ['فصل', 'فصل تعسفي', 'طردوني', 'مفصول', 'تعسفي', 'شغل', 'عمل', 'موظف'],
-            answer: 'الفصل التعسفي في قانون العمل المصري (قانون ١٢ لسنة ٢٠٠٣):\n\n• يحق لك رفع دعوى تعويض عن الفصل التعسفي\n• التعويض: لا يقل عن أجر شهرين عن كل سنة خدمة\n• مدة التقادم: سنة من تاريخ الفصل\n• يحق لك مكافأة نهاية الخدمة وبدل الإجازات\n\nاحتفظ بعقد العمل وأي مستندات تثبت الفصل.',
-            category: 'عمل'
+            keywords: ['فصل', 'تعسفي', 'عمل', 'عمال', 'موظف', 'شركة', 'تأسيس', 'تجارية'],
+            answer: 'نقدم خدمات متكاملة في قانون العمل (تمثيل العمال أو الشركات) وفي القانون التجاري (تأسيس الشركات، صياغة العقود، تسجيل العلامات التجارية).',
+            options: ['تأسيس شركة', 'قضايا عمالية', 'العودة للبداية']
         },
         {
-            keywords: ['إيجار', 'ايجار', 'مستأجر', 'مالك', 'إخلاء', 'اخلاء', 'عقار', 'شقة'],
-            answer: 'قوانين الإيجار في مصر:\n\n• **القانون القديم** (٤٩/١٩٧٧): ينطبق على العقود قبل ١٩٩٦ — أحكام خاصة\n• **القانون الجديد** (٤/١٩٩٦): ينطبق على العقود بعد ١٩٩٦ — حرية التعاقد\n• **إخلاء العقار**: يختلف حسب نوع العقد والسبب\n• **زيادة الإيجار**: تخضع لقواعد مختلفة حسب القانون المطبق\n\nمنازعات الإيجار معقدة — ننصح بالاستشارة.',
-            category: 'مدني'
+            keywords: ['حجز', 'استشارة', 'موعد', 'زيارة', 'مقابلة', 'حجز استشارة', 'حجز استشارة مكتبية', 'حجز استشارة سرية', 'حجز موعد عاجل'],
+            answer: 'يسعدنا استقبالك في المؤسسة 🏛️\nيمكنك حجز موعدك بسهولة عبر صفحة الحجز الإلكتروني الخاصة بنا، وسيقوم فريقنا بتأكيد الموعد معك.',
+            options: ['الذهاب لصفحة الحجز 📅', 'مواعيد العمل']
         },
         {
-            keywords: ['مجلس الدولة', 'قرار إداري', 'إداري', 'حكومة', 'موظف حكومي'],
-            answer: 'القضاء الإداري (مجلس الدولة) في مصر:\n\n• يختص بالطعن على القرارات الإدارية\n• ميعاد الطعن: ٦٠ يوماً من تاريخ العلم بالقرار\n• يمكن طلب وقف تنفيذ القرار (استشكال)\n• أنواع الدعاوى: إلغاء — تعويض — تفسير\n\nيُرجى سرعة التواصل نظراً لضيق المواعيد.',
-            category: 'إداري'
+            keywords: ['الذهاب لصفحة الحجز 📅'],
+            answer: 'يتم تحويلك الآن لصفحة الحجز...',
+            action: () => window.location.href = 'booking.html'
         },
         {
-            keywords: ['شركة', 'تأسيس', 'سجل تجاري', 'رخصة'],
-            answer: 'تأسيس الشركات في مصر:\n\n• **شركة ذات مسؤولية محدودة**: الأكثر شيوعاً — لا يوجد حد أدنى لرأس المال\n• **شركة مساهمة**: رأس مال لا يقل عن ٢٥٠,٠٠٠ جنيه\n• **شركة شخص واحد**: متاحة منذ ٢٠١٨\n• المستندات: بطاقات الشركاء + عقد الإيجار + شهادة عدم التباس الاسم\n\nنقدم خدمة تأسيس الشركات بالكامل.',
-            category: 'شركات'
+            keywords: ['مواعيد العمل', 'متى', 'تفتحوا', 'مواعيدكم'],
+            answer: 'مواعيد العمل الرسمية للمؤسسة:\nالأحد - الخميس: ٨:٠٠ صباحاً حتي ٦:٠٠ مساءً\nالسبت: ٩:٠٠ صباحاً حتي ١:٠٠ ظهراً\nالجمعة: عطلة رسمية',
+            options: ['عنوان المكتب', 'حجز استشارة']
         },
         {
-            keywords: ['تقادم', 'مدة', 'ميعاد', 'مواعيد', 'طعن', 'استئناف', 'نقض'],
-            answer: 'مواعيد مهمة في القانون المصري:\n\n• **الاستئناف**: ٤٠ يوماً من صدور الحكم (مدني) / ١٠ أيام (جنائي)\n• **النقض**: ٦٠ يوماً من صدور الحكم\n• **التقادم المدني العام**: ١٥ سنة\n• **تقادم دعاوى التعويض**: ٣ سنوات\n• **تقادم الشيكات**: ٦ شهور\n\n⚠️ المواعيد الإجرائية لا تتوقف — تصرف فوراً!',
-            category: 'إجراءات'
+            keywords: ['عنوان المكتب', 'مكانكم', 'العنوان', 'مكان'],
+            answer: '📍 فرع المرج: المرج الجديدة - بجوار هايبر الشرق.\n📍 فرع الخصوص: الخصوص - بجوار هايبر كازيون.',
+            options: ['فتح الخريطة 🗺️', 'العودة للبداية']
         },
         {
-            keywords: ['موعد', 'حجز', 'استشارة', 'زيارة', 'مكتب'],
-            answer: 'يسعدنا استقبالك! لحجز استشارة:\n\n📅 مواعيد العمل: الأحد — الخميس: ٨:٠٠ ص — ٦:٠٠ م | السبت: ٩:٠٠ ص — ١:٠٠ م\n📍 العنوان: القاهرة، المرج الجديدة / الخصوص\n📞 الهاتف: 01229333957\n💬 واتساب: wa.me/201229333957\n\nأو يمكنك الحجز مباشرة من صفحة حجز الاستشارات على موقعنا.',
-            category: 'تواصل'
+            keywords: ['فتح الخريطة 🗺️'],
+            answer: 'يتم تحويلك لصفحة التواصل والخرائط...',
+            action: () => window.location.href = 'contact.html'
+        },
+        {
+            keywords: ['العودة للبداية', 'بداية', 'قائمة', 'خيارات'],
+            answer: 'مرحباً بك مجدداً. اختر القسم الذي تود الاستفسار عنه:',
+            options: ['الأحوال الشخصية', 'القضايا الجنائية', 'الشركات والتجاري', 'القضاء الإداري', 'حجز استشارة']
         }
     ];
 
-    const defaultAnswer = 'شكراً لسؤالك. هذا الموضوع يحتاج استشارة متخصصة لتقييم وضعك بدقة.\n\nيمكنك:\n• حجز استشارة من صفحة الحجز\n• الاتصال مباشرة: 01229333957\n• مراسلتنا عبر واتساب\n\nفريقنا جاهز لمساعدتك.';
+    const defaultAnswer = 'عذراً، لم أتمكن من تصنيف سؤالك بدقة. القضايا القانونية معقدة وتحتاج لدراسة.\nلضمان حصولك على إجابة دقيقة، نرجو التواصل المباشر مع محامينا.';
+    const defaultOptions = ['حجز استشارة', 'الاتصال المباشر 📞', 'العودة للبداية'];
 
-    const disclaimer = '⚖️ تنبيه: هذه معلومات توجيهية عامة ولا تُغني عن استشارة المحامي.';
+    const disclaimer = '⚖️ إخلاء مسؤولية: المساعد الآلي يقدم معلومات إرشادية عامة فقط ولا تعد استشارة قانونية ملزمة وفقاً لقانون المحاماة.';
 
-    const welcomeMessage = 'مرحباً بك في المساعد القانوني لمؤسسة آل زهران 👋\n\nيمكنني مساعدتك في:\n• التعرّف على نوع مشكلتك القانونية\n• الإجابة على أسئلة عامة عن القانون المصري\n• توجيهك للقسم المناسب\n\nاكتب سؤالك وسأحاول مساعدتك...';
+    // === State Management ===
+    let chatHistory = [];
+    let isTyping = false;
 
-    // === Chatbot Logic ===
+    // === Initialization ===
+    function initChatbot() {
+        const trigger = document.getElementById('chatbotTrigger');
+        const window_ = document.getElementById('chatbotWindow');
+        const closeBtn = document.getElementById('chatbotClose');
+        const input = document.getElementById('chatInput');
+        const sendBtn = document.getElementById('chatSend');
+        const messages = document.getElementById('chatMessages');
+
+        if (!trigger || !window_ || !messages) return;
+
+        // Load history from session storage
+        loadHistory();
+
+        // Toggle chatbot
+        trigger.addEventListener('click', () => {
+            window_.classList.add('open');
+            trigger.classList.add('active');
+            input?.focus();
+
+            // Show welcome message if empty
+            if (chatHistory.length === 0) {
+                setTimeout(() => {
+                    handleBotResponse(
+                        'مرحباً بك في المنصة الرقمية لمؤسسة آل زهران للمحاماة والاستشارات القانونية 👋\nكيف يمكننا حماية حقوقك اليوم؟',
+                        ['الاستشارات القانونية', 'قضايا الأحوال الشخصية', 'القضايا الجنائية', 'عناوين فروعنا']
+                    );
+                }, 500);
+            } else {
+                scrollToBottom();
+            }
+        });
+
+        closeBtn?.addEventListener('click', () => {
+            window_.classList.remove('open');
+            trigger.classList.remove('active');
+        });
+
+        // Send message
+        function handleSend() {
+            if (isTyping) return;
+            const text = input?.value.trim();
+            if (!text) return;
+
+            processUserMessage(text);
+            input.value = '';
+        }
+
+        sendBtn?.addEventListener('click', handleSend);
+        input?.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') handleSend();
+        });
+        
+        // Handle Options Clicks
+        messages.addEventListener('click', (e) => {
+            if (e.target.classList.contains('chat-option-btn')) {
+                if (isTyping) return;
+                const optionText = e.target.textContent;
+                // Remove option buttons after clicking
+                const optionsContainer = e.target.closest('.chat-options');
+                if (optionsContainer) optionsContainer.remove();
+                
+                processUserMessage(optionText);
+            }
+        });
+    }
+
+    // === Core Logic ===
+    function processUserMessage(text) {
+        addUserMessage(text);
+        showTyping();
+
+        setTimeout(() => {
+            hideTyping();
+            const result = findAnswer(text);
+            handleBotResponse(result.answer, result.options, result.action);
+        }, 800 + Math.random() * 500);
+    }
+
     function findAnswer(question) {
         const q = question.toLowerCase().trim();
 
-        // Greeting
-        if (/^(مرحب|أهلا|اهلا|سلام|هاي|ازيك|ازاي|صباح|مساء)/.test(q)) {
-            return { answer: 'أهلاً وسهلاً! كيف يمكنني مساعدتك اليوم؟ 😊', category: 'تحية' };
-        }
-
-        // Search knowledge base
         let bestMatch = null;
         let maxMatches = 0;
 
         for (const item of legalKnowledge) {
             let matchCount = 0;
+            // Exact match for predefined options
+            if (item.keywords.includes(q)) {
+                return item;
+            }
+            // Fuzzy search for free text
             for (const keyword of item.keywords) {
                 if (q.includes(keyword)) {
                     matchCount++;
@@ -103,73 +188,39 @@
         }
 
         if (bestMatch && maxMatches > 0) {
-            return { answer: bestMatch.answer, category: bestMatch.category };
+            return bestMatch;
         }
 
-        return { answer: defaultAnswer, category: 'عام' };
-    }
-
-    // === DOM Setup ===
-    function initChatbot() {
-        const trigger = document.getElementById('chatbotTrigger');
-        const window_ = document.getElementById('chatbotWindow');
-        const closeBtn = document.getElementById('chatbotClose');
-        const input = document.getElementById('chatInput');
-        const sendBtn = document.getElementById('chatSend');
-        const messages = document.getElementById('chatMessages');
-
-        if (!trigger || !window_ || !messages) return;
-
-        // Toggle chatbot
-        trigger.addEventListener('click', () => {
-            window_.classList.add('open');
-            trigger.classList.add('active');
-            input?.focus();
-
-            // Show welcome message on first open
-            if (messages.children.length === 0) {
-                addBotMessage(welcomeMessage);
-            }
-        });
-
-        closeBtn?.addEventListener('click', () => {
-            window_.classList.remove('open');
-            trigger.classList.remove('active');
-        });
-
-        // Send message
-        function handleSend() {
-            const text = input?.value.trim();
-            if (!text) return;
-
-            addUserMessage(text);
-            input.value = '';
-
-            // Show typing indicator
-            showTyping();
-
-            // Simulate response delay
-            setTimeout(() => {
-                hideTyping();
-                const result = findAnswer(text);
-                addBotMessage(result.answer, true);
-            }, 800 + Math.random() * 700);
+        // Handle specific generic matches
+        if (/^(مرحب|أهلا|اهلا|سلام|هاي|ازيك|ازاي|صباح|مساء)/.test(q)) {
+            return { answer: 'أهلاً وسهلاً بك في مؤسسة آل زهران. تفضل بطرح استفسارك القانوني، أو اختر من القائمة التالية:', options: ['حجز استشارة', 'خدماتنا القانونية'] };
+        }
+        if (q.includes('اتصال') || q.includes('تليفون') || q.includes('رقم')) {
+            return { answer: 'للرد الفوري، يرجى الاتصال على الأرقام التالية:\n01229333957\n01060670084', options: ['حجز موعد', 'العودة للبداية'] };
         }
 
-        sendBtn?.addEventListener('click', handleSend);
-        input?.addEventListener('keypress', (e) => {
-            if (e.key === 'Enter') handleSend();
-        });
+        return { answer: defaultAnswer, options: defaultOptions };
     }
 
-    function addBotMessage(text, showDisclaimer = false) {
+    function handleBotResponse(text, options = null, action = null) {
+        addBotMessage(text, options, chatHistory.length === 0);
+        
+        if (action && typeof action === 'function') {
+            setTimeout(action, 1500);
+        }
+    }
+
+    // === UI Renderers ===
+    function addBotMessage(text, options = null, showDisclaimer = false) {
         const messages = document.getElementById('chatMessages');
         if (!messages) return;
+
+        const wrapper = document.createElement('div');
+        wrapper.className = 'chat-message-wrapper bot';
 
         const div = document.createElement('div');
         div.className = 'chat-message bot';
 
-        // Format text: convert \n to <br> and **text** to <strong>
         let formatted = sanitizeForChat(text)
             .replace(/\n/g, '<br>')
             .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
@@ -180,37 +231,76 @@
         if (showDisclaimer) {
             div.innerHTML += `<div class="disclaimer">${disclaimer}</div>`;
         }
+        wrapper.appendChild(div);
 
-        messages.appendChild(div);
-        messages.scrollTop = messages.scrollHeight;
+        // Add options if any
+        if (options && options.length > 0) {
+            const optionsDiv = document.createElement('div');
+            optionsDiv.className = 'chat-options';
+            options.forEach(opt => {
+                const btn = document.createElement('button');
+                btn.className = 'chat-option-btn';
+                btn.textContent = opt;
+                optionsDiv.appendChild(btn);
+            });
+            wrapper.appendChild(optionsDiv);
+        }
+
+        messages.appendChild(wrapper);
+        scrollToBottom();
+
+        // Save state
+        saveToHistory('bot', text, options, showDisclaimer);
     }
 
     function addUserMessage(text) {
         const messages = document.getElementById('chatMessages');
         if (!messages) return;
 
+        const wrapper = document.createElement('div');
+        wrapper.className = 'chat-message-wrapper user';
+
         const div = document.createElement('div');
         div.className = 'chat-message user';
         div.textContent = text;
-        messages.appendChild(div);
-        messages.scrollTop = messages.scrollHeight;
+        
+        wrapper.appendChild(div);
+        messages.appendChild(wrapper);
+        scrollToBottom();
+
+        // Save state
+        saveToHistory('user', text);
     }
 
     function showTyping() {
+        isTyping = true;
         const messages = document.getElementById('chatMessages');
         if (!messages) return;
 
+        const wrapper = document.createElement('div');
+        wrapper.className = 'chat-message-wrapper bot typing-wrapper';
+        wrapper.id = 'typingIndicator';
+
         const div = document.createElement('div');
-        div.className = 'typing-indicator';
-        div.id = 'typingIndicator';
+        div.className = 'chat-message bot typing-indicator';
         div.innerHTML = '<span></span><span></span><span></span>';
-        messages.appendChild(div);
-        messages.scrollTop = messages.scrollHeight;
+        
+        wrapper.appendChild(div);
+        messages.appendChild(wrapper);
+        scrollToBottom();
     }
 
     function hideTyping() {
+        isTyping = false;
         const typing = document.getElementById('typingIndicator');
         if (typing) typing.remove();
+    }
+
+    function scrollToBottom() {
+        const messages = document.getElementById('chatMessages');
+        if (messages) {
+            messages.scrollTop = messages.scrollHeight;
+        }
     }
 
     function sanitizeForChat(str) {
@@ -221,6 +311,109 @@
             .replace(/>/g, '&gt;')
             .replace(/"/g, '&quot;');
     }
+
+    // === Session Memory (Persistence across pages) ===
+    function saveToHistory(sender, text, options = null, showDisclaimer = false) {
+        chatHistory.push({ sender, text, options, showDisclaimer });
+        try {
+            sessionStorage.setItem('alzahran_chat_history', JSON.stringify(chatHistory));
+        } catch(e) {}
+    }
+
+    function loadHistory() {
+        try {
+            const saved = sessionStorage.getItem('alzahran_chat_history');
+            if (saved) {
+                chatHistory = JSON.parse(saved);
+                renderHistory();
+            }
+        } catch(e) {}
+    }
+
+    function renderHistory() {
+        const messages = document.getElementById('chatMessages');
+        if (!messages) return;
+        messages.innerHTML = ''; // Clear
+
+        // We only want to render options for the VERY LAST bot message
+        chatHistory.forEach((msg, index) => {
+            const isLast = (index === chatHistory.length - 1);
+            
+            const wrapper = document.createElement('div');
+            wrapper.className = `chat-message-wrapper ${msg.sender}`;
+
+            const div = document.createElement('div');
+            div.className = `chat-message ${msg.sender}`;
+
+            if (msg.sender === 'user') {
+                div.textContent = msg.text;
+                wrapper.appendChild(div);
+            } else {
+                let formatted = sanitizeForChat(msg.text)
+                    .replace(/\n/g, '<br>')
+                    .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
+                    .replace(/•/g, '<span style="color:var(--gold-500)">•</span>');
+                
+                div.innerHTML = formatted;
+                if (msg.showDisclaimer) {
+                    div.innerHTML += `<div class="disclaimer">${disclaimer}</div>`;
+                }
+                wrapper.appendChild(div);
+
+                // Only add options buttons to the latest bot message
+                if (msg.options && isLast) {
+                    const optionsDiv = document.createElement('div');
+                    optionsDiv.className = 'chat-options';
+                    msg.options.forEach(opt => {
+                        const btn = document.createElement('button');
+                        btn.className = 'chat-option-btn';
+                        btn.textContent = opt;
+                        optionsDiv.appendChild(btn);
+                    });
+                    wrapper.appendChild(optionsDiv);
+                }
+            }
+            messages.appendChild(wrapper);
+        });
+        
+        scrollToBottom();
+    }
+
+    // === Apply missing CSS for new features dynamically ===
+    const style = document.createElement('style');
+    style.textContent = `
+        .chat-message-wrapper {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            margin-bottom: 8px;
+        }
+        .chat-message-wrapper.bot { align-items: flex-start; }
+        .chat-message-wrapper.user { align-items: flex-end; }
+        .chat-options {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 8px;
+            padding-right: 4px;
+        }
+        .chat-option-btn {
+            background: var(--bg-body);
+            border: 1px solid var(--gold-500);
+            color: var(--primary-700);
+            padding: 6px 12px;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all var(--transition-fast);
+        }
+        .chat-option-btn:hover {
+            background: var(--gold-500);
+            color: var(--primary-900);
+        }
+    `;
+    document.head.appendChild(style);
 
     // Initialize when DOM is ready
     if (document.readyState === 'loading') {

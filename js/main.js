@@ -229,3 +229,40 @@ function showFormMessage(form, message, type = 'success') {
 
     setTimeout(() => msgEl.remove(), 5000);
 }
+
+// === PWA & Service Worker ===
+if ("serviceWorker" in navigator) {
+    window.addEventListener("load", () => {
+        navigator.serviceWorker.register("./sw.js").catch(err => console.log("SW registration failed: ", err));
+    });
+}
+
+// === Dark Mode & Font Size Logic ===
+document.addEventListener("DOMContentLoaded", () => {
+    const themeBtn = document.getElementById("themeToggle");
+    const fontBtn = document.getElementById("fontToggle");
+    
+    // Theme
+    if(localStorage.getItem("theme") === "dark") {
+        document.body.classList.add("dark-mode");
+    }
+    themeBtn?.addEventListener("click", () => {
+        document.body.classList.toggle("dark-mode");
+        localStorage.setItem("theme", document.body.classList.contains("dark-mode") ? "dark" : "light");
+    });
+    
+    // Font Size
+    let fontLevel = parseInt(localStorage.getItem("fontLevel") || "0");
+    const applyFont = () => {
+        document.body.classList.remove("font-lg", "font-xl");
+        if(fontLevel === 1) document.body.classList.add("font-lg");
+        if(fontLevel === 2) document.body.classList.add("font-xl");
+    };
+    applyFont();
+    fontBtn?.addEventListener("click", () => {
+        fontLevel = (fontLevel + 1) % 3;
+        localStorage.setItem("fontLevel", fontLevel);
+        applyFont();
+    });
+});
+
