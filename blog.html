@@ -1,217 +1,308 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>مدونة Zahran Law</title>
-  <meta name="description" content="مدونة قانونية عالمية تقدم مقالات وأخبار عن التشريعات والأحكام والكتب القانونية.">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <style>
-    :root {
-      --primary: #1a365d;
-      --accent: #d4af37;
-      --light: #f9fafb;
-      --dark: #2d3748;
-      --gray: #718096;
-    }
-    body { font-family: 'Tahoma', sans-serif; background: var(--light); margin: 0; padding: 0; color: var(--dark); }
-    header { background: linear-gradient(135deg, var(--primary), #2a4365); color: #fff; padding: 20px 15px; text-align: center; position: sticky; top: 0; z-index: 100; }
-    header h1 { margin: 10px 0 5px; font-size: 2rem; }
-    header p { margin-top: 0; opacity: 0.9; font-size: 1rem; }
-    nav { margin-top: 10px; }
-    nav a { color: #fff; margin: 0 10px; text-decoration: none; font-weight: bold; transition: 0.3s; }
-    nav a:hover { color: var(--accent); }
-    .container { max-width: 1100px; margin: 20px auto; padding: 0 15px; }
-    .controls { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; margin-bottom: 20px; }
-    .controls input, .controls select { padding: 10px; border: 1px solid #ccc; border-radius: 6px; }
-    .controls input { width: 70%; max-width: 350px; }
-    .posts { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 20px; }
-    .post { background: #fff; border-radius: 12px; padding: 20px; box-shadow: 0 4px 12px rgba(0,0,0,.08); display: flex; flex-direction: column; transition: transform 0.2s; }
-    .post:hover { transform: translateY(-5px); }
-    .post img { max-width: 100%; border-radius: 8px; margin-bottom: 12px; }
-    .post h2 { margin: 0 0 10px; color: var(--primary); font-size: 1.3rem; }
-    .post .meta { font-size: 0.85rem; color: var(--gray); margin-bottom: 12px; }
-    .tags { margin-top: 10px; }
-    .tag { display: inline-block; background: var(--accent); color: #000; padding: 3px 8px; border-radius: 5px; font-size: 0.8rem; margin: 3px; cursor: pointer; }
-    .read-more { margin-top: 15px; align-self: flex-start; background: var(--primary); color: #fff; padding: 8px 14px; border-radius: 6px; text-decoration: none; font-size: 0.9rem; transition: 0.3s; }
-    .read-more:hover { background: var(--accent); color: #000; }
-    .note { margin-top: 25px; padding: 15px; background: #fff; border-left: 4px solid var(--primary); border-radius: 8px; font-size: 0.9rem; color: var(--gray); }
-    .results-count { text-align: center; margin-bottom: 15px; color: var(--gray); font-size: 0.9rem; }
-    .pagination { display: flex; justify-content: center; margin: 25px 0; gap: 8px; flex-wrap: wrap; }
-    .pagination button { padding: 8px 12px; border: none; border-radius: 6px; cursor: pointer; background: var(--primary); color: #fff; font-size: 0.9rem; transition: 0.3s; }
-    .pagination button.disabled { background: #ccc; cursor: default; }
-    .pagination button.active { background: var(--accent); color: #000; }
-    footer { text-align: center; padding: 20px; margin-top: 30px; font-size: 0.9rem; color: var(--gray); background: #fff; border-top: 1px solid #eee; }
-
-    /* Modal */
-    .modal { display: none; position: fixed; z-index: 999; left: 0; top: 0; width: 100%; height: 100%; overflow: auto; background-color: rgba(0,0,0,0.6); }
-    .modal-content { background: #fff; margin: 5% auto; padding: 20px; border-radius: 12px; max-width: 800px; position: relative; animation: fadeIn 0.3s ease-in-out; }
-    .close { position: absolute; top: 15px; left: 15px; font-size: 1.5rem; cursor: pointer; color: var(--gray); }
-    .modal-content h2 { margin-top: 0; color: var(--primary); }
-    @keyframes fadeIn { from { opacity: 0; transform: translateY(-20px);} to { opacity: 1; transform: translateY(0);} }
-
-    @media (max-width: 600px) {
-      header h1 { font-size: 1.6rem; }
-      .post h2 { font-size: 1.1rem; }
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>المدونة القانونية - مؤسسة آل زهران</title>
+    <meta name="description" content="مقالات وتحليلات قانونية عالمية بلمسة مهنية من مؤسسة آل زهران للمحاماة.">
+    <meta name="keywords" content="محاماة, استشارات قانونية, مدونة, مقالات قانونية, مصر">
+    
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/3.0.6/purify.min.js"></script>
 </head>
 <body>
-  <header>
-    <h1>📝 مدونة Zahran Law</h1>
-    <p>مقالات وتحليلات قانونية عالمية بلمسة مهنية</p>
-    <nav>
-      <a href="index.html">الرئيسية</a>
-      <a href="law.html">التشريعات</a>
-      <a href="blog.html">المدونة</a>
-      <a href="contact.html">اتصل بنا</a>
-    </nav>
-  </header>
+    <header class="header" id="header">
+        <div class="container">
+            <div class="header-content">
+                <a href="index.html" class="logo">
+                    <i class="fas fa-balance-scale"></i>
+                    <span>مؤسسة آل زهران</span>
+                </a>
+                <nav>
+                    <ul class="nav-menu" id="navMenu">
+                        <li><a href="index.html">الرئيسية</a></li>
+                        <li><a href="index.html#services">خدماتنا</a></li>
+                        <li><a href="law.html">المكتبة القانونية</a></li>
+                        <li><a href="blog.html" class="active">المدونة</a></li>
+                        <li><a href="faq.html">الأسئلة الشائعة</a></li>
+                        <li><a href="booking.html">حجز استشارة</a></li>
+                        <li><a href="contact.html">اتصل بنا</a></li>
+                    </ul>
+                    <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="القائمة">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                </nav>
+            </div>
+        </div>
+    </header>
 
-  <main class="container">
-    <div class="controls">
-      <input id="searchInput" type="text" placeholder="ابحث في المقالات...">
-      <select id="categoryFilter">
-        <option value="">كل التصنيفات</option>
-        <option value="تشريعات">تشريعات</option>
-        <option value="أحكام">أحكام</option>
-        <option value="كتب">كتب</option>
-        <option value="مقالات عامة">مقالات عامة</option>
-        <option value="أخبار">أخبار</option>
-      </select>
+    <section class="hero" style="min-height: 40vh; padding-top: 120px;">
+        <div class="hero-content">
+            <h1 class="hero-title">المدونة <span>القانونية</span></h1>
+            <p class="hero-subtitle">مقالات وتحليلات قانونية عالمية بلمسة مهنية</p>
+        </div>
+    </section>
+
+    <main class="section">
+        <div class="container">
+            <div class="blog-controls">
+                <input type="text" id="searchInput" class="form-input blog-search" placeholder="ابحث في المدونة...">
+                <select id="categorySelect" class="form-select blog-filter">
+                    <option value="">جميع التصنيفات</option>
+                    <option value="تشريعات">تشريعات</option>
+                    <option value="أحكام">أحكام</option>
+                    <option value="كتب">كتب</option>
+                    <option value="مقالات عامة">مقالات عامة</option>
+                    <option value="أخبار">أخبار</option>
+                </select>
+            </div>
+            
+            <p class="results-count" id="resultsCount"></p>
+
+            <div class="blog-grid" id="blogContainer">
+                <!-- Blog posts will be loaded here -->
+            </div>
+            
+            <div class="pagination" id="pagination">
+                <!-- Pagination buttons will be loaded here -->
+            </div>
+        </div>
+    </main>
+
+    <div class="modal" id="postModal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.8); z-index:9999; overflow-y:auto; backdrop-filter:blur(4px);">
+        <div class="modal-content" style="background:var(--bg-card); margin: 50px auto; padding: 40px; max-width: 800px; border-radius: var(--radius-lg); position: relative; box-shadow: var(--shadow-xl); border: 1px solid var(--border-light);">
+            <button id="closeModal" style="position:absolute; top:20px; left:20px; font-size: 2rem; color:var(--text-secondary); cursor:pointer; background:none; border:none; line-height:1;">&times;</button>
+            <div id="modalBody"></div>
+        </div>
     </div>
-    <div id="resultsCount" class="results-count"></div>
-    <div id="posts" class="posts"></div>
-    <div class="pagination" id="pagination"></div>
-    <div class="note"><i class="fas fa-lightbulb"></i> تابع مدونتنا باستمرار لتكون على اطلاع بآخر المستجدات القانونية عالميًا وعربيًا.</div>
-  </main>
 
-  <footer>
-    © 2025 كل الحقوق محفوظة — Zahran Law
-  </footer>
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>مؤسسة آل زهران</h3>
+                    <p>مؤسسة مصرية متخصصة في المحاماة والاستشارات القانونية. نلتزم بأعلى معايير المهنية والسرية في خدمة موكلينا.</p>
+                    <div class="footer-badge">
+                        <i class="fas fa-shield-alt"></i>
+                        <span>مقيّدة بنقابة المحامين المصرية</span>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h3>خدماتنا</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html#services">القضايا المدنية</a></li>
+                        <li><a href="index.html#services">القانون الجنائي</a></li>
+                        <li><a href="index.html#services">الأحوال الشخصية</a></li>
+                        <li><a href="index.html#services">قانون العمل</a></li>
+                        <li><a href="index.html#services">الشركات والتجارة</a></li>
+                        <li><a href="index.html#services">القضاء الإداري</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>روابط مهمة</h3>
+                    <ul class="footer-links">
+                        <li><a href="faq.html">الأسئلة الشائعة</a></li>
+                        <li><a href="booking.html">حجز استشارة</a></li>
+                        <li><a href="privacy.html">سياسة الخصوصية</a></li>
+                        <li><a href="terms.html">شروط الاستخدام</a></li>
+                        <li><a href="disclaimer.html">إخلاء المسؤولية</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>تواصل معنا</h3>
+                    <div class="footer-contact">
+                        <p><i class="fas fa-map-marker-alt"></i> القاهرة، المرج الجديدة / الخصوص</p>
+                        <p><i class="fas fa-phone"></i> 01229333957 - 01060670084</p>
+                        <p><i class="fas fa-envelope"></i> alzahranlaw1@gmail.com</p>
+                    </div>
+                    <div class="social-links">
+                        <a href="https://www.facebook.com/share/1EuJVYKeH9" target="_blank" aria-label="فيسبوك"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://wa.me/201229333957" target="_blank" aria-label="واتساب"><i class="fab fa-whatsapp"></i></a>
+                        <a href="mailto:alzahranlaw1@gmail.com" aria-label="بريد إلكتروني"><i class="fas fa-envelope"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; <span id="currentYear"></span> مؤسسة آل زهران للمحاماة والاستشارات القانونية. جميع الحقوق محفوظة.</p>
+                <p class="footer-legal">محمية بموجب قانون حماية البيانات الشخصية المصري رقم ١٥١ لسنة ٢٠٢٠</p>
+            </div>
+        </div>
+    </footer>
 
-  <!-- Modal -->
-  <div id="modal" class="modal">
-    <div class="modal-content">
-      <span class="close" onclick="closeModal()">&times;</span>
-      <h2 id="modalTitle"></h2>
-      <div id="modalMeta" class="meta"></div>
-      <div id="modalContent"></div>
+    <a href="https://wa.me/201229333957" class="whatsapp-float" target="_blank" aria-label="تواصل عبر واتساب">
+        <i class="fab fa-whatsapp"></i>
+        <span class="whatsapp-tooltip">تواصل معنا</span>
+    </a>
+
+    <button class="scroll-top" id="scrollTop" aria-label="العودة للأعلى">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <div class="chatbot-widget" id="chatbotWidget">
+        <button class="chatbot-trigger" id="chatbotTrigger" aria-label="المساعد القانوني">
+            <i class="fas fa-robot"></i>
+        </button>
+        <div class="chatbot-window" id="chatbotWindow">
+            <div class="chatbot-header">
+                <div class="chatbot-header-info">
+                    <i class="fas fa-robot"></i>
+                    <div>
+                        <h4>المساعد القانوني الذكي</h4>
+                        <small>للتوجيه فقط - لا يُغني عن استشارة المحامي</small>
+                    </div>
+                </div>
+                <button class="chatbot-close" id="chatbotClose"><i class="fas fa-times"></i></button>
+            </div>
+            <div class="chatbot-messages" id="chatMessages"></div>
+            <div class="chatbot-input">
+                <input type="text" id="chatInput" placeholder="اكتب سؤالك القانوني...">
+                <button id="chatSend"><i class="fas fa-paper-plane"></i></button>
+            </div>
+        </div>
     </div>
-  </div>
 
-  <script>
-    const SHEET_ID = "1tQ6NpGMHojxf5XjFyoAkeN0Uivn_FE42vGPXKFLqj-Y";
-    const SHEET_NAME = "legal";
-    const SHEET_URL = `https://opensheet.elk.sh/${SHEET_ID}/${SHEET_NAME}`;
+    <script src="js/main.js"></script>
+    <script src="js/chatbot.js"></script>
+    <script>
+        const sheetUrl = "https://opensheet.elk.sh/1tQ6NpGMHojxf5XjFyoAkeN0Uivn_FE42vGPXKFLqj-Y/legal";
+        let allPosts = [];
+        let filteredPosts = [];
+        const postsPerPage = 6;
+        let currentPage = 1;
 
-    let allPosts = [];
-    let currentPage = 1;
-    const postsPerPage = 6;
+        async function fetchPosts() {
+            try {
+                const response = await fetch(sheetUrl);
+                const data = await response.json();
+                allPosts = data;
+                filteredPosts = [...allPosts];
+                renderPosts();
+                renderPagination();
+            } catch (error) {
+                console.error("Error fetching posts:", error);
+                document.getElementById("blogContainer").innerHTML = '<p style="text-align:center; grid-column: 1/-1;">حدث خطأ أثناء جلب المقالات. يرجى المحاولة لاحقاً.</p>';
+            }
+        }
 
-    async function loadPosts() {
-      const postsEl = document.getElementById('posts');
-      postsEl.innerHTML = '<div style="text-align:center;padding:20px;">جاري التحميل...</div>';
-      try {
-        const res = await fetch(SHEET_URL);
-        if(!res.ok) throw new Error('فشل تحميل البيانات');
-        allPosts = await res.json();
-        renderPosts();
-      } catch (e) {
-        postsEl.innerHTML = '<div style="color:red;text-align:center;">خطأ في تحميل المقالات</div>';
-      }
-    }
+        function renderPosts() {
+            const container = document.getElementById("blogContainer");
+            container.innerHTML = "";
+            document.getElementById("resultsCount").textContent = \`تم العثور على \${filteredPosts.length} مقال\`;
 
-    function renderPosts() {
-      const searchQuery = (document.getElementById('searchInput').value || '').toLowerCase();
-      const category = document.getElementById('categoryFilter').value;
+            const startIndex = (currentPage - 1) * postsPerPage;
+            const endIndex = startIndex + postsPerPage;
+            const currentPosts = filteredPosts.slice(startIndex, endIndex);
 
-      let filtered = allPosts.filter(d => {
-        const matchesSearch = (d.title || '').toLowerCase().includes(searchQuery) ||
-                              (d.summary || '').toLowerCase().includes(searchQuery) ||
-                              (d.content || '').toLowerCase().includes(searchQuery);
-        const matchesCategory = !category || (d.category || '').includes(category);
-        return matchesSearch && matchesCategory;
-      });
+            if (currentPosts.length === 0) {
+                container.innerHTML = '<p style="text-align:center; grid-column: 1/-1;">لا توجد مقالات تطابق بحثك.</p>';
+                return;
+            }
 
-      const postsEl = document.getElementById('posts');
-      const resultsCountEl = document.getElementById('resultsCount');
-      postsEl.innerHTML = '';
+            currentPosts.forEach(post => {
+                const title = DOMPurify.sanitize(post.title || post.العنوان || 'بدون عنوان');
+                const date = DOMPurify.sanitize(post.data || post.date || post.التاريخ || '');
+                const author = DOMPurify.sanitize(post.author || post.الكاتب || 'مؤسسة آل زهران');
+                const category = DOMPurify.sanitize(post.category || post.التصنيف || '');
+                
+                // Content fallback
+                const rawContent = post.content || post.المحتوى || post.التفاصيل || '';
+                const excerpt = rawContent ? DOMPurify.sanitize(rawContent.substring(0, 100)) + '...' : 'اقرأ المزيد عن هذا الموضوع عبر النقر على الرابط أدناه.';
+                
+                const card = document.createElement("div");
+                card.className = "blog-card";
+                card.innerHTML = \`
+                    <img src="\${DOMPurify.sanitize(post.image || post.الصورة || 'https://via.placeholder.com/800x400?text=مقالة+قانونية')}" alt="\${title}">
+                    <div class="blog-card-body">
+                        <h3>\${title}</h3>
+                        <div class="meta">
+                            <span><i class="far fa-calendar-alt"></i> \${date}</span> | 
+                            <span><i class="far fa-user"></i> \${author}</span>
+                        </div>
+                        <p>\${excerpt}</p>
+                        \${category ? \`<div class="tags"><span class="tag">\${category}</span></div>\` : ''}
+                        <button class="card-link" onclick='openModal(\${JSON.stringify(post).replace(/'/g, "&apos;")})' style="background:none; border:none; padding:0; cursor:pointer;">
+                            اقرأ المزيد <i class="fas fa-arrow-left"></i>
+                        </button>
+                    </div>
+                \`;
+                container.appendChild(card);
+            });
+        }
 
-      resultsCountEl.innerText = `عدد النتائج: ${filtered.length}`;
+        function renderPagination() {
+            const paginationContainer = document.getElementById("pagination");
+            paginationContainer.innerHTML = "";
+            const totalPages = Math.ceil(filteredPosts.length / postsPerPage);
 
-      const start = (currentPage - 1) * postsPerPage;
-      const end = start + postsPerPage;
-      const pagePosts = filtered.slice(start, end);
+            if (totalPages <= 1) return;
 
-      if(pagePosts.length === 0){
-        postsEl.innerHTML = '<div style="color:gray; text-align:center; padding:20px;">لا توجد نتائج مطابقة</div>';
-      } else {
-        pagePosts.forEach(d => {
-          const post = document.createElement('div');
-          post.className = 'post';
-          const tags = (d.tags || '').split(',').map(tag => tag.trim()).filter(tag => tag).map(tag => `<span class="tag" onclick="filterByTag('${tag}')">${tag}</span>`).join(' ');
-          post.innerHTML = `
-            ${d.image ? `<img src="${d.image}" alt="${d.title}">` : ''}
-            <h2>${d.title || ''}</h2>
-            <div class="meta">${d.date || ''} — ${d.author || 'مجهول'} — ${d.category || ''}</div>
-            <p>${d.summary || ''}</p>
-            <div class="tags">${tags}</div>
-            <a href="#" class="read-more" onclick='openModal("${escapeQuotes(d.title)}", "${escapeQuotes(d.date)}", "${escapeQuotes(d.author)}", "${escapeQuotes(d.content)}")'>اقرأ المزيد</a>
-          `;
-          postsEl.appendChild(post);
+            for (let i = 1; i <= totalPages; i++) {
+                const btn = document.createElement("button");
+                btn.textContent = i;
+                if (i === currentPage) btn.className = "active";
+                btn.onclick = () => {
+                    currentPage = i;
+                    renderPosts();
+                    renderPagination();
+                    window.scrollTo({ top: document.querySelector('.blog-controls').offsetTop - 100, behavior: 'smooth' });
+                };
+                paginationContainer.appendChild(btn);
+            }
+        }
+
+        function filterPosts() {
+            const searchTerm = document.getElementById("searchInput").value.toLowerCase();
+            const categoryFilter = document.getElementById("categorySelect").value;
+
+            filteredPosts = allPosts.filter(post => {
+                const titleStr = (post.title || post.العنوان || '').toLowerCase();
+                const contentStr = (post.content || post.المحتوى || '').toLowerCase();
+                const matchesSearch = titleStr.includes(searchTerm) || contentStr.includes(searchTerm);
+                
+                const catStr = (post.category || post.التصنيف || '');
+                const matchesCategory = categoryFilter === "" || catStr.includes(categoryFilter);
+
+                return matchesSearch && matchesCategory;
+            });
+
+            currentPage = 1;
+            renderPosts();
+            renderPagination();
+        }
+
+        document.getElementById("searchInput").addEventListener("input", filterPosts);
+        document.getElementById("categorySelect").addEventListener("change", filterPosts);
+
+        window.openModal = function(post) {
+            const modalBody = document.getElementById("modalBody");
+            const title = DOMPurify.sanitize(post.title || post.العنوان || 'بدون عنوان');
+            const date = DOMPurify.sanitize(post.data || post.date || post.التاريخ || '');
+            const author = DOMPurify.sanitize(post.author || post.الكاتب || 'مؤسسة آل زهران');
+            const image = DOMPurify.sanitize(post.image || post.الصورة || '');
+            const content = DOMPurify.sanitize(post.content || post.المحتوى || 'لا يوجد محتوى تفصيلي لهذه المقالة.');
+
+            modalBody.innerHTML = \`
+                <h2 style="color:var(--primary-700); margin-bottom: 10px;">\${title}</h2>
+                <div class="meta" style="color:var(--text-muted); margin-bottom: 20px; font-size:0.9rem;">
+                    <span><i class="far fa-calendar-alt"></i> \${date}</span> | 
+                    <span><i class="far fa-user"></i> \${author}</span>
+                </div>
+                \${image ? \`<img src="\${image}" style="width:100%; max-height:400px; object-fit:cover; margin-bottom:20px; border-radius:var(--radius-md);" alt="\${title}">\` : ''}
+                <div style="line-height:1.8; color:var(--text-secondary); white-space: pre-wrap;">\${content}</div>
+            \`;
+            document.getElementById("postModal").style.display = "block";
+            document.body.style.overflow = "hidden";
+        };
+
+        document.getElementById("closeModal").addEventListener("click", () => {
+            document.getElementById("postModal").style.display = "none";
+            document.body.style.overflow = "auto";
         });
-      }
-      renderPagination(filtered.length);
-    }
 
-    function renderPagination(totalItems) {
-      const totalPages = Math.ceil(totalItems / postsPerPage);
-      const paginationEl = document.getElementById('pagination');
-      paginationEl.innerHTML = '';
-
-      if(totalPages <= 1) return;
-
-      for(let i=1; i<=totalPages; i++) {
-        const btn = document.createElement('button');
-        btn.innerText = i;
-        btn.className = (i === currentPage) ? 'active' : '';
-        btn.onclick = () => { currentPage = i; renderPosts(); window.scrollTo({top:0, behavior:'smooth'}); };
-        paginationEl.appendChild(btn);
-      }
-    }
-
-    function escapeQuotes(str="") {
-      return String(str).replace(/"/g, '&quot;').replace(/'/g, "&#39;");
-    }
-
-    function openModal(title, date, author, content) {
-      document.getElementById('modalTitle').innerText = title;
-      document.getElementById('modalMeta').innerText = `${date} — ${author}`;
-      document.getElementById('modalContent').innerHTML = content;
-      document.getElementById('modal').style.display = 'block';
-    }
-
-    function closeModal() {
-      document.getElementById('modal').style.display = 'none';
-    }
-
-    function filterByTag(tag) {
-      document.getElementById('searchInput').value = tag;
-      currentPage = 1;
-      renderPosts();
-    }
-
-    window.onclick = function(event) {
-      if (event.target == document.getElementById('modal')) {
-        closeModal();
-      }
-    }
-
-    document.getElementById('searchInput').addEventListener('input', () => { currentPage = 1; renderPosts(); });
-    document.getElementById('categoryFilter').addEventListener('change', () => { currentPage = 1; renderPosts(); });
-
-    loadPosts();
-  </script>
+        fetchPosts();
+    </script>
 </body>
 </html>

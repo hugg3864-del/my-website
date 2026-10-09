@@ -1,0 +1,231 @@
+/* ============================================
+   مؤسسة آل زهران — Main JavaScript
+   ============================================ */
+
+// === Utility: Sanitize HTML to prevent XSS ===
+function sanitizeHTML(str) {
+    if (!str) return '';
+    const temp = document.createElement('div');
+    temp.textContent = String(str);
+    return temp.innerHTML;
+}
+
+// === Mobile Menu Toggle ===
+document.addEventListener('DOMContentLoaded', () => {
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    const navMenu = document.getElementById('navMenu');
+
+    if (mobileMenuBtn && navMenu) {
+        mobileMenuBtn.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+            const icon = mobileMenuBtn.querySelector('i');
+            if (navMenu.classList.contains('active')) {
+                icon.classList.replace('fa-bars', 'fa-times');
+            } else {
+                icon.classList.replace('fa-times', 'fa-bars');
+            }
+        });
+
+        // Close menu when clicking a link
+        navMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+                const icon = mobileMenuBtn.querySelector('i');
+                icon.classList.replace('fa-times', 'fa-bars');
+            });
+        });
+
+        // Close menu on outside click
+        document.addEventListener('click', (e) => {
+            if (!navMenu.contains(e.target) && !mobileMenuBtn.contains(e.target)) {
+                navMenu.classList.remove('active');
+                const icon = mobileMenuBtn.querySelector('i');
+                if (icon) icon.classList.replace('fa-times', 'fa-bars');
+            }
+        });
+    }
+
+    // === Active Navigation Link ===
+    const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+    navMenu?.querySelectorAll('a').forEach(link => {
+        const href = link.getAttribute('href');
+        if (href === currentPage || (currentPage === '' && href === 'index.html')) {
+            link.classList.add('active');
+        }
+    });
+
+    // === Dynamic Copyright Year ===
+    const yearEl = document.getElementById('currentYear');
+    if (yearEl) {
+        yearEl.textContent = new Date().getFullYear();
+    }
+
+    // === Initialize Scroll Animations ===
+    initScrollAnimations();
+
+    // === Initialize FAQ Accordion ===
+    initFaqAccordion();
+});
+
+// === Header Scroll Effect ===
+const header = document.querySelector('.header');
+let lastScroll = 0;
+
+window.addEventListener('scroll', () => {
+    const currentScroll = window.pageYOffset;
+
+    if (header) {
+        if (currentScroll > 50) {
+            header.classList.add('scrolled');
+        } else {
+            header.classList.remove('scrolled');
+        }
+    }
+
+    // Scroll to Top Button
+    const scrollTopBtn = document.getElementById('scrollTop');
+    if (scrollTopBtn) {
+        if (currentScroll > 400) {
+            scrollTopBtn.classList.add('visible');
+        } else {
+            scrollTopBtn.classList.remove('visible');
+        }
+    }
+
+    lastScroll = currentScroll;
+}, { passive: true });
+
+// === Scroll to Top ===
+document.getElementById('scrollTop')?.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+});
+
+// === Smooth Scrolling for Anchor Links ===
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        const targetId = this.getAttribute('href');
+        if (targetId === '#') return;
+
+        const target = document.querySelector(targetId);
+        if (target) {
+            e.preventDefault();
+            const headerHeight = document.querySelector('.header')?.offsetHeight || 72;
+            const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - headerHeight - 20;
+            window.scrollTo({ top: targetPosition, behavior: 'smooth' });
+        }
+    });
+});
+
+// === Scroll Animations (Intersection Observer) ===
+function initScrollAnimations() {
+    const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -40px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+                observer.unobserve(entry.target);
+            }
+        });
+    }, observerOptions);
+
+    document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+}
+
+// === Counter Animation ===
+function animateCounters() {
+    const counters = document.querySelectorAll('[data-count]');
+    counters.forEach(counter => {
+        const target = parseInt(counter.dataset.count);
+        const suffix = counter.dataset.suffix || '';
+        const duration = 2000;
+        const startTime = performance.now();
+
+        function update(currentTime) {
+            const elapsed = currentTime - startTime;
+            const progress = Math.min(elapsed / duration, 1);
+            // Ease-out cubic
+            const easedProgress = 1 - Math.pow(1 - progress, 3);
+            const currentValue = Math.floor(easedProgress * target);
+
+            counter.textContent = currentValue + suffix;
+
+            if (progress < 1) {
+                requestAnimationFrame(update);
+            } else {
+                counter.textContent = target + suffix;
+            }
+        }
+
+        requestAnimationFrame(update);
+    });
+}
+
+// Trigger counter animation when stats section is visible
+const statsSection = document.querySelector('.stats-bar');
+if (statsSection) {
+    const statsObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                animateCounters();
+                statsObserver.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.3 });
+
+    statsObserver.observe(statsSection);
+}
+
+// === FAQ Accordion ===
+function initFaqAccordion() {
+    document.querySelectorAll('.faq-question').forEach(button => {
+        button.addEventListener('click', () => {
+            const item = button.closest('.faq-item');
+            const answer = item.querySelector('.faq-answer');
+            const isActive = item.classList.contains('active');
+
+            // Close all other items
+            document.querySelectorAll('.faq-item.active').forEach(activeItem => {
+                if (activeItem !== item) {
+                    activeItem.classList.remove('active');
+                    activeItem.querySelector('.faq-answer').style.maxHeight = '0';
+                }
+            });
+
+            // Toggle current
+            if (isActive) {
+                item.classList.remove('active');
+                answer.style.maxHeight = '0';
+            } else {
+                item.classList.add('active');
+                answer.style.maxHeight = answer.scrollHeight + 'px';
+            }
+        });
+    });
+}
+
+// === Form Validation Helpers ===
+function validateEmail(email) {
+    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+}
+
+function validatePhone(phone) {
+    // Egyptian phone format
+    return /^(01)[0-2,5]{1}[0-9]{8}$/.test(phone.replace(/\s|-/g, ''));
+}
+
+function showFormMessage(form, message, type = 'success') {
+    const existing = form.querySelector('.form-message');
+    if (existing) existing.remove();
+
+    const msgEl = document.createElement('div');
+    msgEl.className = `form-message note-box ${type}`;
+    msgEl.innerHTML = `<i class="fas fa-${type === 'success' ? 'check-circle' : 'exclamation-triangle'}"></i> ${message}`;
+    msgEl.style.marginTop = '16px';
+    form.appendChild(msgEl);
+
+    setTimeout(() => msgEl.remove(), 5000);
+}

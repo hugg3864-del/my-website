@@ -3,539 +3,58 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>مؤسسة آل زهران للمحاماة والاستشارات القانونية</title>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+    <title>مؤسسة آل زهران للمحاماة والاستشارات القانونية | الرئيسية</title>
+    <meta name="description" content="مؤسسة مصرية متخصصة في المحاماة والاستشارات القانونية. نلتزم بأعلى معايير المهنية والسرية في خدمة موكلينا.">
+    
+    <!-- Fonts & Icons -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/style.css">
+
+    <!-- Overriding hero background with provided URL -->
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Cairo', sans-serif;
-            line-height: 1.6;
-            color: #333;
-            background-color: #f8f9fa;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        /* Header */
-        header {
-            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
-            color: white;
-            padding: 1rem 0;
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-        }
-
-        .header-content {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            font-size: 1.8rem;
-            font-weight: 900;
-            color: #ffd700;
-        }
-
-        .nav-menu {
-            display: flex;
-            list-style: none;
-            gap: 2rem;
-        }
-
-        .nav-menu a {
-            color: white;
-            text-decoration: none;
-            font-weight: 600;
-            transition: color 0.3s ease;
-        }
-
-        .nav-menu a:hover {
-            color: #ffd700;
-        }
-
-        .mobile-menu-btn {
-            display: none;
-            background: none;
-            border: none;
-            color: white;
-            font-size: 1.5rem;
-            cursor: pointer;
-        }
-
-        /* Hero Section */
-        .hero {
-            background: linear-gradient(rgba(30, 60, 114, 0.8), rgba(42, 82, 152, 0.8));
-            color: white;
-            padding: 120px 0 80px;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-
         .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: url('https://raw.githubusercontent.com/hugg3864-del/my-website/refs/heads/master/AiArt_1753898582219.jpg') center/cover;
-            z-index: -1;
+            background: url('https://raw.githubusercontent.com/hugg3864-del/my-website/refs/heads/master/AiArt_1753898582219.jpg') center/cover no-repeat !important;
         }
-
-        .hero-content h1 {
-            font-size: 3.5rem;
-            font-weight: 900;
-            margin-bottom: 1rem;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
-        }
-
-        .hero-content p {
-            font-size: 1.3rem;
-            margin-bottom: 2rem;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .btn {
-            display: inline-block;
-            padding: 15px 30px;
-            background: #ffd700;
-            color: #1e3c72;
-            text-decoration: none;
-            border-radius: 50px;
-            font-weight: 700;
-            transition: all 0.3s ease;
-            border: none;
-            cursor: pointer;
-            font-size: 1.1rem;
-        }
-
-        .btn:hover {
-            background: #ffed4e;
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-        }
-
-        /* Featured Image */
-        .hero-image {
-            margin: 40px auto;
-            max-width: 800px;
-            border-radius: 15px;
-            overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-        }
-
-        .hero-image img {
-            width: 100%;
-            height: 400px;
-            object-fit: cover;
-        }
-
-        /* Services Section */
-        .services {
-            padding: 80px 0;
-            background: white;
-        }
-
-        .section-title {
-            text-align: center;
-            font-size: 2.5rem;
-            font-weight: 700;
-            color: #1e3c72;
-            margin-bottom: 3rem;
-        }
-
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-
-        .service-card {
-            background: white;
-            padding: 2rem;
-            border-radius: 15px;
-            text-align: center;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
-            transition: transform 0.3s ease;
-            border-top: 4px solid #ffd700;
-        }
-
-        .service-card:hover {
-            transform: translateY(-10px);
-        }
-
-        .service-icon {
-            font-size: 3rem;
-            color: #1e3c72;
-            margin-bottom: 1rem;
-        }
-
-        .service-card h3 {
-            font-size: 1.5rem;
-            color: #1e3c72;
-            margin-bottom: 1rem;
-        }
-
-        /* About Section */
-        .about {
-            padding: 80px 0;
-            background: #f8f9fa;
-        }
-
-        .about-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 3rem;
-            align-items: center;
-        }
-
-        .about-text h2 {
-            font-size: 2.5rem;
-            color: #1e3c72;
-            margin-bottom: 1.5rem;
-        }
-
-        .about-text p {
-            font-size: 1.1rem;
-            line-height: 1.8;
-            margin-bottom: 1.5rem;
-        }
-
-        .about-image {
-            border-radius: 15px;
-            overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-        }
-
-        .about-image img {
-            width: 100%;
-            height: 400px;
-            object-fit: cover;
-        }
-
-        /* Stats Section */
-        .stats {
-            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
-            color: white;
-            padding: 60px 0;
-        }
-
+        /* Make stats grid center if only 3 items */
         .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 2rem;
-            text-align: center;
-        }
-
-        .stat-item h3 {
-            font-size: 3rem;
-            font-weight: 900;
-            color: #ffd700;
-            margin-bottom: 0.5rem;
-        }
-
-        .stat-item p {
-            font-size: 1.2rem;
-        }
-
-        /* Team Section */
-        .team {
-            padding: 80px 0;
-            background: white;
-        }
-
-        .team-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-
-        .team-member {
-            background: white;
-            border-radius: 15px;
-            overflow: hidden;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
-            transition: transform 0.3s ease;
-        }
-
-        .team-member:hover {
-            transform: translateY(-5px);
-        }
-
-        .member-image {
-            width: 100%;
-            height: 250px;
-            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
-            display: flex;
-            align-items: center;
             justify-content: center;
         }
-
-        .member-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .member-info {
-            padding: 1.5rem;
-            text-align: center;
-        }
-
-        .member-info h4 {
-            font-size: 1.3rem;
-            color: #1e3c72;
-            margin-bottom: 0.5rem;
-        }
-
-        .member-info p {
-            color: #666;
-        }
-
-        /* Contact Section */
-        .contact {
-            padding: 80px 0;
-            background: #f8f9fa;
-        }
-
-        .contact-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 3rem;
-        }
-
-        .contact-info {
-            background: white;
-            padding: 2rem;
-            border-radius: 15px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
-        }
-
-        .contact-item {
-            display: flex;
-            align-items: center;
-            margin-bottom: 1.5rem;
-        }
-
-        .contact-item i {
-            font-size: 1.5rem;
-            color: #1e3c72;
-            margin-left: 1rem;
-            width: 30px;
-        }
-
-        .contact-form {
-            background: white;
-            padding: 2rem;
-            border-radius: 15px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
-        }
-
-        .form-group {
-            margin-bottom: 1.5rem;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 0.5rem;
-            font-weight: 600;
-            color: #1e3c72;
-        }
-
-        .form-group input,
-        .form-group textarea {
-            width: 100%;
-            padding: 12px;
-            border: 2px solid #e9ecef;
-            border-radius: 8px;
-            font-family: 'Cairo', sans-serif;
-            transition: border-color 0.3s ease;
-        }
-
-        .form-group input:focus,
-        .form-group textarea:focus {
-            outline: none;
-            border-color: #1e3c72;
-        }
-
-        /* Footer */
-        footer {
-            background: #1e3c72;
-            color: white;
-            padding: 40px 0 20px;
-        }
-
-        .footer-content {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin-bottom: 2rem;
-        }
-
-        .footer-section h3 {
-            color: #ffd700;
-            margin-bottom: 1rem;
-        }
-
-        .footer-section p,
-        .footer-section a {
-            color: #ccc;
-            text-decoration: none;
-            line-height: 1.8;
-        }
-
-        .footer-section a:hover {
-            color: #ffd700;
-        }
-
-        .social-links {
-            display: flex;
-            gap: 1rem;
-            margin-top: 1rem;
-        }
-
-        .social-links a {
-            display: inline-block;
-            width: 40px;
-            height: 40px;
-            background: #2a5298;
-            color: white;
-            text-align: center;
-            line-height: 40px;
-            border-radius: 50%;
-            transition: background 0.3s ease;
-        }
-
-        .social-links a:hover {
-            background: #ffd700;
-            color: #1e3c72;
-        }
-
-        .footer-bottom {
-            text-align: center;
-            padding-top: 2rem;
-            border-top: 1px solid #2a5298;
-            color: #ccc;
-        }
-
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .mobile-menu-btn {
-                display: block;
-            }
-
-            .nav-menu {
-                display: none;
-                position: absolute;
-                top: 100%;
-                left: 0;
-                width: 100%;
-                background: #1e3c72;
-                flex-direction: column;
-                padding: 1rem 0;
-            }
-
-            .nav-menu.active {
-                display: flex;
-            }
-
-            .hero-content h1 {
-                font-size: 2.5rem;
-            }
-
-            .about-content {
-                grid-template-columns: 1fr;
-            }
-
-            .contact-content {
-                grid-template-columns: 1fr;
-            }
-
+        @media (min-width: 768px) {
             .stats-grid {
-                grid-template-columns: repeat(2, 1fr);
+                display: flex;
+                flex-wrap: wrap;
             }
-        }
-
-        /* Animation */
-        .fade-in {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.6s ease;
-        }
-
-        .fade-in.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        /* Scroll to top button */
-        .scroll-top {
-            position: fixed;
-            bottom: 20px;
-            left: 20px;
-            background: #1e3c72;
-            color: white;
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            opacity: 0;
-            transition: all 0.3s ease;
-            z-index: 1000;
-        }
-
-        .scroll-top.visible {
-            opacity: 1;
-        }
-
-        .scroll-top:hover {
-            background: #ffd700;
-            color: #1e3c72;
+            .stat-item {
+                flex: 1;
+                min-width: 250px;
+            }
         }
     </style>
 </head>
 <body>
+
     <!-- Header -->
-    <header>
+    <header class="header" id="header">
         <div class="container">
             <div class="header-content">
-                <div class="logo">
+                <a href="index.html" class="logo">
                     <i class="fas fa-balance-scale"></i>
-                    مؤسسة آل زهران
-                </div>
+                    <span>مؤسسة آل زهران</span>
+                </a>
                 <nav>
                     <ul class="nav-menu" id="navMenu">
-                        <li><a href="#home">الرئيسية</a></li>
-                        <li><a href="#services">خدماتنا</a></li>
-                        <li><a href="law.html">التشريعات والأحكام</a></li>
-                        <a href="blog.html">المدونة</a>
-                        <li><a href="#about">عن المؤسسة</a></li>
-                        <li><a href="#team">فريق العمل</a></li>
-                        <li><a href="#contact">اتصل بنا</a></li>
+                        <li><a href="index.html" class="active">الرئيسية</a></li>
+                        <li><a href="index.html#services">خدماتنا</a></li>
+                        <li><a href="law.html">المكتبة القانونية</a></li>
+                        <li><a href="blog.html">المدونة</a></li>
+                        <li><a href="faq.html">الأسئلة الشائعة</a></li>
+                        <li><a href="booking.html">حجز استشارة</a></li>
+                        <li><a href="contact.html">اتصل بنا</a></li>
                     </ul>
-                    <button class="mobile-menu-btn" id="mobileMenuBtn">
+                    <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="القائمة">
                         <i class="fas fa-bars"></i>
                     </button>
                 </nav>
@@ -543,547 +62,318 @@
         </div>
     </header>
 
-    <!-- Hero Section -->
-    <section id="home" class="hero">
-        <div class="container">
-            <div class="hero-content fade-in">
-                <h1>مؤسسة آل زهران للمحاماة</h1>
-                <p>خبرة قانونية متميزة في جميع فروع القانون مع التزام بأعلى معايير الجودة والمهنية</p>
-                <a href="#contact" class="btn">احجز استشارة مجانية</a>
-                
-                <div class="hero-image">
-                    <img src="https://raw.githubusercontent.com/hugg3864-del/my-website/refs/heads/master/AiArt_1753898582219.jpg" alt="Modern law office interior with elegant wooden furniture, law books on shelves, scales of justice, and professional legal documents on a mahogany desk in warm lighting" />
+    <main>
+        <!-- Hero Section -->
+        <section class="hero" id="home">
+            <div class="hero-content">
+                <div class="hero-badge">
+                    <i class="fas fa-gavel"></i>
+                    <span>مؤسسة آل زهران للمحاماة</span>
+                </div>
+                <h1 class="hero-title">حماية حقوقك هي <span>أولويتنا</span></h1>
+                <p class="hero-subtitle">خبرة قانونية متميزة في تقديم الاستشارات والترافع في كافة القضايا بأعلى معايير المهنية والسرية.</p>
+                <div class="hero-actions">
+                    <a href="booking.html" class="btn btn--primary">
+                        <i class="fas fa-calendar-alt"></i> حجز استشارة
+                    </a>
+                    <a href="contact.html" class="btn btn--secondary">
+                        <i class="fas fa-phone"></i> اتصل بنا
+                    </a>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Stats Section -->
-    <section class="stats">
-        <div class="container">
-            <div class="stats-grid fade-in">
-                <div class="stat-item">
-                    <h3>500+</h3>
-                    <p>قضية ناجحة</p>
-                </div>
-                <div class="stat-item">
-                    <h3>15+</h3>
-                    <p>سنة خبرة</p>
-                </div>
-                <div class="stat-item">
-                    <h3>98%</h3>
-                    <p>نسبة النجاح</p>
-                </div>
-                <div class="stat-item">
-                    <h3>24/7</h3>
-                    <p>خدمة العملاء</p>
+        <!-- Stats Bar -->
+        <section class="stats-bar">
+            <div class="container">
+                <div class="stats-grid">
+                    <div class="stat-item">
+                        <div class="stat-number">15+</div>
+                        <div class="stat-label">سنوات خبرة</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">500+</div>
+                        <div class="stat-label">قضية ناجحة</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">24/7</div>
+                        <div class="stat-label">تواصل مستمر</div>
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Services Section -->
-    <section id="services" class="services">
-        <div class="container">
-            <h2 class="section-title fade-in">خدماتنا القانونية</h2>
-            <div class="services-grid">
-                <div class="service-card fade-in">
-                    <div class="service-icon">
-                        <i class="fas fa-gavel"></i>
-                    </div>
-                    <h3>القضايا المدنية</h3>
-                    <p>تمثيل قانوني شامل في جميع القضايا المدنية والتجارية مع ضمان أفضل النتائج لعملائنا</p>
-                </div>
-                <div class="service-card fade-in">
-                    <div class="service-icon">
-                        <i class="fas fa-handshake"></i>
-                    </div>
-                    <h3>قانون العمل</h3>
-                    <p>استشارات وتمثيل في قضايا العمل وحقوق الموظفين والمنازعات العمالية</p>
-                </div>
-                <div class="service-card fade-in">
-                    <div class="service-icon">
-                        <i class="fas fa-home"></i>
-                    </div>
-                    <h3>القضايا العقارية</h3>
-                    <p>خدمات قانونية متكاملة في مجال العقارات والاستثمار العقاري</p>
-                </div>
-                <div class="service-card fade-in">
-                    <div class="service-icon">
-                        <i class="fas fa-users"></i>
-                    </div>
-                    <h3>قانون الأسرة</h3>
-                    <p>تعامل حساس ومهني مع قضايا الأحوال الشخصية والأسرة</p>
-                </div>
-                <div class="service-card fade-in">
-                    <div class="service-icon">
-                        <i class="fas fa-building"></i>
-                    </div>
-                    <h3>قانون الشركات</h3>
-                    <p>تأسيس الشركات والاستشارات القانونية للأعمال التجارية</p>
-                </div>
-                <div class="service-card fade-in">
-                    <div class="service-icon">
+        <!-- Trust Badges -->
+        <section class="trust-section">
+            <div class="container">
+                <div class="trust-grid">
+                    <div class="trust-item">
                         <i class="fas fa-shield-alt"></i>
+                        <h4>مقيّد بنقابة المحامين</h4>
+                        <p>نعمل بصفة رسمية وقانونية تامة</p>
                     </div>
-                    <h3>القضايا الجنائية</h3>
-                    <p>دفاع قوي ومتخصص في جميع أنواع القضايا الجنائية</p>
+                    <div class="trust-item">
+                        <i class="fas fa-lock"></i>
+                        <h4>سرية تامة</h4>
+                        <p>نحفظ أسرار موكلينا بأمان تام</p>
+                    </div>
+                    <div class="trust-item">
+                        <i class="fas fa-check-circle"></i>
+                        <h4>استشارات دقيقة</h4>
+                        <p>دراسة متأنية لكل تفاصيل قضيتك</p>
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- About Section -->
-    <section id="about" class="about">
-        <div class="container">
-            <div class="about-content">
-                <div class="about-text fade-in">
-                    <h2>عن مؤسسة آل زهران</h2>
-                    <p>تأسست مؤسسة آل زهران للمحاماة والاستشارات القانونية لتكون منارة للعدالة والخدمة القانونية المتميزة. نحن نفخر بتقديم خدمات قانونية شاملة ومتخصصة تلبي احتياجات عملائنا الكرام.</p>
-                    <p>بفضل خبرتنا الطويلة وفريقنا المتخصص من المحامين والمستشارين القانونيين، نضمن تقديم أفضل الحلول القانونية المبتكرة والفعالة.</p>
-                    <p>رؤيتنا هي أن نكون المرجع الأول في تقديم الخدمات القانونية بأعلى معايير الجودة والمهنية، مع الحرص على تحقيق العدالة وحماية حقوق عملائنا.</p>
-                    <a href="#contact" class="btn">تواصل معنا</a>
+        <!-- Services Section -->
+        <section class="section section--alt" id="services">
+            <div class="container">
+                <div class="section-header">
+                    <h2>خدماتنا القانونية</h2>
+                    <p>نقدم مجموعة شاملة من الخدمات القانونية لتلبية كافة احتياجات عملائنا</p>
                 </div>
-                <div class="about-image fade-in">
-                    <img src="https://images.unsplash.com/photo-1551836022-deb4988cc6c0?w=600&h=400&fit=crop" alt="Professional legal team in a modern conference room discussing legal documents with a view of city skyline, formal business attire, diverse group of lawyers around a polished table" />
-                </div>
-            </div>
-        </div>
-    </section>
-    <section class="blog-preview">
-  <h2>📝 أحدث المقالات</h2>
-  <div id="latest-posts" class="latest-posts"></div>
-  <a href="blog.html" class="btn">زيارة المدونة</a>
-</section>
-
-<style>
-.blog-preview { text-align: center; padding: 40px 15px; background: #f9fafb; border-radius: 12px; margin: 40px auto; max-width: 1100px; }
-.blog-preview h2 { color: #1a365d; margin-bottom: 20px; }
-.latest-posts { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 20px; margin-bottom: 20px; }
-.latest-post { background: #fff; padding: 15px; border-radius: 10px; box-shadow: 0 3px 8px rgba(0,0,0,0.08); text-align: right; display: flex; flex-direction: column; }
-.latest-post h3 { margin: 0 0 10px; font-size: 1.1rem; color: #1a365d; }
-.latest-post .meta { font-size: 0.8rem; color: #718096; margin-bottom: 8px; }
-.latest-post p { font-size: 0.9rem; color: #444; flex-grow: 1; }
-.read-more { margin-top: 10px; align-self: flex-start; background: #1a365d; color: #fff; padding: 6px 12px; border-radius: 5px; font-size: 0.85rem; text-decoration: none; transition: 0.3s; }
-.read-more:hover { background: #d4af37; color: #000; }
-.btn { background: #1a365d; color: #fff; padding: 10px 20px; border-radius: 6px; text-decoration: none; font-weight: bold; transition: 0.3s; }
-.btn:hover { background: #d4af37; color: #000; }
-</style>
-
-<script>
-  const SHEET_ID = "1tQ6NpGMHojxf5XjFyoAkeN0Uivn_FE42vGPXKFLqj-Y";
-  const SHEET_NAME = "legal";
-  const SHEET_URL = `https://opensheet.elk.sh/${SHEET_ID}/${SHEET_NAME}`;
-
-  async function loadLatestPosts() {
-    const container = document.getElementById("latest-posts");
-    container.innerHTML = '<div style="text-align:center;padding:20px;">جاري التحميل...</div>';
-    try {
-      const res = await fetch(SHEET_URL);
-      const data = await res.json();
-      // ترتيب المقالات حسب التاريخ الأحدث
-      const sorted = data.sort((a, b) => new Date(b.date) - new Date(a.date));
-      const latest = sorted.slice(0, 3);
-
-      container.innerHTML = "";
-      latest.forEach(d => {
-        const div = document.createElement("div");
-        div.className = "latest-post";
-        div.innerHTML = `
-          <h3>${d.title || ""}</h3>
-          <div class="meta">${d.date || ""} — ${d.author || "مجهول"}</div>
-          <p>${d.summary || ""}</p>
-          <a href="blog.html" class="read-more">اقرأ المزيد</a>
-        `;
-        container.appendChild(div);
-      });
-    } catch (e) {
-      container.innerHTML = '<div style="color:red;">فشل تحميل المقالات</div>';
-    }
-  }
-
-  loadLatestPosts();
-</script>
-
-    <!-- Team Section -->
-    <section id="team" class="team">
-  <div class="container">
-    <h2 class="section-title fade-in">فريق العمل المتميز</h2>
-    <div class="team-grid">
-
-      <!-- المؤسس والشريك الثاني (خالد آل زهران) -->
-      <div class="team-member fade-in">
-        <div class="member-image">
-          <img src="https://consortiolawfirm.com/wp-content/uploads/2019/05/criminal-law.jpg" 
-               alt="Professional senior male lawyer in formal dark suit with law degree certificates on wall behind him, confident expression, Middle Eastern appearance, office setting" />
-        </div>
-        <div class="member-info">
-          <h4>المحامي خالد آل زهران</h4>
-          <p>المؤسس والشريك الثانى</p>
-          <div class="social-links">
-            <a href="https://wa.me/qr/PBA4JKFEEQJXP1" target="_blank"><i class="fab fa-whatsapp"></i></a>
-            <a href="https://www.facebook.com/share/1EuJVYKeH9" target="_blank"><i class="fab fa-facebook"></i></a>
-            <a href="mailto:khaled@example.com"><i class="fas fa-envelope"></i></a>
-            <a href="tel:01151723921"><i class="fas fa-phone"></i></a>
-          </div>
-        </div>
-      </div>
-
-      <!-- المؤسس والشريك الأول (عبدالله زهران) -->
-      <div class="team-member fade-in">
-        <div class="member-image">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/3/39/Egyptian_Law_Icon.svg" 
-               alt="Professional female lawyer in business suit holding legal documents, confident smile, Middle Eastern appearance, law office background with legal books" />
-        </div>
-        <div class="member-info">
-          <h4>المستشار عبدالله زاهران</h4>
-          <p>المؤسس والشريك الأول</p>
-          <!-- بدون وسائل تواصل -->
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<style>
-  .team {
-    padding: 80px 0;
-    background: white;
-  }
-
-  .team-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 2rem;
-    margin-top: 3rem;
-    justify-items: center;
-  }
-
-  .team-member {
-    background: white;
-    border-radius: 15px;
-    overflow: hidden;
-    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
-    transition: transform 0.3s ease;
-    max-width: 350px;
-    width: 100%;
-    text-align: center;
-  }
-
-  .team-member:hover {
-    transform: translateY(-5px);
-  }
-
-  .member-image {
-    width: 100%;
-    height: 250px;
-    background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .member-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-
-  .member-info {
-    padding: 1.5rem;
-    text-align: center;
-  }
-
-  .member-info h4 {
-    font-size: 1.3rem;
-    color: #1e3c72;
-    margin-bottom: 0.5rem;
-  }
-
-  .member-info p {
-    color: #666;
-    margin: 0;
-  }
-
-  /* 🔗 روابط التواصل */
-  .social-links {
-    margin-top: 12px;
-    display: flex;
-    justify-content: center;
-    gap: 15px;
-  }
-
-  .social-links a {
-    color: #1a365d;
-    font-size: 1.4rem;
-    transition: color 0.3s;
-  }
-
-  .social-links a:hover {
-    color: #d4af37;
-  }
-</style>
-
-
-    <!-- Contact Section -->
-    <section id="contact" class="contact">
-        <div class="container">
-            <h2 class="section-title fade-in">تواصل معنا</h2>
-            <div class="contact-content">
-                <div class="contact-info fade-in">
-                    <h3>معلومات التواصل</h3>
-                    <div class="contact-item">
-                        <i class="fas fa-map-marker-alt"></i>
-                        <div>
-                            <strong>العنوان:</strong><br>
-                            القاهرة، المرج الجديدة بجوار<br>
-                            هايبر الشرق، والاخر/ الخصوص بجوار هايبر كازيون
+                <div class="services-grid">
+                    <!-- Service 1 -->
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-balance-scale-left"></i>
                         </div>
+                        <h3>القضايا المدنية</h3>
+                        <p>متخصصون في القضايا المدنية بجميع درجاتها، قضايا التعويضات، والمنازعات العقارية، وصياغة وتوثيق العقود.</p>
                     </div>
-                    <div class="contact-item">
-                        <i class="fas fa-phone"></i>
-                        <div>
-                            <strong>الهاتف:</strong><br>
-                            01229333957<br>
-                            01060670084
+                    <!-- Service 2 -->
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-gavel"></i>
                         </div>
+                        <h3>القانون الجنائي</h3>
+                        <p>ترافع في كافة القضايا الجنائية من جنح وجنايات، ومتابعة التحقيقات مع ضمان التزام كامل بالدفاع عن حقوقك.</p>
                     </div>
-                    <div class="contact-item">
-                        <i class="fas fa-envelope"></i>
-                        <div>
-                            <strong>البريد الإلكتروني:</strong><br>
-                            alzahranlaw1@gmail.com<br>
+                    <!-- Service 3 -->
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-users"></i>
                         </div>
+                        <h3>الأحوال الشخصية</h3>
+                        <p>قضايا الأسرة، الطلاق، الخلع، النفقات، الحضانة، المواريث، وتقسيم التركات بمهنية وسرية فائقة.</p>
                     </div>
-                    <div class="contact-item">
-                        <i class="fas fa-clock"></i>
-                        <div>
-                            <strong>ساعات العمل:</strong><br>
-                            الأحد - الخميس: 8:00 ص - 6:00 م<br>
-                            السبت: 9:00 ص - 1:00 م
+                    <!-- Service 4 -->
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-briefcase"></i>
                         </div>
+                        <h3>قانون العمل</h3>
+                        <p>صياغة عقود العمل، وحل النزاعات العمالية، والمطالبة بالمستحقات، وتمثيل العمال والشركات.</p>
                     </div>
-                    <div class="social-links">
-                        <a href="#"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    <!-- Service 5 -->
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-building"></i>
+                        </div>
+                        <h3>الشركات والتجارة</h3>
+                        <p>تأسيس الشركات، صياغة العقود التجارية، قضايا الإفلاس، والمنازعات التجارية بين الشركات والأفراد.</p>
                     </div>
-                </div>
-                <div class="contact-form fade-in">
-                    <h3>أرسل رسالة</h3>
-                    <form action="https://formspree.io/f/mldwlpzq" method="POST">
-                        <div class="form-group">
-                            <label for="name">الاسم الكامل *</label>
-                            <input type="text" id="name" name="name" required>
+                    <!-- Service 6 -->
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-landmark"></i>
                         </div>
-                        <div class="form-group">
-                            <label for="email">البريد الإلكتروني *</label>
-                            <input type="email" id="email" name="email" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="phone">رقم الهاتف</label>
-                            <input type="tel" id="phone" name="phone">
-                        </div>
-                        <div class="form-group">
-                            <label for="subject">الموضوع *</label>
-                            <input type="text" id="subject" name="subject" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="message">الرسالة *</label>
-                            <textarea id="message" name="message" rows="5" required></textarea>
-                        </div>
-                        <button type="submit" class="btn">إرسال الرسالة</button>
-                    </form>
+                        <h3>القضاء الإداري</h3>
+                        <p>تمثيل قانوني أمام محاكم مجلس الدولة، وقضايا الطعن على القرارات الإدارية، والتسويات مع الجهات الحكومية.</p>
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
+
+        <!-- About Section -->
+        <section class="section" id="about">
+            <div class="container">
+                <div class="about-content">
+                    <div class="about-text">
+                        <div class="section-header" style="text-align: right; margin-bottom: 20px;">
+                            <h2>من نحن</h2>
+                        </div>
+                        <p>مؤسسة آل زهران هي مؤسسة مصرية رائدة في مجال المحاماة والاستشارات القانونية، نسعى دائماً لتقديم الدعم القانوني لعملائنا بكل تفاني واحترافية.</p>
+                        <p>نؤمن بأن العدالة حق للجميع، لذلك نضع خبراتنا الممتدة لسنوات في خدمة قضاياكم للحصول على أفضل النتائج بأسرع الطرق القانونية.</p>
+                        <div class="about-features">
+                            <div class="about-feature">
+                                <i class="fas fa-check"></i> فريق عمل متخصص وذو خبرة
+                            </div>
+                            <div class="about-feature">
+                                <i class="fas fa-check"></i> حلول قانونية مبتكرة وفعالة
+                            </div>
+                            <div class="about-feature">
+                                <i class="fas fa-check"></i> شفافية تامة مع الموكل
+                            </div>
+                            <div class="about-feature">
+                                <i class="fas fa-check"></i> استشارات دقيقة وموثوقة
+                            </div>
+                        </div>
+                        <a href="contact.html" class="btn btn--outline mt-4">تواصل معنا الآن</a>
+                    </div>
+                    <div class="about-image-wrapper">
+                        <!-- Placeholder for an about image -->
+                        <img src="https://images.unsplash.com/photo-1589829085413-56de8ae18c73?auto=format&fit=crop&w=800&q=80" alt="مكتب محاماة">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Team Section -->
+        <section class="section section--alt" id="team">
+            <div class="container">
+                <div class="section-header">
+                    <h2>فريق العمل</h2>
+                    <p>نخبة من أفضل المحامين والمستشارين لخدمتك</p>
+                </div>
+                <div class="team-grid">
+                    <!-- Team Member 1 -->
+                    <div class="team-card">
+                        <div class="team-card-image">
+                            <i class="fas fa-user-tie team-placeholder"></i>
+                        </div>
+                        <div class="team-card-info">
+                            <h4>المستشار عبدالله زاهران</h4>
+                            <div class="role">المؤسس والشريك الأول</div>
+                            <div class="team-social">
+                                <a href="mailto:alzahranlaw1@gmail.com"><i class="fas fa-envelope"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Team Member 2 -->
+                    <div class="team-card">
+                        <div class="team-card-image">
+                            <i class="fas fa-user-tie team-placeholder"></i>
+                        </div>
+                        <div class="team-card-info">
+                            <h4>المحامي خالد آل زهران</h4>
+                            <div class="role">المؤسس والشريك الثاني</div>
+                            <div class="team-social">
+                                <a href="https://wa.me/qr/PBA4JKFEEQJXP1" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                                <a href="https://www.facebook.com/share/1EuJVYKeH9" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                                <a href="tel:01151723921"><i class="fas fa-phone"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Preview -->
+        <section class="section section--dark" id="contact-preview">
+            <div class="container">
+                <div class="section-header">
+                    <h2>نحن هنا لمساعدتك</h2>
+                    <p>لا تتردد في التواصل معنا لأي استفسار أو لحجز موعد</p>
+                </div>
+                <div style="text-align: center; margin-bottom: 40px;">
+                    <p style="font-size: 1.2rem; margin-bottom: 10px;"><i class="fas fa-map-marker-alt" style="color: var(--gold-500);"></i> القاهرة، المرج الجديدة بجوار هايبر الشرق / الخصوص بجوار هايبر كازيون</p>
+                    <p style="font-size: 1.2rem; margin-bottom: 10px;"><i class="fas fa-phone" style="color: var(--gold-500);"></i> 01229333957 - 01060670084</p>
+                    <div style="margin-top: 30px;">
+                        <a href="booking.html" class="btn btn--primary">احجز استشارة الآن</a>
+                    </div>
+                </div>
+                
+                <!-- Map Placeholder -->
+                <div style="width: 100%; height: 400px; background-color: #e5e5e5; border-radius: var(--radius-lg); display: flex; align-items: center; justify-content: center; overflow: hidden; border: 2px solid rgba(255,255,255,0.1);">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d13797.747209772591!2d31.328328!3d30.167447!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzDCsDEwJzAyLjgiTiAzMcKwMTknNDIuMCJF!5e0!3m2!1sen!2seg!4v1717000000000!5m2!1sen!2seg" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+            </div>
+        </section>
+    </main>
 
     <!-- Footer -->
-    <footer>
+    <footer class="footer">
         <div class="container">
             <div class="footer-content">
                 <div class="footer-section">
                     <h3>مؤسسة آل زهران</h3>
-                    <p>نحن نلتزم بتقديم أفضل الخدمات القانونية والاستشارات المهنية لعملائنا الكرام، مع ضمان الحفاظ على أعلى معايير الجودة والسرية.</p>
+                    <p>مؤسسة مصرية متخصصة في المحاماة والاستشارات القانونية. نلتزم بأعلى معايير المهنية والسرية في خدمة موكلينا.</p>
+                    <div class="footer-badge">
+                        <i class="fas fa-shield-alt"></i>
+                        <span>مقيّدة بنقابة المحامين المصرية</span>
+                    </div>
                 </div>
                 <div class="footer-section">
                     <h3>خدماتنا</h3>
-                    <p><a href="#services">القضايا المدنية</a></p>
-                    <p><a href="#services">قانون العمل</a></p>
-                    <p><a href="#services">القضايا العقارية</a></p>
-                    <p><a href="#services">قانون الأسرة</a></p>
+                    <ul class="footer-links">
+                        <li><a href="index.html#services">القضايا المدنية</a></li>
+                        <li><a href="index.html#services">القانون الجنائي</a></li>
+                        <li><a href="index.html#services">الأحوال الشخصية</a></li>
+                        <li><a href="index.html#services">قانون العمل</a></li>
+                        <li><a href="index.html#services">الشركات والتجارة</a></li>
+                        <li><a href="index.html#services">القضاء الإداري</a></li>
+                    </ul>
                 </div>
                 <div class="footer-section">
                     <h3>روابط مهمة</h3>
-                    <p><a href="#about">عن المؤسسة</a></p>
-                    <p><a href="#team">فريق العمل</a></p>
-                    <p><a href="#contact">اتصل بنا</a></p>
-                    <p><a href="#">سياسة الخصوصية</a></p>
+                    <ul class="footer-links">
+                        <li><a href="faq.html">الأسئلة الشائعة</a></li>
+                        <li><a href="booking.html">حجز استشارة</a></li>
+                        <li><a href="privacy.html">سياسة الخصوصية</a></li>
+                        <li><a href="terms.html">شروط الاستخدام</a></li>
+                        <li><a href="disclaimer.html">إخلاء المسؤولية</a></li>
+                    </ul>
                 </div>
                 <div class="footer-section">
-                    <h3>تابعنا</h3>
+                    <h3>تواصل معنا</h3>
+                    <div class="footer-contact">
+                        <p><i class="fas fa-map-marker-alt"></i> القاهرة، المرج الجديدة / الخصوص</p>
+                        <p><i class="fas fa-phone"></i> 01229333957 - 01060670084</p>
+                        <p><i class="fas fa-envelope"></i> alzahranlaw1@gmail.com</p>
+                    </div>
                     <div class="social-links">
-                        <a href="#"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.facebook.com/share/1EuJVYKeH9" target="_blank" aria-label="فيسبوك"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://wa.me/201229333957" target="_blank" aria-label="واتساب"><i class="fab fa-whatsapp"></i></a>
+                        <a href="mailto:alzahranlaw1@gmail.com" aria-label="بريد إلكتروني"><i class="fas fa-envelope"></i></a>
                     </div>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2024 مؤسسة آل زهران للمحاماة والاستشارات القانونية. جميع الحقوق محفوظة.</p>
+                <p>&copy; <span id="currentYear"></span> مؤسسة آل زهران للمحاماة والاستشارات القانونية. جميع الحقوق محفوظة.</p>
+                <p class="footer-legal">محمية بموجب قانون حماية البيانات الشخصية المصري رقم ١٥١ لسنة ٢٠٢٠</p>
             </div>
         </div>
     </footer>
 
-    <!-- Scroll to top button -->
-    <div class="scroll-top" id="scrollTop">
+    <!-- WhatsApp Float -->
+    <a href="https://wa.me/201229333957" class="whatsapp-float" target="_blank" aria-label="تواصل عبر واتساب">
+        <i class="fab fa-whatsapp"></i>
+        <span class="whatsapp-tooltip">تواصل معنا</span>
+    </a>
+
+    <!-- Scroll to Top -->
+    <button class="scroll-top" id="scrollTop" aria-label="العودة للأعلى">
         <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- Chatbot Widget -->
+    <div class="chatbot-widget" id="chatbotWidget">
+        <button class="chatbot-trigger" id="chatbotTrigger" aria-label="المساعد القانوني">
+            <i class="fas fa-robot"></i>
+        </button>
+        <div class="chatbot-window" id="chatbotWindow">
+            <div class="chatbot-header">
+                <div class="chatbot-header-info">
+                    <i class="fas fa-robot"></i>
+                    <div>
+                        <h4>المساعد القانوني الذكي</h4>
+                        <small>للتوجيه فقط - لا يُغني عن استشارة المحامي</small>
+                    </div>
+                </div>
+                <button class="chatbot-close" id="chatbotClose"><i class="fas fa-times"></i></button>
+            </div>
+            <div class="chatbot-messages" id="chatMessages"></div>
+            <div class="chatbot-input">
+                <input type="text" id="chatInput" placeholder="اكتب سؤالك القانوني...">
+                <button id="chatSend"><i class="fas fa-paper-plane"></i></button>
+            </div>
+        </div>
     </div>
 
-    <script>
-        // Mobile menu toggle
-        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
-        const navMenu = document.getElementById('navMenu');
-
-        mobileMenuBtn.addEventListener('click', () => {
-            navMenu.classList.toggle('active');
-        });
-
-        // Smooth scrolling for navigation links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-                // Close mobile menu if open
-                navMenu.classList.remove('active');
-            });
-        });
-
-        // Scroll animations
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                }
-            });
-        }, observerOptions);
-
-        document.querySelectorAll('.fade-in').forEach(el => {
-            observer.observe(el);
-        });
-
-        // Scroll to top button
-        const scrollTopBtn = document.getElementById('scrollTop');
-
-        window.addEventListener('scroll', () => {
-            if (window.pageYOffset > 300) {
-                scrollTopBtn.classList.add('visible');
-            } else {
-                scrollTopBtn.classList.remove('visible');
-            }
-        });
-
-        scrollTopBtn.addEventListener('click', () => {
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
-            });
-        });
-
-        // Contact form handling
-        const contactForm = document.getElementById('contactForm');
-        contactForm.addEventListener('submit', (e) => {
-            e.preventDefault();
-            
-            // Get form data
-            const formData = new FormData(contactForm);
-            const name = formData.get('name');
-            const email = formData.get('email');
-            const phone = formData.get('phone');
-            const subject = formData.get('subject');
-            const message = formData.get('message');
-
-            // Simple validation
-            if (!name || !email || !subject || !message) {
-                alert('يرجى ملء جميع الحقول المطلوبة');
-                return;
-            }
-
-            // Simulate form submission
-            alert('تم إرسال رسالتك بنجاح! سنتواصل معك قريباً.');
-            contactForm.reset();
-        });
-
-        // Counter animation for stats
-        const animateCounters = () => {
-            const counters = document.querySelectorAll('.stat-item h3');
-            counters.forEach(counter => {
-                const target = parseInt(counter.textContent);
-                const increment = target / 100;
-                let current = 0;
-                
-                const updateCounter = () => {
-                    if (current < target) {
-                        current += increment;
-                        if (counter.textContent.includes('+')) {
-                            counter.textContent = Math.ceil(current) + '+';
-                        } else if (counter.textContent.includes('%')) {
-                            counter.textContent = Math.ceil(current) + '%';
-                        } else if (counter.textContent.includes('/')) {
-                            counter.textContent = '24/7';
-                        } else {
-                            counter.textContent = Math.ceil(current);
-                        }
-                        requestAnimationFrame(updateCounter);
-                    } else {
-                        counter.textContent = counter.textContent;
-                    }
-                };
-                updateCounter();
-            });
-        };
-
-        // Trigger counter animation when stats section is visible
-        const statsSection = document.querySelector('.stats');
-        const statsObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    animateCounters();
-                    statsObserver.unobserve(entry.target);
-                }
-            });
-        }, { threshold: 0.5 });
-
-        if (statsSection) {
-            statsObserver.observe(statsSection);
-        }
-
-        // Header background change on scroll
-        const header = document.querySelector('header');
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 100) {
-                header.style.background = 'rgba(30, 60, 114, 0.95)';
-                header.style.backdropFilter = 'blur(10px)';
-            } else {
-                header.style.background = 'linear-gradient(135deg, #1e3c72 0%, #2a5298 100%)';
-                header.style.backdropFilter = 'none';
-            }
-        });
-    </script>
+    <!-- Scripts -->
+    <script src="js/main.js"></script>
+    <script src="js/chatbot.js"></script>
 </body>
 </html>
