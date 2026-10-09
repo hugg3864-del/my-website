@@ -1,10 +1,1 @@
-[contact.html](https://github.com/user-attachments/files/33267296/contact.html)
 
-[disclaimer.html](https://github.com/user-attachments/files/33267299/disclaimer.html)
-[terms.html](https://github.com/user-attachments/files/33267315/terms.html)
-[sw.js](https://github.com/user-attachments/files/33267312/sw.js)
-[privacy.html](https://github.com/user-attachments/files/33267310/privacy.html)
-[manifest.json](https://github.com/user-attachments/files/33267308/manifest.json)
-[law.html](https://github.com/user-attachments/files/33267306/law.html)
-[index.html](https://github.com/user-attachments/files/33267303/index.html)
-[faq.html](https://github.com/user-attachments/files/33267302/faq.html)
