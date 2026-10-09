@@ -266,3 +266,79 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 });
 
+
+// === Premium UI Features ===
+document.addEventListener("DOMContentLoaded", () => {
+    // 1. Preloader
+    const preloader = document.createElement("div");
+    preloader.id = "preloader";
+    preloader.innerHTML = `<div class="loader-logo"><i class="fas fa-balance-scale"></i></div><div class="loader-bar"></div>`;
+    document.body.appendChild(preloader);
+    window.addEventListener("load", () => {
+        preloader.classList.add("hide");
+        setTimeout(() => preloader.remove(), 600);
+    });
+
+    // 2. Scroll Progress Bar
+    const scrollBar = document.createElement("div");
+    scrollBar.id = "scroll-progress";
+    document.body.appendChild(scrollBar);
+    window.addEventListener("scroll", () => {
+        const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+        const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+        const scrolled = (winScroll / height) * 100;
+        scrollBar.style.width = scrolled + "%";
+    });
+
+    // 3. AJAX Form Submission & Toast Notifications
+    function showToast(message, icon = "check-circle") {
+        let container = document.querySelector(".toast-container");
+        if (!container) {
+            container = document.createElement("div");
+            container.className = "toast-container";
+            document.body.appendChild(container);
+        }
+        const toast = document.createElement("div");
+        toast.className = "toast";
+        toast.innerHTML = `<i class="fas fa-${icon}"></i> <span>${message}</span>`;
+        container.appendChild(toast);
+        setTimeout(() => toast.remove(), 4500);
+    }
+
+    const forms = document.querySelectorAll("#contactForm, #bookingForm");
+    forms.forEach(form => {
+        // Ensure form posts to formspree endpoint
+        if (!form.hasAttribute("action")) {
+            form.setAttribute("action", "https://formspree.io/f/mldwlpzq");
+        }
+        
+        form.addEventListener("submit", async (e) => {
+            e.preventDefault();
+            const btn = form.querySelector("button[type=\"submit\"]");
+            const originalText = btn.innerHTML;
+            btn.innerHTML = `<i class="fas fa-spinner fa-spin"></i> جاري الإرسال...`;
+            btn.disabled = true;
+
+            try {
+                const response = await fetch(form.action, {
+                    method: "POST",
+                    body: new FormData(form),
+                    headers: { "Accept": "application/json" }
+                });
+                
+                if (response.ok) {
+                    showToast("تم إرسال طلبك بنجاح. سنتواصل معك في أقرب وقت!");
+                    form.reset();
+                } else {
+                    showToast("حدث خطأ أثناء الإرسال، يرجى المحاولة لاحقاً.", "exclamation-triangle");
+                }
+            } catch (error) {
+                showToast("حدث خطأ في الاتصال، تحقق من الإنترنت.", "wifi");
+            } finally {
+                btn.innerHTML = originalText;
+                btn.disabled = false;
+            }
+        });
+    });
+});
+
