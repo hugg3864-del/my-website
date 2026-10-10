@@ -57,7 +57,7 @@ body.dark-mode .glass-card {
 }
 .news-ticker-badge {
     position: absolute; right: 0; top: 0; bottom: 0; z-index: 2;
-    background: var(--gold-500); color: var(--primary-900);
+    background: #FFD700; box-shadow: 0 0 10px rgba(255, 215, 0, 0.8); color: var(--primary-900);
     padding: 0 20px; display: flex; align-items: center; gap: 8px;
     font-weight: 800; font-size: 0.85rem; white-space: nowrap;
 }
@@ -73,7 +73,7 @@ body.dark-mode .glass-card {
 }
 .news-ticker-item .dot {
     width: 6px; height: 6px; border-radius: 50%;
-    background: var(--gold-500); flex-shrink: 0;
+    background: #FFD700; box-shadow: 0 0 10px rgba(255, 215, 0, 0.8); flex-shrink: 0;
 }
 @keyframes tickerScroll {
     0%   { transform: translateX(100%); }
@@ -124,18 +124,18 @@ body.dark-mode .glass-card {
 .sd-whatsapp { background: #25D366; color: #fff; }
 .sd-phone { background: #3b82f6; color: #fff; }
 .sd-map { background: #ea4335; color: #fff; }
-.sd-email { background: var(--gold-500); color: var(--primary-900); }
+.sd-email { background: #FFD700; box-shadow: 0 0 10px rgba(255, 215, 0, 0.8); color: var(--primary-900); }
 
 /* === 6. Custom Cursor (Desktop Only) === */
 @media (hover: hover) and (pointer: fine) {
     .custom-cursor {
         width: 12px; height: 12px;
-        background: var(--gold-500);
+        background: #FFD700; box-shadow: 0 0 10px rgba(255, 215, 0, 0.8);
         border-radius: 50%; position: fixed;
         pointer-events: none; z-index: 999999;
         transition: width 0.25s, height 0.25s, background 0.25s, opacity 0.25s;
         transform: translate(-50%, -50%);
-        mix-blend-mode: difference;
+        
         opacity: 0.9;
     }
     .custom-cursor.hover {
@@ -230,7 +230,7 @@ body.dark-mode .reading-time { color: var(--gold-400); }
 }
 .verify-input-group button {
     padding: 8px 18px; border-radius: 6px;
-    background: var(--gold-500); color: var(--primary-900);
+    background: #FFD700; box-shadow: 0 0 10px rgba(255, 215, 0, 0.8); color: var(--primary-900);
     font-weight: 700; font-size: 0.85rem; border: none; cursor: pointer;
     transition: background 0.2s ease; font-family: inherit;
 }
