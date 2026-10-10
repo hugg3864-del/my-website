@@ -57,7 +57,7 @@ body.dark-mode .glass-card {
 }
 .news-ticker-badge {
     position: absolute; right: 0; top: 0; bottom: 0; z-index: 2;
-    background: #FFD700; box-shadow: 0 0 10px rgba(255, 215, 0, 0.8); color: var(--primary-900);
+    background: var(--gold-500); color: var(--primary-900);
     padding: 0 20px; display: flex; align-items: center; gap: 8px;
     font-weight: 800; font-size: 0.85rem; white-space: nowrap;
 }
@@ -73,7 +73,7 @@ body.dark-mode .glass-card {
 }
 .news-ticker-item .dot {
     width: 6px; height: 6px; border-radius: 50%;
-    background: #FFD700; box-shadow: 0 0 10px rgba(255, 215, 0, 0.8); flex-shrink: 0;
+    background: var(--gold-500); flex-shrink: 0;
 }
 @keyframes tickerScroll {
     0%   { transform: translateX(100%); }
@@ -124,33 +124,7 @@ body.dark-mode .glass-card {
 .sd-whatsapp { background: #25D366; color: #fff; }
 .sd-phone { background: #3b82f6; color: #fff; }
 .sd-map { background: #ea4335; color: #fff; }
-.sd-email { background: #FFD700; box-shadow: 0 0 10px rgba(255, 215, 0, 0.8); color: var(--primary-900); }
-
-/* === 6. Custom Cursor (Desktop Only) === */
-@media (hover: hover) and (pointer: fine) {
-    .custom-cursor {
-        width: 12px; height: 12px;
-        background: #FFD700; box-shadow: 0 0 10px rgba(255, 215, 0, 0.8);
-        border-radius: 50%; position: fixed;
-        pointer-events: none; z-index: 999999;
-        transition: width 0.25s, height 0.25s, background 0.25s, opacity 0.25s;
-        transform: translate(-50%, -50%);
-        
-        opacity: 0.9;
-    }
-    .custom-cursor.hover {
-        width: 48px; height: 48px;
-        background: rgba(200, 169, 81, 0.2);
-        border: 2px solid var(--gold-500);
-    }
-    .custom-cursor.click {
-        width: 8px; height: 8px;
-    }
-    body { cursor: none !important; }
-    a, button, input, select, textarea, .faq-question, .blog-card, .service-card {
-        cursor: none !important;
-    }
-}
+.sd-email { background: var(--gold-500); color: var(--primary-900); }
 
 /* === 7. Parallax Hero === */
 .hero { overflow: hidden; }
@@ -230,7 +204,7 @@ body.dark-mode .reading-time { color: var(--gold-400); }
 }
 .verify-input-group button {
     padding: 8px 18px; border-radius: 6px;
-    background: #FFD700; box-shadow: 0 0 10px rgba(255, 215, 0, 0.8); color: var(--primary-900);
+    background: var(--gold-500); color: var(--primary-900);
     font-weight: 700; font-size: 0.85rem; border: none; cursor: pointer;
     transition: background 0.2s ease; font-family: inherit;
 }
@@ -361,4 +335,5 @@ body.dark-mode .reading-time { color: var(--gold-400); }
     .contextual-cta { width: 100%; border-radius: 0; padding: 12px 20px; flex-direction: column; gap: 10px; text-align: center; }
     .social-proof-container { right: 20px; bottom: 85px; } /* Above mobile speed dial */
 }
+
 

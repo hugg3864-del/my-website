@@ -1,6 +1,6 @@
-/* ============================================
-   Premium UI/UX — JavaScript Enhancements
-   مؤسسة آل زهران — Tier 1 Features
+﻿/* ============================================
+   Premium UI/UX â€” JavaScript Enhancements
+   Ù…Ø¤Ø³Ø³Ø© Ø¢Ù„ Ø²Ù‡Ø±Ø§Ù† â€” Tier 1 Features
    ============================================ */
 
 (function() {
@@ -9,45 +9,6 @@
     document.addEventListener('DOMContentLoaded', () => {
 
         // ============================================
-        // 1. CUSTOM CURSOR (Desktop Only)
-        // ============================================
-        if (window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
-            const cursor = document.createElement('div');
-            cursor.className = 'custom-cursor';
-            document.body.appendChild(cursor);
-
-            let mouseX = 0, mouseY = 0, cursorX = 0, cursorY = 0;
-
-            document.addEventListener('mousemove', (e) => {
-                mouseX = e.clientX;
-                mouseY = e.clientY;
-            });
-
-            // Smooth cursor follow
-            (function animateCursor() {
-                cursorX += (mouseX - cursorX) * 0.15;
-                cursorY += (mouseY - cursorY) * 0.15;
-                cursor.style.left = cursorX + 'px';
-                cursor.style.top = cursorY + 'px';
-                requestAnimationFrame(animateCursor);
-            })();
-
-            // Hover effect on interactive elements
-            const hoverTargets = 'a, button, input, select, textarea, .faq-question, .blog-card, .service-card, .team-card, .law-card, .speed-dial-trigger';
-            document.querySelectorAll(hoverTargets).forEach(el => {
-                el.addEventListener('mouseenter', () => cursor.classList.add('hover'));
-                el.addEventListener('mouseleave', () => cursor.classList.remove('hover'));
-            });
-
-            // Click effect
-            document.addEventListener('mousedown', () => cursor.classList.add('click'));
-            document.addEventListener('mouseup', () => cursor.classList.remove('click'));
-
-            // Hide on leave
-            document.addEventListener('mouseleave', () => cursor.style.opacity = '0');
-            document.addEventListener('mouseenter', () => cursor.style.opacity = '0.9');
-        }
-
         // ============================================
         // 2. PAGE TRANSITIONS
         // ============================================
@@ -98,23 +59,23 @@
         speedDial.innerHTML = `
             <div class="speed-dial-actions">
                 <a href="https://wa.me/201229333957" target="_blank" class="speed-dial-action">
-                    <span class="label">واتساب</span>
+                    <span class="label">ÙˆØ§ØªØ³Ø§Ø¨</span>
                     <div class="speed-dial-action-btn sd-whatsapp"><i class="fab fa-whatsapp"></i></div>
                 </a>
                 <a href="tel:+201229333957" class="speed-dial-action">
-                    <span class="label">اتصال مباشر</span>
+                    <span class="label">Ø§ØªØµØ§Ù„ Ù…Ø¨Ø§Ø´Ø±</span>
                     <div class="speed-dial-action-btn sd-phone"><i class="fas fa-phone-alt"></i></div>
                 </a>
                 <a href="mailto:alzahranlaw1@gmail.com" class="speed-dial-action">
-                    <span class="label">بريد إلكتروني</span>
+                    <span class="label">Ø¨Ø±ÙŠØ¯ Ø¥Ù„ÙƒØªØ±ÙˆÙ†ÙŠ</span>
                     <div class="speed-dial-action-btn sd-email"><i class="fas fa-envelope"></i></div>
                 </a>
                 <a href="contact.html" class="speed-dial-action">
-                    <span class="label">الموقع والخريطة</span>
+                    <span class="label">Ø§Ù„Ù…ÙˆÙ‚Ø¹ ÙˆØ§Ù„Ø®Ø±ÙŠØ·Ø©</span>
                     <div class="speed-dial-action-btn sd-map"><i class="fas fa-map-marker-alt"></i></div>
                 </a>
             </div>
-            <button class="speed-dial-trigger" aria-label="طرق التواصل">
+            <button class="speed-dial-trigger" aria-label="Ø·Ø±Ù‚ Ø§Ù„ØªÙˆØ§ØµÙ„">
                 <i class="fab fa-whatsapp"></i>
             </button>
         `;
@@ -143,14 +104,14 @@
             ticker.className = 'news-ticker';
             ticker.innerHTML = `
                 <div class="news-ticker-badge">
-                    <i class="fas fa-bolt"></i> عاجل
+                    <i class="fas fa-bolt"></i> Ø¹Ø§Ø¬Ù„
                 </div>
                 <div class="news-ticker-content">
-                    <div class="news-ticker-item"><span class="dot"></span> المؤسسة تقبل التوكيلات في جميع أنواع القضايا أمام كافة المحاكم المصرية</div>
-                    <div class="news-ticker-item"><span class="dot"></span> خدمة الاستشارة الأولية متاحة لجميع الموكلين — احجز موعدك الآن</div>
-                    <div class="news-ticker-item"><span class="dot"></span> تنويه: لا تدفع أي مبالغ مالية إلا بعد توقيع عقد أتعاب رسمي مع المؤسسة</div>
-                    <div class="news-ticker-item"><span class="dot"></span> نتعامل مع القضايا الجنائية العاجلة على مدار الساعة — اتصل فوراً</div>
-                    <div class="news-ticker-item"><span class="dot"></span> مؤسسة آل زهران: سرية مطلقة — التزام كامل بأدبيات مهنة المحاماة المصرية</div>
+                    <div class="news-ticker-item"><span class="dot"></span> Ø§Ù„Ù…Ø¤Ø³Ø³Ø© ØªÙ‚Ø¨Ù„ Ø§Ù„ØªÙˆÙƒÙŠÙ„Ø§Øª ÙÙŠ Ø¬Ù…ÙŠØ¹ Ø£Ù†ÙˆØ§Ø¹ Ø§Ù„Ù‚Ø¶Ø§ÙŠØ§ Ø£Ù…Ø§Ù… ÙƒØ§ÙØ© Ø§Ù„Ù…Ø­Ø§ÙƒÙ… Ø§Ù„Ù…ØµØ±ÙŠØ©</div>
+                    <div class="news-ticker-item"><span class="dot"></span> Ø®Ø¯Ù…Ø© Ø§Ù„Ø§Ø³ØªØ´Ø§Ø±Ø© Ø§Ù„Ø£ÙˆÙ„ÙŠØ© Ù…ØªØ§Ø­Ø© Ù„Ø¬Ù…ÙŠØ¹ Ø§Ù„Ù…ÙˆÙƒÙ„ÙŠÙ† â€” Ø§Ø­Ø¬Ø² Ù…ÙˆØ¹Ø¯Ùƒ Ø§Ù„Ø¢Ù†</div>
+                    <div class="news-ticker-item"><span class="dot"></span> ØªÙ†ÙˆÙŠÙ‡: Ù„Ø§ ØªØ¯ÙØ¹ Ø£ÙŠ Ù…Ø¨Ø§Ù„Øº Ù…Ø§Ù„ÙŠØ© Ø¥Ù„Ø§ Ø¨Ø¹Ø¯ ØªÙˆÙ‚ÙŠØ¹ Ø¹Ù‚Ø¯ Ø£ØªØ¹Ø§Ø¨ Ø±Ø³Ù…ÙŠ Ù…Ø¹ Ø§Ù„Ù…Ø¤Ø³Ø³Ø©</div>
+                    <div class="news-ticker-item"><span class="dot"></span> Ù†ØªØ¹Ø§Ù…Ù„ Ù…Ø¹ Ø§Ù„Ù‚Ø¶Ø§ÙŠØ§ Ø§Ù„Ø¬Ù†Ø§Ø¦ÙŠØ© Ø§Ù„Ø¹Ø§Ø¬Ù„Ø© Ø¹Ù„Ù‰ Ù…Ø¯Ø§Ø± Ø§Ù„Ø³Ø§Ø¹Ø© â€” Ø§ØªØµÙ„ ÙÙˆØ±Ø§Ù‹</div>
+                    <div class="news-ticker-item"><span class="dot"></span> Ù…Ø¤Ø³Ø³Ø© Ø¢Ù„ Ø²Ù‡Ø±Ø§Ù†: Ø³Ø±ÙŠØ© Ù…Ø·Ù„Ù‚Ø© â€” Ø§Ù„ØªØ²Ø§Ù… ÙƒØ§Ù…Ù„ Ø¨Ø£Ø¯Ø¨ÙŠØ§Øª Ù…Ù‡Ù†Ø© Ø§Ù„Ù…Ø­Ø§Ù…Ø§Ø© Ø§Ù„Ù…ØµØ±ÙŠØ©</div>
                 </div>
             `;
             headerEl.insertAdjacentElement('afterend', ticker);
@@ -168,13 +129,13 @@
             if (meta && !meta.querySelector('.reading-time')) {
                 const badge = document.createElement('span');
                 badge.className = 'reading-time';
-                badge.innerHTML = `<i class="fas fa-clock"></i> ${readingTime} دقيقة قراءة`;
+                badge.innerHTML = `<i class="fas fa-clock"></i> ${readingTime} Ø¯Ù‚ÙŠÙ‚Ø© Ù‚Ø±Ø§Ø¡Ø©`;
                 meta.appendChild(badge);
             }
         });
 
         // ============================================
-        // 7. MEGA MENU — Transform services link
+        // 7. MEGA MENU â€” Transform services link
         // ============================================
         const servicesLink = document.querySelector('a[href="index.html#services"]');
         if (servicesLink) {
@@ -186,27 +147,27 @@
             megaMenu.innerHTML = `
                 <a href="index.html#services" class="mega-menu-item">
                     <div class="mega-menu-icon"><i class="fas fa-gavel"></i></div>
-                    <div class="mega-menu-text"><h4>القضايا المدنية</h4><p>عقود، تعويضات، إيجارات</p></div>
+                    <div class="mega-menu-text"><h4>Ø§Ù„Ù‚Ø¶Ø§ÙŠØ§ Ø§Ù„Ù…Ø¯Ù†ÙŠØ©</h4><p>Ø¹Ù‚ÙˆØ¯ØŒ ØªØ¹ÙˆÙŠØ¶Ø§ØªØŒ Ø¥ÙŠØ¬Ø§Ø±Ø§Øª</p></div>
                 </a>
                 <a href="index.html#services" class="mega-menu-item">
                     <div class="mega-menu-icon"><i class="fas fa-user-shield"></i></div>
-                    <div class="mega-menu-text"><h4>القانون الجنائي</h4><p>دفاع، طعن، تحقيقات</p></div>
+                    <div class="mega-menu-text"><h4>Ø§Ù„Ù‚Ø§Ù†ÙˆÙ† Ø§Ù„Ø¬Ù†Ø§Ø¦ÙŠ</h4><p>Ø¯ÙØ§Ø¹ØŒ Ø·Ø¹Ù†ØŒ ØªØ­Ù‚ÙŠÙ‚Ø§Øª</p></div>
                 </a>
                 <a href="index.html#services" class="mega-menu-item">
                     <div class="mega-menu-icon"><i class="fas fa-heart"></i></div>
-                    <div class="mega-menu-text"><h4>الأحوال الشخصية</h4><p>طلاق، نفقة، حضانة</p></div>
+                    <div class="mega-menu-text"><h4>Ø§Ù„Ø£Ø­ÙˆØ§Ù„ Ø§Ù„Ø´Ø®ØµÙŠØ©</h4><p>Ø·Ù„Ø§Ù‚ØŒ Ù†ÙÙ‚Ø©ØŒ Ø­Ø¶Ø§Ù†Ø©</p></div>
                 </a>
                 <a href="index.html#services" class="mega-menu-item">
                     <div class="mega-menu-icon"><i class="fas fa-briefcase"></i></div>
-                    <div class="mega-menu-text"><h4>قانون العمل</h4><p>فصل تعسفي، تأمينات</p></div>
+                    <div class="mega-menu-text"><h4>Ù‚Ø§Ù†ÙˆÙ† Ø§Ù„Ø¹Ù…Ù„</h4><p>ÙØµÙ„ ØªØ¹Ø³ÙÙŠØŒ ØªØ£Ù…ÙŠÙ†Ø§Øª</p></div>
                 </a>
                 <a href="index.html#services" class="mega-menu-item">
                     <div class="mega-menu-icon"><i class="fas fa-building"></i></div>
-                    <div class="mega-menu-text"><h4>الشركات والتجارة</h4><p>تأسيس، عقود، علامات</p></div>
+                    <div class="mega-menu-text"><h4>Ø§Ù„Ø´Ø±ÙƒØ§Øª ÙˆØ§Ù„ØªØ¬Ø§Ø±Ø©</h4><p>ØªØ£Ø³ÙŠØ³ØŒ Ø¹Ù‚ÙˆØ¯ØŒ Ø¹Ù„Ø§Ù…Ø§Øª</p></div>
                 </a>
                 <a href="index.html#services" class="mega-menu-item">
                     <div class="mega-menu-icon"><i class="fas fa-landmark"></i></div>
-                    <div class="mega-menu-text"><h4>القضاء الإداري</h4><p>مجلس الدولة، طعون</p></div>
+                    <div class="mega-menu-text"><h4>Ø§Ù„Ù‚Ø¶Ø§Ø¡ Ø§Ù„Ø¥Ø¯Ø§Ø±ÙŠ</h4><p>Ù…Ø¬Ù„Ø³ Ø§Ù„Ø¯ÙˆÙ„Ø©ØŒ Ø·Ø¹ÙˆÙ†</p></div>
                 </a>
             `;
             li.appendChild(megaMenu);
@@ -222,12 +183,12 @@
             verifySection.innerHTML = `
                 <i class="fas fa-shield-alt"></i>
                 <div>
-                    <h4>التحقق من صحة الوثائق</h4>
-                    <p>أدخل الكود المرجعي للوثيقة الصادرة من المؤسسة</p>
+                    <h4>Ø§Ù„ØªØ­Ù‚Ù‚ Ù…Ù† ØµØ­Ø© Ø§Ù„ÙˆØ«Ø§Ø¦Ù‚</h4>
+                    <p>Ø£Ø¯Ø®Ù„ Ø§Ù„ÙƒÙˆØ¯ Ø§Ù„Ù…Ø±Ø¬Ø¹ÙŠ Ù„Ù„ÙˆØ«ÙŠÙ‚Ø© Ø§Ù„ØµØ§Ø¯Ø±Ø© Ù…Ù† Ø§Ù„Ù…Ø¤Ø³Ø³Ø©</p>
                 </div>
                 <div class="verify-input-group">
-                    <input type="text" placeholder="أدخل الكود المرجعي..." id="verifyCode">
-                    <button onclick="verifyDoc()">تحقق</button>
+                    <input type="text" placeholder="Ø£Ø¯Ø®Ù„ Ø§Ù„ÙƒÙˆØ¯ Ø§Ù„Ù…Ø±Ø¬Ø¹ÙŠ..." id="verifyCode">
+                    <button onclick="verifyDoc()">ØªØ­Ù‚Ù‚</button>
                 </div>
             `;
             footerBottom.insertAdjacentElement('beforebegin', verifySection);
@@ -239,13 +200,13 @@
     window.verifyDoc = function() {
         const code = document.getElementById('verifyCode')?.value.trim();
         if (!code) {
-            showToast('يرجى إدخال الكود المرجعي أولاً', 'exclamation-triangle');
+            showToast('ÙŠØ±Ø¬Ù‰ Ø¥Ø¯Ø®Ø§Ù„ Ø§Ù„ÙƒÙˆØ¯ Ø§Ù„Ù…Ø±Ø¬Ø¹ÙŠ Ø£ÙˆÙ„Ø§Ù‹', 'exclamation-triangle');
             return;
         }
         // Redirect to WhatsApp for verification
-        const msg = encodeURIComponent('مرحباً، أريد التحقق من صحة وثيقة صادرة من المؤسسة.\nالكود المرجعي: ' + code);
+        const msg = encodeURIComponent('Ù…Ø±Ø­Ø¨Ø§Ù‹ØŒ Ø£Ø±ÙŠØ¯ Ø§Ù„ØªØ­Ù‚Ù‚ Ù…Ù† ØµØ­Ø© ÙˆØ«ÙŠÙ‚Ø© ØµØ§Ø¯Ø±Ø© Ù…Ù† Ø§Ù„Ù…Ø¤Ø³Ø³Ø©.\nØ§Ù„ÙƒÙˆØ¯ Ø§Ù„Ù…Ø±Ø¬Ø¹ÙŠ: ' + code);
         window.open('https://wa.me/201229333957?text=' + msg, '_blank');
-        showToast('يتم تحويلك للتحقق عبر سكرتارية المؤسسة...');
+        showToast('ÙŠØªÙ… ØªØ­ÙˆÙŠÙ„Ùƒ Ù„Ù„ØªØ­Ù‚Ù‚ Ø¹Ø¨Ø± Ø³ÙƒØ±ØªØ§Ø±ÙŠØ© Ø§Ù„Ù…Ø¤Ø³Ø³Ø©...');
     };
 
     // Toast (in case main.js hasn't defined it yet)
@@ -280,11 +241,11 @@ document.addEventListener("DOMContentLoaded", () => {
         <div class="exit-popup-content">
             <button class="exit-popup-close"><i class="fas fa-times"></i></button>
             <i class="fas fa-balance-scale-right exit-popup-icon"></i>
-            <h3 class="exit-popup-title">لحظة من فضلك!</h3>
-            <p class="exit-popup-text">نعلم أن القضايا القانونية قد تكون مرهقة. قبل أن تغادر، هل ترغب في الحصول على <strong>تقييم مبدئي مجاني وسريع</strong> لموقفك القانوني عبر واتساب؟</p>
+            <h3 class="exit-popup-title">Ù„Ø­Ø¸Ø© Ù…Ù† ÙØ¶Ù„Ùƒ!</h3>
+            <p class="exit-popup-text">Ù†Ø¹Ù„Ù… Ø£Ù† Ø§Ù„Ù‚Ø¶Ø§ÙŠØ§ Ø§Ù„Ù‚Ø§Ù†ÙˆÙ†ÙŠØ© Ù‚Ø¯ ØªÙƒÙˆÙ† Ù…Ø±Ù‡Ù‚Ø©. Ù‚Ø¨Ù„ Ø£Ù† ØªØºØ§Ø¯Ø±ØŒ Ù‡Ù„ ØªØ±ØºØ¨ ÙÙŠ Ø§Ù„Ø­ØµÙˆÙ„ Ø¹Ù„Ù‰ <strong>ØªÙ‚ÙŠÙŠÙ… Ù…Ø¨Ø¯Ø¦ÙŠ Ù…Ø¬Ø§Ù†ÙŠ ÙˆØ³Ø±ÙŠØ¹</strong> Ù„Ù…ÙˆÙ‚ÙÙƒ Ø§Ù„Ù‚Ø§Ù†ÙˆÙ†ÙŠ Ø¹Ø¨Ø± ÙˆØ§ØªØ³Ø§Ø¨ØŸ</p>
             <div class="exit-popup-actions">
-                <a href="https://wa.me/201229333957" class="btn btn--primary"><i class="fab fa-whatsapp"></i> تواصل الآن</a>
-                <a href="booking.html" class="btn btn--outline">حجز موعد</a>
+                <a href="https://wa.me/201229333957" class="btn btn--primary"><i class="fab fa-whatsapp"></i> ØªÙˆØ§ØµÙ„ Ø§Ù„Ø¢Ù†</a>
+                <a href="booking.html" class="btn btn--outline">Ø­Ø¬Ø² Ù…ÙˆØ¹Ø¯</a>
             </div>
         </div>
     `;
@@ -320,11 +281,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // === 2. Social Proof Toasts ===
     const proofMessages = [
-        "أحد محامي القسم الجنائي متاح الآن للرد الفوري",
-        "موكّل من (القاهرة) قام بحجز استشارة للتو",
-        "٢ محامين من المؤسسة متصلون الآن عبر واتساب",
-        "تم تحديث مكتبة أحكام النقض منذ ساعة",
-        "تم الرد على ٤ استشارات قانونية اليوم"
+        "Ø£Ø­Ø¯ Ù…Ø­Ø§Ù…ÙŠ Ø§Ù„Ù‚Ø³Ù… Ø§Ù„Ø¬Ù†Ø§Ø¦ÙŠ Ù…ØªØ§Ø­ Ø§Ù„Ø¢Ù† Ù„Ù„Ø±Ø¯ Ø§Ù„ÙÙˆØ±ÙŠ",
+        "Ù…ÙˆÙƒÙ‘Ù„ Ù…Ù† (Ø§Ù„Ù‚Ø§Ù‡Ø±Ø©) Ù‚Ø§Ù… Ø¨Ø­Ø¬Ø² Ø§Ø³ØªØ´Ø§Ø±Ø© Ù„Ù„ØªÙˆ",
+        "Ù¢ Ù…Ø­Ø§Ù…ÙŠÙ† Ù…Ù† Ø§Ù„Ù…Ø¤Ø³Ø³Ø© Ù…ØªØµÙ„ÙˆÙ† Ø§Ù„Ø¢Ù† Ø¹Ø¨Ø± ÙˆØ§ØªØ³Ø§Ø¨",
+        "ØªÙ… ØªØ­Ø¯ÙŠØ« Ù…ÙƒØªØ¨Ø© Ø£Ø­ÙƒØ§Ù… Ø§Ù„Ù†Ù‚Ø¶ Ù…Ù†Ø° Ø³Ø§Ø¹Ø©",
+        "ØªÙ… Ø§Ù„Ø±Ø¯ Ø¹Ù„Ù‰ Ù¤ Ø§Ø³ØªØ´Ø§Ø±Ø§Øª Ù‚Ø§Ù†ÙˆÙ†ÙŠØ© Ø§Ù„ÙŠÙˆÙ…"
     ];
     
     const proofContainer = document.createElement("div");
@@ -358,8 +319,8 @@ document.addEventListener("DOMContentLoaded", () => {
         const contextualCta = document.createElement("div");
         contextualCta.className = "contextual-cta";
         contextualCta.innerHTML = `
-            <div class="contextual-cta-text">هل تمر بموقف قانوني مشابه؟</div>
-            <a href="booking.html" class="contextual-cta-btn">اطلب استشارة المتخصصين</a>
+            <div class="contextual-cta-text">Ù‡Ù„ ØªÙ…Ø± Ø¨Ù…ÙˆÙ‚Ù Ù‚Ø§Ù†ÙˆÙ†ÙŠ Ù…Ø´Ø§Ø¨Ù‡ØŸ</div>
+            <a href="booking.html" class="contextual-cta-btn">Ø§Ø·Ù„Ø¨ Ø§Ø³ØªØ´Ø§Ø±Ø© Ø§Ù„Ù…ØªØ®ØµØµÙŠÙ†</a>
         `;
         document.body.appendChild(contextualCta);
 
@@ -378,4 +339,6 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
 });
+
+
 
