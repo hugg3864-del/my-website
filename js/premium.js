@@ -266,3 +266,116 @@
         };
     }
 })();
+
+// ============================================
+// Psychological & Conversion UX (Growth Hacking)
+// ============================================
+document.addEventListener("DOMContentLoaded", () => {
+    
+    // === 1. Exit-Intent Popup ===
+    // Create popup HTML
+    const exitPopup = document.createElement("div");
+    exitPopup.className = "exit-popup-overlay";
+    exitPopup.innerHTML = `
+        <div class="exit-popup-content">
+            <button class="exit-popup-close"><i class="fas fa-times"></i></button>
+            <i class="fas fa-balance-scale-right exit-popup-icon"></i>
+            <h3 class="exit-popup-title">لحظة من فضلك!</h3>
+            <p class="exit-popup-text">نعلم أن القضايا القانونية قد تكون مرهقة. قبل أن تغادر، هل ترغب في الحصول على <strong>تقييم مبدئي مجاني وسريع</strong> لموقفك القانوني عبر واتساب؟</p>
+            <div class="exit-popup-actions">
+                <a href="https://wa.me/201229333957" class="btn btn--primary"><i class="fab fa-whatsapp"></i> تواصل الآن</a>
+                <a href="booking.html" class="btn btn--outline">حجز موعد</a>
+            </div>
+        </div>
+    `;
+    document.body.appendChild(exitPopup);
+
+    const closeExitPopup = () => {
+        exitPopup.classList.remove("show");
+        sessionStorage.setItem("exitPopupShown", "true"); // Prevent annoying the user
+    };
+    exitPopup.querySelector(".exit-popup-close").addEventListener("click", closeExitPopup);
+    exitPopup.addEventListener("click", (e) => {
+        if (e.target === exitPopup) closeExitPopup();
+    });
+
+    // Trigger on mouse leave (Desktop)
+    document.addEventListener("mouseleave", (e) => {
+        if (e.clientY < 0 && !sessionStorage.getItem("exitPopupShown")) {
+            exitPopup.classList.add("show");
+        }
+    });
+    // Trigger on fast scroll up (Mobile fallback after 10s)
+    let lastScroll = window.scrollY;
+    setTimeout(() => {
+        window.addEventListener("scroll", () => {
+            const currentScroll = window.scrollY;
+            if (lastScroll - currentScroll > 150 && !sessionStorage.getItem("exitPopupShown")) {
+                exitPopup.classList.add("show");
+            }
+            lastScroll = currentScroll;
+        }, { passive: true });
+    }, 10000);
+
+
+    // === 2. Social Proof Toasts ===
+    const proofMessages = [
+        "أحد محامي القسم الجنائي متاح الآن للرد الفوري",
+        "موكّل من (القاهرة) قام بحجز استشارة للتو",
+        "٢ محامين من المؤسسة متصلون الآن عبر واتساب",
+        "تم تحديث مكتبة أحكام النقض منذ ساعة",
+        "تم الرد على ٤ استشارات قانونية اليوم"
+    ];
+    
+    const proofContainer = document.createElement("div");
+    proofContainer.className = "social-proof-container";
+    document.body.appendChild(proofContainer);
+
+    function showRandomProof() {
+        if (document.hidden) return; // Don"t show if tab is inactive
+        const msg = proofMessages[Math.floor(Math.random() * proofMessages.length)];
+        
+        const toast = document.createElement("div");
+        toast.className = "social-proof";
+        toast.innerHTML = `<div class="sp-dot"></div><div class="sp-text">${msg}</div>`;
+        
+        proofContainer.appendChild(toast);
+        
+        // Remove after animation (6s total)
+        setTimeout(() => toast.remove(), 6000);
+    }
+
+    // Show first proof after 15s, then randomly every 35-50s
+    setTimeout(() => {
+        showRandomProof();
+        setInterval(showRandomProof, Math.random() * (50000 - 35000) + 35000);
+    }, 15000);
+
+
+    // === 3. Contextual CTA (Slide up bar) ===
+    // Only show if page might have articles (blog, law, or just long pages)
+    if (document.querySelector(".blog-card") || document.querySelector(".law-card") || document.body.scrollHeight > 1500) {
+        const contextualCta = document.createElement("div");
+        contextualCta.className = "contextual-cta";
+        contextualCta.innerHTML = `
+            <div class="contextual-cta-text">هل تمر بموقف قانوني مشابه؟</div>
+            <a href="booking.html" class="contextual-cta-btn">اطلب استشارة المتخصصين</a>
+        `;
+        document.body.appendChild(contextualCta);
+
+        window.addEventListener("scroll", () => {
+            const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrolled = (winScroll / height);
+            
+            // Show if scrolled more than 40% but not at the absolute bottom
+            if (scrolled > 0.40 && scrolled < 0.95) {
+                contextualCta.classList.add("show");
+            } else {
+                contextualCta.classList.remove("show");
+            }
+        }, { passive: true });
+    }
+
+});
+
