@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>الفاحص الذكي للعقود بالذكاء الاصطناعي | مؤسسة آل زهران للمحاماة</title>
+    <meta name="description" content="خدمة الفحص الأولي الذكي لعقود البيع والإيجار والشراكة بالذكاء الاصطناعي لكشف الثغرات القانونية قبل التوقيع.">
+    
+    <!-- Fonts & Icons -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/premium.css">
+
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#0b1930">
+    <meta property="og:title" content="الفاحص الذكي للعقود | مؤسسة آل زهران للمحاماة">
+    <meta property="og:description" content="اكشف الثغرات القانونية والشروط المجحفة في عقود البيع والإيجار قبل التوقيع بواسطة الذكاء الاصطناعي القانوني.">
+    <meta property="og:image" content="https://raw.githubusercontent.com/hugg3864-del/my-website/master/AiArt_1753898582219.jpg">
+    <meta property="og:url" content="https://hugg3864-del.github.io/my-website/contract-check.html">
+    <meta name="twitter:card" content="summary_large_image">
+
+    <style>
+        .analyzer-container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        .analyzer-card {
+            background: var(--bg-card);
+            border-radius: var(--radius-lg);
+            padding: 35px;
+            box-shadow: var(--shadow-xl);
+            border: 1px solid var(--border-color);
+            position: relative;
+            overflow: hidden;
+        }
+        .analyzer-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--gold-500), #25D366, var(--gold-400));
+        }
+        .ai-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(200, 169, 81, 0.15);
+            color: var(--gold-500);
+            border: 1px solid rgba(200, 169, 81, 0.3);
+            padding: 6px 16px;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+        .input-tabs {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 25px;
+            border-bottom: 2px solid var(--border-light);
+            padding-bottom: 12px;
+            flex-wrap: wrap;
+        }
+        .tab-btn {
+            background: transparent;
+            border: none;
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            font-weight: 700;
+            padding: 10px 18px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            font-family: inherit;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .tab-btn.active {
+            background: rgba(200, 169, 81, 0.15);
+            color: var(--gold-500);
+        }
+        .upload-dropzone {
+            border: 2px dashed rgba(200, 169, 81, 0.4);
+            border-radius: var(--radius-md);
+            padding: 40px 20px;
+            text-align: center;
+            background: var(--bg-alt);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-bottom: 20px;
+        }
+        .upload-dropzone:hover, .upload-dropzone.dragover {
+            border-color: var(--gold-500);
+            background: rgba(200, 169, 81, 0.05);
+        }
+        .upload-dropzone i {
+            font-size: 3rem;
+            color: var(--gold-500);
+            margin-bottom: 15px;
+        }
+        .contract-textarea {
+            width: 100%;
+            min-height: 220px;
+            background: var(--bg-alt);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-md);
+            padding: 16px;
+            color: var(--text-primary);
+            font-size: 0.95rem;
+            font-family: inherit;
+            line-height: 1.7;
+            resize: vertical;
+        }
+        .contract-textarea:focus {
+            outline: none;
+            border-color: var(--gold-500);
+            box-shadow: 0 0 0 3px rgba(200, 169, 81, 0.15);
+        }
+        .scan-progress {
+            display: none;
+            text-align: center;
+            padding: 40px 20px;
+        }
+        .scan-radar {
+            width: 90px;
+            height: 90px;
+            border-radius: 50%;
+            border: 3px solid rgba(200, 169, 81, 0.2);
+            border-top-color: var(--gold-500);
+            margin: 0 auto 20px;
+            animation: radarSpin 1s linear infinite;
+        }
+        @keyframes radarSpin {
+            to { transform: rotate(360deg); }
+        }
+        .report-section {
+            display: none;
+            margin-top: 40px;
+            animation: fadeIn 0.5s ease;
+        }
+        .score-box {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: var(--bg-alt);
+            border-radius: var(--radius-md);
+            padding: 24px;
+            margin-bottom: 30px;
+            border: 1px solid var(--border-color);
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        .score-circle {
+            width: 90px;
+            height: 90px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            font-weight: 900;
+            color: #fff;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+        .score-risk-high { background: #ef4444; }
+        .score-risk-mid { background: #f59e0b; }
+        .score-risk-low { background: #10b981; }
+
+        .loophole-card {
+            border-radius: var(--radius-md);
+            padding: 18px 22px;
+            margin-bottom: 16px;
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+            border-right: 4px solid;
+            background: var(--bg-card);
+            box-shadow: var(--shadow-sm);
+        }
+        .loophole-card.critical {
+            border-color: #ef4444;
+            background: rgba(239, 68, 68, 0.05);
+        }
+        .loophole-card.warning {
+            border-color: #f59e0b;
+            background: rgba(245, 158, 11, 0.05);
+        }
+        .loophole-card.safe {
+            border-color: #10b981;
+            background: rgba(16, 185, 129, 0.05);
+        }
+        .loophole-card i {
+            font-size: 1.3rem;
+            margin-top: 3px;
+        }
+        .loophole-card.critical i { color: #ef4444; }
+        .loophole-card.warning i { color: #f59e0b; }
+        .loophole-card.safe i { color: #10b981; }
+        .loophole-title {
+            font-size: 1rem;
+            font-weight: 800;
+            margin-bottom: 4px;
+        }
+        .loophole-desc {
+            font-size: 0.88rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+        .api-config-toggle {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            text-decoration: underline;
+            cursor: pointer;
+            float: left;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header class="header" id="header">
+        <div class="container">
+            <div class="header-content">
+                <a href="index.html" class="logo">
+                    <i class="fas fa-balance-scale"></i>
+                    <span>مؤسسة آل زهران</span>
+                </a>
+                <nav>
+                    <ul class="nav-menu" id="navMenu">
+                        <li><a href="index.html">الرئيسية</a></li>
+                        <li><a href="index.html#services">خدماتنا</a></li>
+                        <li><a href="contract-check.html" class="active" style="color:var(--gold-400); font-weight:800;"><i class="fas fa-file-contract"></i> فاحص العقود</a></li>
+                        <li><a href="law.html">المكتبة القانونية</a></li>
+                        <li><a href="blog.html">المدونة</a></li>
+                        <li><a href="faq.html">الأسئلة الشائعة</a></li>
+                        <li><a href="booking.html">حجز استشارة</a></li>
+                        <li><a href="contact.html">اتصل بنا</a></li>
+                    </ul>
+                    <div class="accessibility-toolbar">
+                        <button id="themeToggle" class="toolbar-btn" title="الوضع الليلي/النهاري"><i class="fas fa-moon"></i></button>
+                        <button id="fontToggle" class="toolbar-btn" title="تكبير الخط"><i class="fas fa-font"></i></button>
+                    </div>
+                    <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="القائمة">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Page Hero -->
+        <div class="page-hero">
+            <div class="container">
+                <div class="hero-badge">
+                    <i class="fas fa-robot"></i>
+                    <span>تقنية LegalTech الذكية</span>
+                </div>
+                <h1>الفاحص الذكي للعقود الابتدائية</h1>
+                <p>اكشف الثغرات الخفية والشروط المجحفة في عقود البيع، الإيجار، والشركات طبقاً للقانون المدني المصري قبل التوقيع.</p>
+                <div class="breadcrumb">
+                    <a href="index.html">الرئيسية</a> &gt; <span>الفاحص الذكي للعقود</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Analyzer Section -->
+        <section class="section">
+            <div class="container">
+                <div class="analyzer-container">
+                    
+                    <div class="analyzer-card">
+                        <div class="ai-badge">
+                            <i class="fas fa-shield-alt"></i> فحص قانوني آمن • مشفر ومحمي بموجب قانون ١٥١ لسنة ٢٠٢٠
+                        </div>
+
+                        <!-- Contract Type Selection -->
+                        <div class="form-group mb-4">
+                            <label class="form-label" for="contractType">نوع العقد المراد فحصه:</label>
+                            <select id="contractType" class="form-input">
+                                <option value="real_estate_sale">عقد بيع شقة سكنية / عقار / أرض</option>
+                                <option value="apartment_rent">عقد إيجار شقة سكنية (قانون ٤ لسنة ١٩٩٦)</option>
+                                <option value="commercial_partnership">عقد شراكة / تأسيس شركة تجارية</option>
+                                <option value="employment">عقد عمل فردي (قانون العمل ١٢ لسنة ٢٠٠٣)</option>
+                                <option value="general_contract">عقد اتفاق عام أو مقاولة</option>
+                            </select>
+                        </div>
+
+                        <!-- Input Mode Tabs -->
+                        <div class="input-tabs">
+                            <button type="button" class="tab-btn active" id="tabUploadBtn"><i class="fas fa-cloud-upload-alt"></i> رفع ملف / صورة</button>
+                            <button type="button" class="tab-btn" id="tabTextBtn"><i class="fas fa-edit"></i> لصق نص العقد</button>
+                            <button type="button" class="tab-btn" id="tabSampleBtn"><i class="fas fa-vial"></i> تجربة عقد بيع نموذجي به ثغرات</button>
+                        </div>
+
+                        <!-- Mode 1: File Upload -->
+                        <div id="uploadSection">
+                            <div class="upload-dropzone" id="dropZone">
+                                <i class="fas fa-file-pdf"></i>
+                                <h3>اسحب وأفلت صورة العقد أو ملف الـ PDF هنا</h3>
+                                <p style="color:var(--text-muted); font-size:0.85rem; margin-top:6px;">يدعم صور الكاميرا (JPG, PNG) وملفات PDF بحد أقصى ١٠ ميجابايت</p>
+                                <input type="file" id="fileInput" accept="image/*,.pdf,.doc,.docx" style="display:none;">
+                                <button type="button" class="btn btn--outline mt-3" onclick="document.getElementById('fileInput').click()">اختيار ملف من الجهاز</button>
+                            </div>
+                            <div id="fileSelectedInfo" style="display:none; margin-bottom:15px; font-weight:bold; color:var(--gold-400);">
+                                <i class="fas fa-check-circle"></i> تم تحديد الملف: <span id="fileNameDisplay"></span>
+                            </div>
+                        </div>
+
+                        <!-- Mode 2: Textarea -->
+                        <div id="textSection" style="display:none;">
+                            <textarea id="contractText" class="contract-textarea" placeholder="انسخ بنود العقد كاملة والصقها هنا للمراجعة والتدقيق..."></textarea>
+                        </div>
+
+                        <!-- Action Button -->
+                        <div class="mt-4">
+                            <button type="button" class="btn btn--primary btn--block" id="startAnalyzeBtn" style="font-size:1.1rem; padding:16px;">
+                                <i class="fas fa-microscope"></i> ابدأ الفحص القانوني الذكي الآن
+                            </button>
+                            <span class="api-config-toggle" id="openApiConfig"><i class="fas fa-key"></i> إعدادات محرك Gemini API (اختياري)</span>
+                        </div>
+
+                        <!-- Scanning Radar Simulation -->
+                        <div class="scan-progress" id="scanProgress">
+                            <div class="scan-radar"></div>
+                            <h3 id="scanStatusTitle" style="color:var(--gold-400); margin-bottom:8px;">جاري فحص العقد...</h3>
+                            <p id="scanStatusSubtitle" style="color:var(--text-secondary); font-size:0.9rem;">مطابقة بنود العقد مع أحكام محكمة النقض والقانون المدني المصري</p>
+                        </div>
+
+                        <!-- Result Report -->
+                        <div class="report-section" id="reportSection">
+                            <hr style="border-color:var(--border-light); margin:30px 0;">
+                            
+                            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:20px; flex-wrap:wrap; gap:10px;">
+                                <div>
+                                    <h2 style="font-size:1.4rem; color:var(--primary-700);"><i class="fas fa-file-invoice"></i> تقرير الفحص القانوني المبدئي</h2>
+                                    <small style="color:var(--text-muted);">صادر عن وحدة الفحص الرقمي بمؤسسة آل زهران للمحاماة</small>
+                                </div>
+                                <button onclick="window.print()" class="btn btn--outline" style="padding:6px 14px; font-size:0.85rem;"><i class="fas fa-print"></i> طباعة التقرير</button>
+                            </div>
+
+                            <!-- Score Box -->
+                            <div class="score-box">
+                                <div>
+                                    <h4 style="font-size:1.1rem; margin-bottom:6px;">مؤشر أمان العقد القانوني:</h4>
+                                    <p id="scoreLabel" style="color:var(--text-secondary); font-size:0.9rem;">العقد يحتوي على ثغرات خطيرة تستوجب التعديل الفوري.</p>
+                                </div>
+                                <div class="score-circle score-risk-mid" id="scoreBadge">
+                                    <span id="scoreNumber">65%</span>
+                                </div>
+                            </div>
+
+                            <!-- Loopholes Container -->
+                            <div id="loopholesContainer">
+                                <!-- Populated dynamically by JS -->
+                            </div>
+
+                            <!-- Advisory Council Advice Box -->
+                            <div style="background:linear-gradient(135deg, rgba(11,25,48,0.95), rgba(15,36,66,0.95)); border:1px solid var(--gold-500); border-radius:var(--radius-md); padding:24px; color:#fff; margin-top:25px;">
+                                <h4 style="color:var(--gold-400); font-size:1.1rem; margin-bottom:10px;"><i class="fas fa-gavel"></i> توصية مستشاري المؤسسة:</h4>
+                                <p style="font-size:0.92rem; line-height:1.7; color:var(--text-on-dark-muted); margin-bottom:18px;" id="advisoryRecommendation">
+                                    نوصي بعدم التوقيع على هذا العقد بصيغته الحالية قبل تعديل الشروط المجحفة، وإضافة الشرط الفاسخ الصريح، وحسم التزامات الضرائب العقارية لحماية أموالك قانوناً.
+                                </p>
+                                <div style="display:flex; gap:12px; flex-wrap:wrap;">
+                                    <a href="#" id="waConsultBtn" target="_blank" class="btn btn--primary" style="background:#25D366; border-color:#25D366; color:#fff;">
+                                        <i class="fab fa-whatsapp"></i> إرسال التقرير للمحامي لتعديل العقد
+                                    </a>
+                                    <a href="booking.html" class="btn btn--outline" style="border-color:#fff; color:#fff;">
+                                        <i class="fas fa-calendar-check"></i> حجز موعد صياغة بمقر المكتب
+                                    </a>
+                                </div>
+                            </div>
+
+                            <!-- Strict Legal Disclaimer -->
+                            <div style="margin-top:20px; font-size:0.78rem; color:var(--text-muted); text-align:center; line-height:1.6;">
+                                ⚖️ <strong>إخلاء مسؤولية قانونية:</strong> هذا الفحص الرقمي يعتمد على خوارزميات الذكاء الاصطناعي للمساعدة التوجيهية وكشف الأخطاء الشائعة، ولا يغني عن المراجعة الموضوعية الدقيقة لمستندات الملكية وأصول الأوراق أمام محامي المؤسسة المعتمد بنقابة المحامين.
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Modal for Gemini API Key -->
+    <div id="apiKeyModal" class="exit-popup-overlay">
+        <div class="exit-popup-content" style="max-width:440px;">
+            <button class="exit-popup-close" id="closeApiKeyModal"><i class="fas fa-times"></i></button>
+            <i class="fas fa-key exit-popup-icon" style="font-size:2.5rem; color:var(--gold-500);"></i>
+            <h3 class="exit-popup-title" style="font-size:1.3rem;">ربط محرك Gemini AI المباشر</h3>
+            <p class="exit-popup-text" style="font-size:0.85rem;">
+                يمكنك إدخال مفتاح Google Gemini API المجاني الخاص بك للاتصال المباشر بنموذج Gemini 1.5 Flash، أو ترك الحقل فارغاً للاعتماد على <strong>محرك الفحص الداخلي للمجلس الاستشاري</strong>.
+            </p>
+            <div class="form-group mb-3">
+                <input type="password" id="geminiApiKeyInput" class="form-input" placeholder="AIzaSy..." style="direction:ltr; text-align:left;">
+            </div>
+            <button type="button" id="saveApiKeyBtn" class="btn btn--primary btn--block">حفظ الإعدادات</button>
+            <small style="display:block; margin-top:8px; font-size:0.75rem; color:var(--text-muted);">يُحفظ المفتاح محلياً في متصفحك فقط ولا يُنقل لأي طرف ثالث.</small>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>مؤسسة آل زهران</h3>
+                    <p>مؤسسة مصرية متخصصة في المحاماة والاستشارات القانونية. نلتزم بأعلى معايير المهنية والسرية في خدمة موكلينا.</p>
+                    <div class="footer-badge">
+                        <i class="fas fa-shield-alt"></i>
+                        <span>مقيّدة بنقابة المحامين المصرية</span>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h3>خدماتنا</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html#services">القضايا المدنية</a></li>
+                        <li><a href="index.html#services">القانون الجنائي</a></li>
+                        <li><a href="index.html#services">الأحوال الشخصية</a></li>
+                        <li><a href="contract-check.html">فاحص العقود الذكي</a></li>
+                        <li><a href="index.html#services">الشركات والتجارة</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>روابط مهمة</h3>
+                    <ul class="footer-links">
+                        <li><a href="faq.html">الأسئلة الشائعة</a></li>
+                        <li><a href="booking.html">حجز استشارة</a></li>
+                        <li><a href="privacy.html">سياسة الخصوصية</a></li>
+                        <li><a href="terms.html">شروط الاستخدام</a></li>
+                        <li><a href="disclaimer.html">إخلاء المسؤولية</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>تواصل معنا</h3>
+                    <div class="footer-contact">
+                        <p><i class="fas fa-map-marker-alt"></i> القاهرة، المرج الجديدة / الخصوص</p>
+                        <p><i class="fas fa-phone"></i> 01229333957 - 01060670084</p>
+                        <p><i class="fas fa-envelope"></i> alzahranlaw1@gmail.com</p>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; <span id="currentYear"></span> مؤسسة آل زهران للمحاماة والاستشارات القانونية. جميع الحقوق محفوظة.</p>
+                <p class="footer-legal">محمية بموجب قانون حماية البيانات الشخصية المصري رقم ١٥١ لسنة ٢٠٢٠</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Chatbot Widget -->
+    <div class="chatbot-widget" id="chatbotWidget">
+        <button class="chatbot-trigger" id="chatbotTrigger" aria-label="المساعد القانوني">
+            <i class="fas fa-robot"></i>
+        </button>
+        <div class="chatbot-window" id="chatbotWindow">
+            <div class="chatbot-header">
+                <div class="chatbot-header-info">
+                    <i class="fas fa-robot"></i>
+                    <div>
+                        <h4>المساعد القانوني الذكي</h4>
+                        <small>للتوجيه فقط - لا يُغني عن استشارة المحامي</small>
+                    </div>
+                </div>
+                <button class="chatbot-close" id="chatbotClose"><i class="fas fa-times"></i></button>
+            </div>
+            <div class="chatbot-messages" id="chatMessages"></div>
+            <div class="chatbot-input">
+                <input type="text" id="chatInput" placeholder="اكتب سؤالك القانوني...">
+                <button id="chatSend"><i class="fas fa-paper-plane"></i></button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/main.js"></script>
+    <script src="js/chatbot.js"></script>
+    <script src="js/premium.js"></script>
+    <script src="js/contract-analyzer.js"></script>
+</body>
+</html>
