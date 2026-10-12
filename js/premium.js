@@ -106,7 +106,7 @@
                     <i class="fas fa-bolt"></i> عاجل
                 </div>
                 <div class="news-ticker-content">
-                    <div class="news-ticker-item"><span class="dot"></span> المؤسسة تقبل التوكيلات في جميع أنواع القضايا أمام كافة المحاكم المصرية</div>
+                    <div class="news-ticker-item"><span class="dot"></span> 🌟 جديد: إطلاق "الفاحص الذكي للعقود" بالذكاء الاصطناعي لكشف الثغرات مجاناً قبل التوقيع!</div>`n                    <div class="news-ticker-item"><span class="dot"></span> المؤسسة تقبل التوكيلات في جميع أنواع القضايا أمام كافة المحاكم المصرية</div>
                     <div class="news-ticker-item"><span class="dot"></span> خدمة الاستشارة الأولية متاحة لجميع الموكلين — احجز موعدك الآن</div>
                     <div class="news-ticker-item"><span class="dot"></span> تنويه: لا تدفع أي مبالغ مالية إلا بعد توقيع عقد أتعاب رسمي مع المؤسسة</div>
                     <div class="news-ticker-item"><span class="dot"></span> نتعامل مع القضايا الجنائية العاجلة على مدار الساعة — اتصل فوراً</div>
@@ -167,6 +167,10 @@
                 <a href="index.html#services" class="mega-menu-item">
                     <div class="mega-menu-icon"><i class="fas fa-landmark"></i></div>
                     <div class="mega-menu-text"><h4>القضاء الإداري</h4><p>مجلس الدولة، طعون</p></div>
+                </a>
+                <a href="contract-check.html" class="mega-menu-item" style="background:rgba(200,169,81,0.15); border:1px solid rgba(200,169,81,0.3);">
+                    <div class="mega-menu-icon" style="color:var(--gold-400);"><i class="fas fa-file-contract"></i></div>
+                    <div class="mega-menu-text"><h4 style="color:var(--gold-400);">فاحص العقود الذكي ⭐</h4><p>كشف الثغرات بالذكاء الاصطناعي</p></div>
                 </a>
             `;
             li.appendChild(megaMenu);
