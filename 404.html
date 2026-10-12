@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>الصفحة غير موجودة 404 | مؤسسة آل زهران للمحاماة</title>
+    <meta name="robots" content="noindex, follow">
+    
+    <!-- Fonts & Icons -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/premium.css">
+
+    <style>
+        .error-hero {
+            min-height: 75vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 80px 20px;
+            position: relative;
+        }
+        .error-card {
+            max-width: 650px;
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-lg);
+            padding: 50px 35px;
+            box-shadow: var(--shadow-xl);
+            position: relative;
+        }
+        .error-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--gold-500), #ef4444, var(--gold-400));
+        }
+        .error-code {
+            font-size: 6rem;
+            font-weight: 900;
+            line-height: 1;
+            color: var(--gold-500);
+            text-shadow: 0 4px 20px rgba(200, 169, 81, 0.3);
+            margin-bottom: 10px;
+        }
+        .error-icon {
+            font-size: 3rem;
+            color: var(--gold-400);
+            margin-bottom: 20px;
+            animation: pulse 2s infinite;
+        }
+        .quick-nav-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+            margin: 30px 0;
+        }
+        @media (max-width: 500px) {
+            .quick-nav-grid { grid-template-columns: 1fr; }
+            .error-code { font-size: 4.5rem; }
+        }
+        .nav-card-btn {
+            background: var(--bg-alt);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-sm);
+            padding: 14px 18px;
+            color: var(--text-primary);
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 0.95rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            transition: all 0.25s ease;
+        }
+        .nav-card-btn:hover {
+            background: var(--gold-500);
+            color: var(--primary-900);
+            border-color: var(--gold-500);
+            transform: translateY(-2px);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header class="header" id="header">
+        <div class="container">
+            <div class="header-content">
+                <a href="index.html" class="logo">
+                    <i class="fas fa-balance-scale"></i>
+                    <span>مؤسسة آل زهران</span>
+                </a>
+                <nav>
+                    <ul class="nav-menu" id="navMenu">
+                        <li><a href="index.html">الرئيسية</a></li>
+                        <li><a href="index.html#services">خدماتنا</a></li>
+                        <li><a href="contract-check.html"><i class="fas fa-file-contract"></i> فاحص العقود</a></li>
+                        <li><a href="law.html">المكتبة القانونية</a></li>
+                        <li><a href="blog.html">المدونة</a></li>
+                        <li><a href="booking.html">حجز استشارة</a></li>
+                        <li><a href="contact.html">اتصل بنا</a></li>
+                    </ul>
+                    <div class="accessibility-toolbar">
+                        <button id="themeToggle" class="toolbar-btn" title="الوضع الليلي/النهاري"><i class="fas fa-moon"></i></button>
+                        <button id="fontToggle" class="toolbar-btn" title="تكبير الخط"><i class="fas fa-font"></i></button>
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main class="error-hero">
+        <div class="error-card">
+            <i class="fas fa-balance-scale-left error-icon"></i>
+            <div class="error-code">404</div>
+            <h1 style="font-size: 1.5rem; margin-bottom: 12px; color: var(--primary-700);">الصفحة المطلوبة غير موجودة</h1>
+            <p style="color: var(--text-secondary); line-height: 1.7; font-size: 0.95rem;">
+                يبدو أن الرابط الذي حاولت الوصول إليه قد تم نقله أو حذفه، أو أن عنوان الصفحة كُتب بشكل غير دقيق. يمكنك العودة لصفحات المؤسسة عبر الروابط المباشرة التالية:
+            </p>
+
+            <div class="quick-nav-grid">
+                <a href="index.html" class="nav-card-btn">
+                    <i class="fas fa-home"></i> الصفحة الرئيسية
+                </a>
+                <a href="contract-check.html" class="nav-card-btn" style="border-color: var(--gold-500);">
+                    <i class="fas fa-file-contract" style="color: var(--gold-500);"></i> فاحص العقود الذكي
+                </a>
+                <a href="law.html" class="nav-card-btn">
+                    <i class="fas fa-book"></i> المكتبة القانونية
+                </a>
+                <a href="booking.html" class="nav-card-btn">
+                    <i class="fas fa-calendar-check"></i> حجز استشارة
+                </a>
+            </div>
+
+            <div style="display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;">
+                <a href="https://wa.me/201229333957" target="_blank" class="btn btn--primary" style="background: #25D366; border-color: #25D366;">
+                    <i class="fab fa-whatsapp"></i> تواصل مع سكرتارية المكتب
+                </a>
+                <a href="contact.html" class="btn btn--outline">
+                    <i class="fas fa-phone-alt"></i> عناوين وأرقام الفروع
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-bottom" style="border-top: none;">
+                <p>&copy; <span id="currentYear"></span> مؤسسة آل زهران للمحاماة والاستشارات القانونية. جميع الحقوق محفوظة.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/main.js"></script>
+    <script src="js/premium.js"></script>
+</body>
+</html>

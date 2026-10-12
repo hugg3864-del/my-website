@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
@@ -36,24 +36,113 @@
     </style>
     <link rel="manifest" href="manifest.json">
     <meta name="theme-color" content="#0b1930">
-    <meta property="og:title" content="مؤسسة آل زهران للمحاماة">
-    <meta property="og:description" content="مؤسسة مصرية متخصصة في المحاماة والاستشارات القانونية.">
-    <meta property="og:image" content="https://raw.githubusercontent.com/hugg3864-del/my-website/master/AiArt_1753898582219.jpg">
-    <meta property="og:url" content="https://hugg3864-del.github.io/my-website/">
+    <link rel="canonical" href="https://alzahranlaw.com/">
+    
+    <!-- OpenGraph & Social Cards -->
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="ar_EG">
+    <meta property="og:site_name" content="مؤسسة آل زهران للمحاماة والاستشارات القانونية">
+    <meta property="og:title" content="مؤسسة آل زهران للمحاماة والاستشارات القانونية | القاهرة">
+    <meta property="og:description" content="مؤسسة مصرية رائدة في المحاماة والاستشارات القانونية، والترافع أمام محاكم النقض ومجلس الدولة، والدفاع الجنائي، ومحاكم الأسرة، وتأسيس الشركات.">
+    <meta property="og:url" content="https://alzahranlaw.com/">
+    <meta property="og:image" content="https://alzahranlaw.com/AiArt_1753898582219.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
     <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="مؤسسة آل زهران للمحاماة والاستشارات القانونية">
+    <meta name="twitter:description" content="نخبة من المحامين والمستشارين القانونيين في مصر - ترافع أمام محاكم النقض، الجنايات، الأسرة، والشركات.">
+    <meta name="twitter:image" content="https://alzahranlaw.com/AiArt_1753898582219.jpg">
+
+    <!-- Schema.org Rich Structured Data (LegalService + Attorney + NAP) -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "LegalService",
-      "name": "مؤسسة آل زهران للمحاماة",
-      "image": "https://raw.githubusercontent.com/hugg3864-del/my-website/master/AiArt_1753898582219.jpg",
-      "telephone": "01229333957",
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "المرج الجديدة / الخصوص",
-        "addressLocality": "القاهرة",
-        "addressCountry": "EG"
-      }
+      "@graph": [
+        {
+          "@type": ["LegalService", "Attorney"],
+          "@id": "https://alzahranlaw.com/#organization",
+          "name": "مؤسسة آل زهران للمحاماة والاستشارات القانونية",
+          "alternateName": ["Al-Zahran Law Firm", "آل زهران للمحاماة", "مكتب آل زهران"],
+          "url": "https://alzahranlaw.com/",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://alzahranlaw.com/AiArt_1753898582219.jpg",
+            "width": "600",
+            "height": "600"
+          },
+          "image": "https://alzahranlaw.com/AiArt_1753898582219.jpg",
+          "description": "مؤسسة مصرية رائدة في المحاماة والاستشارات القانونية والترافع أمام محاكم النقض ومجلس الدولة والجنايات والمدني ومحاكم الأسرة وتأسيس الشركات.",
+          "telephone": ["+201229333957", "+201060670084"],
+          "email": "alzahranlaw1@gmail.com",
+          "priceRange": "$$",
+          "currenciesAccepted": "EGP",
+          "paymentAccepted": "Cash, InstaPay, Bank Transfer",
+          "hasMap": "https://maps.google.com/?q=30.1550,31.3340",
+          "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": 30.1550,
+            "longitude": 31.3340
+          },
+          "address": [
+            {
+              "@type": "PostalAddress",
+              "streetAddress": "المرج الجديدة، بجوار هايبر الشرق",
+              "addressLocality": "القاهرة",
+              "addressRegion": "محافظة القاهرة",
+              "postalCode": "11728",
+              "addressCountry": "EG"
+            },
+            {
+              "@type": "PostalAddress",
+              "streetAddress": "مدينة الخصوص، بجوار هايبر كازيون",
+              "addressLocality": "الخصوص",
+              "addressRegion": "محافظة القليوبية",
+              "addressCountry": "EG"
+            }
+          ],
+          "openingHoursSpecification": [
+            {
+              "@type": "OpeningHoursSpecification",
+              "dayOfWeek": ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday"],
+              "opens": "08:00",
+              "closes": "18:00"
+            },
+            {
+              "@type": "OpeningHoursSpecification",
+              "dayOfWeek": "Saturday",
+              "opens": "09:00",
+              "closes": "13:00"
+            }
+          ],
+          "founder": [
+            {
+              "@type": "Person",
+              "name": "خالد آل زهران",
+              "jobTitle": "المؤسس والشريك التنفيذي - محامٍ ومستشار قانوني",
+              "worksFor": { "@id": "https://alzahranlaw.com/#organization" }
+            },
+            {
+              "@type": "Person",
+              "name": "عبدالله زاهران",
+              "jobTitle": "المؤسس والشريك الأول - محامٍ ومستشار قانوني",
+              "worksFor": { "@id": "https://alzahranlaw.com/#organization" }
+            }
+          ],
+          "areaServed": [
+            { "@type": "AdministrativeArea", "name": "محافظة القاهرة" },
+            { "@type": "AdministrativeArea", "name": "محافظة القليوبية" },
+            { "@type": "AdministrativeArea", "name": "محافظة الجيزة" },
+            { "@type": "Country", "name": "جمهورية مصر العربية" }
+          ]
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://alzahranlaw.com/#website",
+          "url": "https://alzahranlaw.com/",
+          "name": "مؤسسة آل زهران للمحاماة",
+          "publisher": { "@id": "https://alzahranlaw.com/#organization" }
+        }
+      ]
     }
     </script>
 </head>

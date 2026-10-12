@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+        http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+
+    <!-- الصفحة الرئيسية -->
+    <url>
+        <loc>https://alzahranlaw.com/</loc>
+        <lastmod>2026-10-12</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>1.0</priority>
+    </url>
+
+    <!-- الفاحص الذكي للعقود بالذكاء الاصطناعي -->
+    <url>
+        <loc>https://alzahranlaw.com/contract-check.html</loc>
+        <lastmod>2026-10-12</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.95</priority>
+    </url>
+
+    <!-- حجز استشارة -->
+    <url>
+        <loc>https://alzahranlaw.com/booking.html</loc>
+        <lastmod>2026-10-12</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.90</priority>
+    </url>
+
+    <!-- المكتبة القانونية -->
+    <url>
+        <loc>https://alzahranlaw.com/law.html</loc>
+        <lastmod>2026-10-12</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.85</priority>
+    </url>
+
+    <!-- المدونة القانونية -->
+    <url>
+        <loc>https://alzahranlaw.com/blog.html</loc>
+        <lastmod>2026-10-12</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.85</priority>
+    </url>
+
+    <!-- الأسئلة الشائعة -->
+    <url>
+        <loc>https://alzahranlaw.com/faq.html</loc>
+        <lastmod>2026-10-12</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.80</priority>
+    </url>
+
+    <!-- اتصل بنا -->
+    <url>
+        <loc>https://alzahranlaw.com/contact.html</loc>
+        <lastmod>2026-10-12</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.80</priority>
+    </url>
+
+    <!-- سياسة الخصوصية -->
+    <url>
+        <loc>https://alzahranlaw.com/privacy.html</loc>
+        <lastmod>2026-10-12</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.50</priority>
+    </url>
+
+    <!-- شروط الاستخدام -->
+    <url>
+        <loc>https://alzahranlaw.com/terms.html</loc>
+        <lastmod>2026-10-12</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.50</priority>
+    </url>
+
+    <!-- إخلاء المسؤولية -->
+    <url>
+        <loc>https://alzahranlaw.com/disclaimer.html</loc>
+        <lastmod>2026-10-12</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.50</priority>
+    </url>
+
+</urlset>

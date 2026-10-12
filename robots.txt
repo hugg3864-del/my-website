@@ -1,0 +1,11 @@
+# ============================================
+# Robots.txt for Al-Zahran Law Firm
+# https://alzahranlaw.com
+# ============================================
+
+User-agent: *
+Allow: /
+Disallow: /api/
+
+# Sitemap location
+Sitemap: https://alzahranlaw.com/sitemap.xml

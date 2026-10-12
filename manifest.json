@@ -9,12 +9,12 @@
   "orientation": "portrait",
   "icons": [
     {
-      "src": "https://raw.githubusercontent.com/hugg3864-del/my-website/master/AiArt_1753898582219.jpg",
+      "src": "./AiArt_1753898582219.jpg",
       "sizes": "192x192",
       "type": "image/jpeg"
     },
     {
-      "src": "https://raw.githubusercontent.com/hugg3864-del/my-website/master/AiArt_1753898582219.jpg",
+      "src": "./AiArt_1753898582219.jpg",
       "sizes": "512x512",
       "type": "image/jpeg"
     }
