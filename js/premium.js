@@ -1,4 +1,4 @@
-﻿/* ============================================
+/* ============================================
    Premium UI/UX — JavaScript Enhancements
    مؤسسة آل زهران — Tier 1 Features
    ============================================ */
@@ -106,7 +106,8 @@
                     <i class="fas fa-bolt"></i> عاجل
                 </div>
                 <div class="news-ticker-content">
-                    <div class="news-ticker-item"><span class="dot"></span> 🌟 جديد: إطلاق "الفاحص الذكي للعقود" بالذكاء الاصطناعي لكشف الثغرات مجاناً قبل التوقيع!</div>`n                    <div class="news-ticker-item"><span class="dot"></span> المؤسسة تقبل التوكيلات في جميع أنواع القضايا أمام كافة المحاكم المصرية</div>
+                    <div class="news-ticker-item"><span class="dot"></span> 🌟 جديد: إطلاق "الفاحص الذكي للعقود" بالذكاء الاصطناعي لكشف الثغرات مجاناً قبل التوقيع!</div>
+                    <div class="news-ticker-item"><span class="dot"></span> المؤسسة تقبل التوكيلات في جميع أنواع القضايا أمام كافة المحاكم المصرية</div>
                     <div class="news-ticker-item"><span class="dot"></span> خدمة الاستشارة الأولية متاحة لجميع الموكلين — احجز موعدك الآن</div>
                     <div class="news-ticker-item"><span class="dot"></span> تنويه: لا تدفع أي مبالغ مالية إلا بعد توقيع عقد أتعاب رسمي مع المؤسسة</div>
                     <div class="news-ticker-item"><span class="dot"></span> نتعامل مع القضايا الجنائية العاجلة على مدار الساعة — اتصل فوراً</div>
