@@ -247,9 +247,14 @@
     function enhanceChatbotHeader() {
         const headerInfo = document.querySelector('.chatbot-header-info');
         if (headerInfo && !document.querySelector('.bot-status-badge')) {
+            const aiBadge = document.createElement('div');
+            aiBadge.className = 'ai-live-badge';
+            aiBadge.innerHTML = '<i class="fas fa-brain"></i> محرك الـ AI القانوني (RAG Model)';
+            headerInfo.insertBefore(aiBadge, headerInfo.firstChild);
+
             const status = document.createElement('div');
             status.className = 'bot-status-badge';
-            status.innerHTML = '<span class="status-dot"></span> متصل للإرشاد القانوني';
+            status.innerHTML = '<span class="status-dot"></span> متصل بذاكرة القوانين وأحكام النقض';
             headerInfo.appendChild(status);
         }
 
@@ -300,15 +305,54 @@
         }
     }
 
-    // Process Message
-    function processUserMessage(text) {
+    // Process Message with RAG & Gemini Cloud Option
+    async function processUserMessage(text) {
         addUserMessage(text);
         showTyping();
 
+        const apiKey = localStorage.getItem('gemini_api_key');
+        
+        // Find best matching legal context from Egyptian law knowledge base
+        const localResult = findAnswer(text);
+
+        if (apiKey && !localResult.action && !diagnosticFlow[text.trim()]) {
+            try {
+                // Generative AI Call using Gemini 1.5 Flash + RAG context
+                const ragPrompt = `أنت المساعد القانوني الذكي الرسمي لمؤسسة آل زهران للمحاماة في مصر.
+أجب عن سؤال الموكل التالي بدقة ووقار باللغة العربية المصرية، واستند إلى نصوص القانون المصري وأحكام محكمة النقض.
+السند القانوني المقترح المسترجع من مكتبة المؤسسة:
+"""
+${localResult.answer}
+"""
+سؤال الموكل:
+"${text}"
+
+اكتب الرد بصيغة محكمة، ووضح رقم المادة القانونية باختصار، ثم أضف توجيهاً بالتواصل مع محامي المؤسسة لحجز استشارة رسمية.`;
+
+                const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${apiKey}`;
+                const res = await fetch(url, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        contents: [{ parts: [{ text: ragPrompt }] }]
+                    })
+                });
+
+                if (res.ok) {
+                    const data = await res.json();
+                    const aiText = data.candidates?.[0]?.content?.parts?.[0]?.text;
+                    hideTyping();
+                    handleBotResponse(aiText || localResult.answer, localResult.options);
+                    return;
+                }
+            } catch (err) {
+                console.warn('Gemini API fallback to local engine:', err);
+            }
+        }
+
         setTimeout(() => {
             hideTyping();
-            const result = findAnswer(text);
-            handleBotResponse(result.answer, result.options, result.action);
+            handleBotResponse(localResult.answer, localResult.options, localResult.action);
         }, 600 + Math.random() * 400);
     }
 
@@ -418,7 +462,7 @@
             .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
             .replace(/•/g, '<span style="color:var(--gold-500); font-weight:bold;">•</span>');
 
-        div.innerHTML = formatted;
+        div.innerHTML = `<div class="ai-msg-tag"><i class="fas fa-robot"></i> استجابة المساعد الذكي • AI RAG</div>` + formatted;
 
         if (showDisclaimer) {
             div.innerHTML += `<div class="disclaimer">${disclaimer}</div>`;
@@ -567,7 +611,42 @@
     // === Embedded Styling for Upgraded Chatbot ===
     const style = document.createElement('style');
     style.textContent = `
-        .chatbot-header {
+
+        .ai-live-badge {
+            font-size: 0.72rem;
+            color: var(--gold-400);
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            margin-bottom: 2px;
+        }
+        .ai-msg-tag {
+            font-size: 0.68rem;
+            color: var(--gold-500);
+            font-weight: 700;
+            margin-bottom: 6px;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            border-bottom: 1px dashed rgba(200,169,81,0.25);
+            padding-bottom: 4px;
+        }
+        .chatbot-trigger::after {
+            content: "AI";
+            position: absolute;
+            top: -4px;
+            right: -4px;
+            background: linear-gradient(135deg, var(--gold-500), #eab308);
+            color: var(--primary-950);
+            font-size: 0.65rem;
+            font-weight: 900;
+            padding: 2px 6px;
+            border-radius: 20px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+            border: 1px solid #fff;
+        }
+`r`n        .chatbot-header {
             display: flex;
             align-items: center;
             justify-content: space-between;
