@@ -1,4 +1,4 @@
-﻿/* ============================================
+/* ============================================
    Premium UI/UX Enhancements
    اللمسات الفاخرة — Tier 1 Law Firm
    ============================================ */
@@ -36,7 +36,7 @@
     border: 1px solid rgba(255, 255, 255, 0.3) !important;
 }
 body.dark-mode .glass-card {
-    background: rgba(15, 36, 66, 0.7) !important;
+    background: rgba(21, 21, 21, 0.85) !important;
     border: 1px solid rgba(200, 169, 81, 0.15) !important;
 }
 .service-card { transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
@@ -48,7 +48,7 @@ body.dark-mode .glass-card {
 
 /* === 4. News Ticker === */
 .news-ticker {
-    background: linear-gradient(90deg, var(--primary-950), var(--primary-800));
+    background: #0B0B0B;
     padding: 10px 0;
     overflow: hidden;
     position: relative;
@@ -146,9 +146,9 @@ body.dark-mode .reading-time { color: var(--gold-400); }
 .has-mega-menu { position: relative; }
 .mega-menu {
     position: absolute; top: 100%; right: 50%; transform: translateX(50%);
-    background: rgba(11, 25, 48, 0.97);
+    background: rgba(21, 21, 21, 0.98);
     backdrop-filter: blur(20px);
-    border: 1px solid rgba(200, 169, 81, 0.15);
+    border: 1px solid rgba(198, 161, 91, 0.25);
     border-radius: 0 0 var(--radius-lg) var(--radius-lg);
     padding: 28px;
     min-width: 620px;
@@ -185,7 +185,7 @@ body.dark-mode .reading-time { color: var(--gold-400); }
 /* === 10. Document Verification === */
 .verify-section {
     background: rgba(200, 169, 81, 0.05);
-    border: 1px solid rgba(200, 169, 81, 0.15);
+    border: 1px solid rgba(198, 161, 91, 0.25);
     border-radius: var(--radius-md);
     padding: 20px 24px; margin-top: 28px;
     display: flex; align-items: center; gap: 16px; flex-wrap: wrap;
@@ -198,7 +198,7 @@ body.dark-mode .reading-time { color: var(--gold-400); }
 }
 .verify-input-group input {
     padding: 8px 14px; border-radius: 6px;
-    border: 1px solid rgba(200, 169, 81, 0.3);
+    border: 1px solid rgba(198, 161, 91, 0.35);
     background: rgba(255,255,255,0.05); color: #fff;
     font-size: 0.85rem; width: 180px; font-family: inherit;
 }
@@ -262,7 +262,7 @@ body.dark-mode .reading-time { color: var(--gold-400); }
 
 /* === 1. Exit-Intent Popup === */
 .exit-popup-overlay {
-    position: fixed; inset: 0; background: rgba(6, 14, 26, 0.85);
+    position: fixed; inset: 0; background: rgba(11, 11, 11, 0.88);
     backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
     display: flex; align-items: center; justify-content: center;
     z-index: 1000000;
@@ -297,8 +297,8 @@ body.dark-mode .reading-time { color: var(--gold-400); }
     display: flex; flex-direction: column; gap: 10px; pointer-events: none;
 }
 .social-proof {
-    background: rgba(11, 25, 48, 0.95); backdrop-filter: blur(10px);
-    border: 1px solid rgba(200, 169, 81, 0.2);
+    background: rgba(21, 21, 21, 0.96); backdrop-filter: blur(10px);
+    border: 1px solid rgba(198, 161, 91, 0.25);
     padding: 12px 20px; border-radius: 50px;
     display: flex; align-items: center; gap: 12px;
     box-shadow: 0 10px 25px rgba(0,0,0,0.2);
@@ -309,7 +309,7 @@ body.dark-mode .reading-time { color: var(--gold-400); }
     background: #25D366; box-shadow: 0 0 8px #25D366;
     animation: spPulse 1.5s infinite;
 }
-.sp-text { color: var(--text-primary); font-size: 0.85rem; font-weight: 600; }
+.sp-text { color: #F7F5F0; font-size: 0.85rem; font-weight: 600; }
 @keyframes spSlideUp { from { transform: translateY(20px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
 @keyframes spFadeOut { from { transform: translateY(0); opacity: 1; } to { transform: translateY(-20px); opacity: 0; } }
 @keyframes spPulse { 0% { box-shadow: 0 0 0 0 rgba(37,211,102,0.4); } 70% { box-shadow: 0 0 0 6px rgba(37,211,102,0); } 100% { box-shadow: 0 0 0 0 rgba(37,211,102,0); } }
