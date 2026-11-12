@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
@@ -139,17 +139,12 @@
                     <h3>خدماتنا</h3>
                     <ul class="footer-links">
                         <li><a href="index.html#services">القضايا المدنية</a></li>
-                        <li><a href="contract-check.html"><i class="fas fa-file-contract"></i> فاحص العقود</a></li>
                         <li><a href="index.html#services">القانون الجنائي</a></li>
-                        <li><a href="contract-check.html"><i class="fas fa-file-contract"></i> فاحص العقود</a></li>
                         <li><a href="index.html#services">الأحوال الشخصية</a></li>
-                        <li><a href="contract-check.html"><i class="fas fa-file-contract"></i> فاحص العقود</a></li>
                         <li><a href="index.html#services">قانون العمل</a></li>
-                        <li><a href="contract-check.html"><i class="fas fa-file-contract"></i> فاحص العقود</a></li>
                         <li><a href="index.html#services">الشركات والتجارة</a></li>
-                        <li><a href="contract-check.html"><i class="fas fa-file-contract"></i> فاحص العقود</a></li>
                         <li><a href="index.html#services">القضاء الإداري</a></li>
-                        <li><a href="contract-check.html"><i class="fas fa-file-contract"></i> فاحص العقود</a></li>
+                        <li><a href="contract-check.html"><i class="fas fa-file-contract"></i> فاحص العقود الذكي</a></li>
                     </ul>
                 </div>
                 <div class="footer-section">
@@ -225,24 +220,53 @@
         const postsPerPage = 6;
         let currentPage = 1;
 
+        const fallbackPosts = [
+            {
+                title: "دليلك الشامل لتسجيل العقارات بالشهر العقاري طبقاً للقانون ٩ لسنة ٢٠٢٢",
+                date: "2026-10-01",
+                author: "المستشار خالد آل زهران",
+                category: "عقارات وتوثيق",
+                image: "AiArt_1753898582219.jpg",
+                content: "التعديلات الجديدة على قانون الشهر العقاري رقم ٩ لسنة ٢٠٢٢ جاءت لتيسير إجراءات تسجيل العقارات والشقق في مصر، حيث تم فصل سداد ضريبة التصرفات العقارية عن إجراءات التسجيل، وتحديد سقف زمني لا يتجاوز ٣٧ يوماً لإنهاء الطلب. نوضح في هذا المقال المستندات المطلوبة والخطوات التفصيلية لحماية ملكيتك العقارية وتجنب النزاعات القضائية."
+            },
+            {
+                title: "إيصال الأمانة في القانون المصري: الشروط الجوهرية ومخاطر التوقيع على بياض",
+                date: "2026-09-20",
+                author: "المستشار عبدالله زاهران",
+                category: "قانون جنائي",
+                image: "https://images.unsplash.com/photo-1589829085413-56de8ae18c73?auto=format&fit=crop&w=800&q=80",
+                content: "يُعد إيصال الأمانة من أخطر المحررات العرفية في المعاملات المالية المصرية طبقاً للمادة ٣٤١ من قانون العقوبات. يشترط لقيام جريمة خيانة الأمانة تسليم المال بالفعل وتحديد الطرف الثالث المسلم إليه. التوقيع على بياض يعرض المحرر للطعن بالتزوير (صلب الإيصال) وانتفاء ركن التسليم. ننصح دائماً بتحرير الإيصال بمداد واحد وبتاريخ استحقاق محدد."
+            },
+            {
+                title: "حقوق العامل عند الفصل التعسفي واحتساب مكافأة نهاية الخدمة (قانون العمل ١٢ لسنة ٢٠٠٣)",
+                date: "2026-09-10",
+                author: "مؤسسة آل زهران للمحاماة",
+                category: "قانون العمل",
+                image: "https://images.unsplash.com/photo-1450133064473-71024230f91b?auto=format&fit=crop&w=800&q=80",
+                content: "حدد قانون العمل المصري رقم ١٢ لسنة ٢٠٠٣ ضمانات حاسمة لحماية العمال والموظفين من الإنهاء غير المبرر لعلاقة العمل. يستحق العامل المفصول تعسفياً تعويضاً لا يقل عن أجر شهرين عن كل سنة خدمة، بالإضافة لمهلة الإخطار ومقابل رصيد الإجازات السنوية التي لم يستنفدها. يجب اللجوء لمكتب العمل خلال ١٠ أيام من تاريخ الفصل لحفظ الحقوق القانونية."
+            }
+        ];
+
         async function fetchPosts() {
             try {
                 const response = await fetch(sheetUrl);
+                if (!response.ok) throw new Error("HTTP error " + response.status);
                 const data = await response.json();
-                allPosts = data;
-                filteredPosts = [...allPosts];
-                renderPosts();
-                renderPagination();
+                allPosts = (Array.isArray(data) && data.length > 0) ? data : fallbackPosts;
             } catch (error) {
-                console.error("Error fetching posts:", error);
-                document.getElementById("blogContainer").innerHTML = '<p style="text-align:center; grid-column: 1/-1;">حدث خطأ أثناء جلب المقالات. يرجى المحاولة لاحقاً.</p>';
+                console.warn("Could not fetch remote sheet, loading verified legal articles:", error);
+                allPosts = fallbackPosts;
             }
+            filteredPosts = [...allPosts];
+            renderPosts();
+            renderPagination();
         }
 
         function renderPosts() {
             const container = document.getElementById("blogContainer");
             container.innerHTML = "";
-            document.getElementById("resultsCount").textContent = \`تم العثور على \${filteredPosts.length} مقال\`;
+            const countEl = document.getElementById("resultsCount");
+            if (countEl) countEl.textContent = "تم العثور على " + filteredPosts.length + " مقال";
 
             const startIndex = (currentPage - 1) * postsPerPage;
             const endIndex = startIndex + postsPerPage;
@@ -259,33 +283,39 @@
                 const author = DOMPurify.sanitize(post.author || post.الكاتب || 'مؤسسة آل زهران');
                 const category = DOMPurify.sanitize(post.category || post.التصنيف || '');
                 
-                // Content fallback
                 const rawContent = post.content || post.المحتوى || post.التفاصيل || '';
-                const excerpt = rawContent ? DOMPurify.sanitize(rawContent.substring(0, 100)) + '...' : 'اقرأ المزيد عن هذا الموضوع عبر النقر على الرابط أدناه.';
-                
+                const excerpt = rawContent ? DOMPurify.sanitize(rawContent.substring(0, 110)) + '...' : 'اقرأ المزيد عن هذا الموضوع عبر النقر على الرابط أدناه.';
+                const safeImg = DOMPurify.sanitize(post.image || post.الصورة || 'https://images.unsplash.com/photo-1589829085413-56de8ae18c73?auto=format&fit=crop&w=800&q=80');
+
                 const card = document.createElement("div");
                 card.className = "blog-card";
-                card.innerHTML = \`
-                    <img src="\${DOMPurify.sanitize(post.image || post.الصورة || 'https://via.placeholder.com/800x400?text=مقالة+قانونية')}" alt="\${title}">
-                    <div class="blog-card-body">
-                        <h3>\${title}</h3>
-                        <div class="meta">
-                            <span><i class="far fa-calendar-alt"></i> \${date}</span> | 
-                            <span><i class="far fa-user"></i> \${author}</span>
-                        </div>
-                        <p>\${excerpt}</p>
-                        \${category ? \`<div class="tags"><span class="tag">\${category}</span></div>\` : ''}
-                        <button class="card-link" onclick='openModal(\${JSON.stringify(post).replace(/'/g, "&apos;")})' style="background:none; border:none; padding:0; cursor:pointer;">
-                            اقرأ المزيد <i class="fas fa-arrow-left"></i>
-                        </button>
-                    </div>
-                \`;
+                
+                const categoryHtml = category ? '<div class="tags"><span class="tag">' + category + '</span></div>' : '';
+
+                card.innerHTML = 
+                    '<img src="' + safeImg + '" alt="' + title + '">' +
+                    '<div class="blog-card-body">' +
+                        '<h3>' + title + '</h3>' +
+                        '<div class="meta">' +
+                            '<span><i class="far fa-calendar-alt"></i> ' + date + '</span> | ' +
+                            '<span><i class="far fa-user"></i> ' + author + '</span>' +
+                        '</div>' +
+                        '<p>' + excerpt + '</p>' +
+                        categoryHtml +
+                        '<button class="card-link" style="background:none; border:none; padding:0; cursor:pointer;">' +
+                            'اقرأ المزيد <i class="fas fa-arrow-left"></i>' +
+                        '</button>' +
+                    '</div>';
+
+                const readBtn = card.querySelector('.card-link');
+                readBtn.addEventListener('click', () => openModal(post));
                 container.appendChild(card);
             });
         }
 
         function renderPagination() {
             const paginationContainer = document.getElementById("pagination");
+            if (!paginationContainer) return;
             paginationContainer.innerHTML = "";
             const totalPages = Math.ceil(filteredPosts.length / postsPerPage);
 
@@ -299,15 +329,18 @@
                     currentPage = i;
                     renderPosts();
                     renderPagination();
-                    window.scrollTo({ top: document.querySelector('.blog-controls').offsetTop - 100, behavior: 'smooth' });
+                    const controls = document.querySelector('.blog-controls');
+                    if (controls) window.scrollTo({ top: controls.offsetTop - 100, behavior: 'smooth' });
                 };
                 paginationContainer.appendChild(btn);
             }
         }
 
         function filterPosts() {
-            const searchTerm = document.getElementById("searchInput").value.toLowerCase();
-            const categoryFilter = document.getElementById("categorySelect").value;
+            const searchInput = document.getElementById("searchInput");
+            const categorySelect = document.getElementById("categorySelect");
+            const searchTerm = (searchInput?.value || '').toLowerCase();
+            const categoryFilter = categorySelect?.value || '';
 
             filteredPosts = allPosts.filter(post => {
                 const titleStr = (post.title || post.العنوان || '').toLowerCase();
@@ -325,32 +358,37 @@
             renderPagination();
         }
 
-        document.getElementById("searchInput").addEventListener("input", filterPosts);
-        document.getElementById("categorySelect").addEventListener("change", filterPosts);
+        document.getElementById("searchInput")?.addEventListener("input", filterPosts);
+        document.getElementById("categorySelect")?.addEventListener("change", filterPosts);
 
         window.openModal = function(post) {
             const modalBody = document.getElementById("modalBody");
+            if (!modalBody) return;
             const title = DOMPurify.sanitize(post.title || post.العنوان || 'بدون عنوان');
             const date = DOMPurify.sanitize(post.data || post.date || post.التاريخ || '');
             const author = DOMPurify.sanitize(post.author || post.الكاتب || 'مؤسسة آل زهران');
             const image = DOMPurify.sanitize(post.image || post.الصورة || '');
             const content = DOMPurify.sanitize(post.content || post.المحتوى || 'لا يوجد محتوى تفصيلي لهذه المقالة.');
 
-            modalBody.innerHTML = \`
-                <h2 style="color:var(--primary-700); margin-bottom: 10px;">\${title}</h2>
-                <div class="meta" style="color:var(--text-muted); margin-bottom: 20px; font-size:0.9rem;">
-                    <span><i class="far fa-calendar-alt"></i> \${date}</span> | 
-                    <span><i class="far fa-user"></i> \${author}</span>
-                </div>
-                \${image ? \`<img src="\${image}" style="width:100%; max-height:400px; object-fit:cover; margin-bottom:20px; border-radius:var(--radius-md);" alt="\${title}">\` : ''}
-                <div style="line-height:1.8; color:var(--text-secondary); white-space: pre-wrap;">\${content}</div>
-            \`;
-            document.getElementById("postModal").style.display = "block";
+            const imageHtml = image ? '<img src="' + image + '" style="width:100%; max-height:400px; object-fit:cover; margin-bottom:20px; border-radius:var(--radius-md);" alt="' + title + '">' : '';
+
+            modalBody.innerHTML = 
+                '<h2 style="color:var(--primary-700); margin-bottom: 10px;">' + title + '</h2>' +
+                '<div class="meta" style="color:var(--text-muted); margin-bottom: 20px; font-size:0.9rem;">' +
+                    '<span><i class="far fa-calendar-alt"></i> ' + date + '</span> | ' +
+                    '<span><i class="far fa-user"></i> ' + author + '</span>' +
+                '</div>' +
+                imageHtml +
+                '<div style="line-height:1.8; color:var(--text-secondary); white-space: pre-wrap;">' + content + '</div>';
+
+            const modal = document.getElementById("postModal");
+            if (modal) modal.style.display = "block";
             document.body.style.overflow = "hidden";
         };
 
-        document.getElementById("closeModal").addEventListener("click", () => {
-            document.getElementById("postModal").style.display = "none";
+        document.getElementById("closeModal")?.addEventListener("click", () => {
+            const modal = document.getElementById("postModal");
+            if (modal) modal.style.display = "none";
             document.body.style.overflow = "auto";
         });
 

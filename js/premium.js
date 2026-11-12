@@ -20,6 +20,7 @@
             // Only for internal .html links (not anchors, not external)
             if (href && href.endsWith('.html') && !href.startsWith('http') && !href.startsWith('mailto') && !href.includes('#')) {
                 link.addEventListener('click', (e) => {
+                    if (e.ctrlKey || e.metaKey || e.shiftKey || e.button === 1) return;
                     e.preventDefault();
                     overlay.classList.add('entering');
                     setTimeout(() => {
@@ -191,7 +192,7 @@
                     <p>أدخل الكود المرجعي للوثيقة الصادرة من المؤسسة</p>
                 </div>
                 <div class="verify-input-group">
-                    <input type="text" placeholder="أدخل الكود المرجعي..." id="verifyCode">
+                    <input type="text" placeholder="أدخل الكود المرجعي..." id="verifyCode" onkeydown="if(event.key==='Enter') verifyDoc()">
                     <button onclick="verifyDoc()">تحقق</button>
                 </div>
             `;
@@ -204,13 +205,14 @@
     window.verifyDoc = function() {
         const code = document.getElementById('verifyCode')?.value.trim();
         if (!code) {
-            showToast('يرجى إدخال الكود المرجعي أولاً', 'exclamation-triangle');
+            const toast = typeof window.showToast === 'function' ? window.showToast : (m, i) => alert(m);
+            toast('يرجى إدخال الكود المرجعي أولاً', 'exclamation-triangle');
             return;
         }
         // Redirect to WhatsApp for verification
         const msg = encodeURIComponent('مرحباً، أريد التحقق من صحة وثيقة صادرة من المؤسسة.\nالكود المرجعي: ' + code);
         window.open('https://wa.me/201229333957?text=' + msg, '_blank');
-        showToast('يتم تحويلك للتحقق عبر سكرتارية المؤسسة...');
+        if (typeof window.showToast === 'function') window.showToast('يتم تحويلك للتحقق عبر سكرتارية المؤسسة...');
     };
 
     // Toast (in case main.js hasn't defined it yet)

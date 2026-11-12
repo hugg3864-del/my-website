@@ -274,10 +274,20 @@ document.addEventListener("DOMContentLoaded", () => {
     preloader.id = "preloader";
     preloader.innerHTML = `<div class="loader-logo"><i class="fas fa-balance-scale"></i></div><div class="loader-bar"></div>`;
     document.body.appendChild(preloader);
-    window.addEventListener("load", () => {
-        preloader.classList.add("hide");
-        setTimeout(() => preloader.remove(), 600);
-    });
+    
+    function hidePreloader() {
+        if (!preloader.classList.contains("hide")) {
+            preloader.classList.add("hide");
+            setTimeout(() => preloader.remove(), 600);
+        }
+    }
+    if (document.readyState === "complete") {
+        hidePreloader();
+    } else {
+        window.addEventListener("load", hidePreloader);
+        // Safety timeout so preloader NEVER blocks the user if an asset hangs
+        setTimeout(hidePreloader, 2500);
+    }
 
     // 2. Scroll Progress Bar
     const scrollBar = document.createElement("div");
@@ -288,7 +298,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
         const scrolled = (winScroll / height) * 100;
         scrollBar.style.width = scrolled + "%";
-    });
+    }, { passive: true });
 
     // 3. AJAX Form Submission & Toast Notifications
     function showToast(message, icon = "check-circle") {
@@ -304,6 +314,7 @@ document.addEventListener("DOMContentLoaded", () => {
         container.appendChild(toast);
         setTimeout(() => toast.remove(), 4500);
     }
+    window.showToast = showToast;
 
     const forms = document.querySelectorAll("#contactForm, #bookingForm");
     forms.forEach(form => {

@@ -74,8 +74,9 @@ ${contractText}
         }
 
         const data = await response.json();
-        const rawJson = data.candidates?.[0]?.content?.parts?.[0]?.text;
-        const parsed = JSON.parse(rawJson);
+        const rawJson = data.candidates?.[0]?.content?.parts?.[0]?.text || '{}';
+        const cleaned = rawJson.replace(/^```json\s*/i, '').replace(/^```\s*/i, '').replace(/\s*```$/, '').trim();
+        const parsed = JSON.parse(cleaned);
 
         return res.status(200).json(parsed);
 

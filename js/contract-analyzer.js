@@ -418,8 +418,9 @@ ${text}
             }
 
             const data = await response.json();
-            const rawJson = data.candidates?.[0]?.content?.parts?.[0]?.text;
-            return JSON.parse(rawJson);
+            const rawJson = data.candidates?.[0]?.content?.parts?.[0]?.text || '{}';
+            const cleaned = rawJson.replace(/^```json\s*/i, '').replace(/^```\s*/i, '').replace(/\s*```$/, '').trim();
+            return JSON.parse(cleaned);
         }
 
         // ============================================
